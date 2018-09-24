@@ -117,6 +117,10 @@ public class ListeDeTableau<T> {
         element[taille++] = t;
     }
 
+    /**
+     * rtire une valeur à la liste
+     * @param index le lieu de la valeur
+     */
     public void retirer(int index) {
         int numMovement = taille - index - 1;
         if (numMovement > 0)
