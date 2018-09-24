@@ -7,15 +7,17 @@ import javax.sound.sampled.SourceDataLine;
 
 public class Beep {
 
-    public static float SAMPLE_RATE = 8500f;
+    private static float SAMPLE_RATE = 8500f;
 
-    public static void tone(int hz, int msecs)
+    private static int speed = 50;
+
+    private static void tone(int hz, int msecs)
             throws LineUnavailableException
     {
         tone(hz, msecs, 1.0);
     }
 
-    public static void tone(int hz, int msecs, double vol)
+    private static void tone(int hz, int msecs, double vol)
             throws LineUnavailableException
     {
         byte[] buf = new byte[1];
@@ -41,14 +43,24 @@ public class Beep {
 
 
     public static  void beepLong() throws Exception{
-        tone(1000, 1000);
+        tone(1000, speed*3);
+        pauseEntreBeep();
     }
 
     public static  void beepCourt()throws Exception{
-        tone(1000, 100);
+        tone(1000, speed);
+        pauseEntreBeep();
     }
 
-    public static  void beepSourd()throws Exception{
-        tone(0, 100);
+    private static  void pauseEntreBeep()throws Exception{
+        tone(0, speed);
+    }
+
+    public static  void pauseEntreLettre()throws Exception{
+        tone(0, speed*2);
+    }
+
+    public static  void pauseEntreMot()throws Exception{
+        tone(0, speed*6);
     }
 }

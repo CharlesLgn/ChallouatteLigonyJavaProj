@@ -1,8 +1,9 @@
 package metier;
 
 import com.sun.istack.internal.NotNull;
+import interfaces.List;
 
-public class ListeDeTableau<T> {
+public class ListeDeTableau<T> implements List<T> {
 
     private  static final int CAPACITE_PAR_DEFAUT = 10;
 
@@ -29,32 +30,23 @@ public class ListeDeTableau<T> {
         this.taille = 0;
     }
 
-    /**
-     * @return la taille
-     */
+
+    @Override
     public int taille(){
         return this.taille;
     }
 
-    /**
-     * @return vrai si la liste est vide
-     */
+    @Override
     public boolean estVide() {
         return taille == 0;
     }
 
-    /**
-     * @param obj l'objet T cherché
-     * @return vrai si la liste contient l'objet
-     */
+    @Override
     public boolean contient(Object obj){
         return indexDe(obj) >= 0;
     }
 
-    /**
-     * @param obj l'objet T cherché
-     * @return -1 si l'objet n'existe pas et sinon sa position dans la liste
-     */
+    @Override
     public int indexDe(Object obj) {
         if (obj == null) {
             for (int i=0 ; i < taille; i++){
@@ -72,10 +64,7 @@ public class ListeDeTableau<T> {
         return -1;
     }
 
-    /**
-     * @param obj l'objet T cherché
-     * @return -1 si l'objet n'existe pas et sinon sa dernière position dans la liste
-     */
+    @Override
     public int lastIndexDe(Object obj) {
         if (obj == null) {
             for (int i = taille-1; i >= 0; i--)
@@ -89,38 +78,24 @@ public class ListeDeTableau<T> {
         return -1;
     }
 
-    /**
-     * @param index l'index de l'objet
-     * @return l'objet à l'index demandé
-     * @throws IndexOutOfBoundsException index > TAILLE_MAX
-     */
+    @SuppressWarnings("unchecked")
+    @Override
     public T get(int index) throws IndexOutOfBoundsException, ClassCastException{
         return (T) element[index];
     }
 
-    /**
-     * change la valeur d'un element
-     * @param index le lieu de l'élément dans la liste
-     * @param nouveauElement la nouvelle valeur
-     * @throws IndexOutOfBoundsException index > TAILLE_MAX
-     */
+    @Override
     public void set(int index, T nouveauElement) throws IndexOutOfBoundsException{
         element[index] = nouveauElement;
     }
 
-    /**
-     * ajoute une valeur à la liste
-     * @param t la valeur à ajouter
-     */
+    @Override
     public void add(T t) {
         assurerCapaciteInterne(taille + 1);  // Increments modCount!!
         element[taille++] = t;
     }
 
-    /**
-     * rtire une valeur à la liste
-     * @param index le lieu de la valeur
-     */
+    @Override
     public void retirer(int index) {
         int numMovement = taille - index - 1;
         if (numMovement > 0)
@@ -130,6 +105,7 @@ public class ListeDeTableau<T> {
 
     }
 
+    @Override
     public void vider(){
         for (int i = 0; i < taille; i++)
             element[i] = null;
@@ -137,23 +113,37 @@ public class ListeDeTableau<T> {
         taille = 0;
     }
 
-    private static int calculerCapacite(Object[] donneElement, int capaciteMin) {
-        if (donneElement == ELEMENT_VIDE) {
+    /**
+     * @param element la liste d'element
+     * @param capaciteMin la capacité à comparer
+     * @return capacité max de la liste
+     */
+    private static int calculerCapacite(Object[] element, int capaciteMin) {
+        if (element == ELEMENT_VIDE) {
             return Math.max(CAPACITE_PAR_DEFAUT, capaciteMin);
         }
         return capaciteMin;
     }
 
+    /**
+     * verifie si la liste a sufisement de place
+     */
     private void assurerCapaciteInterne(int capaciteMin) {
         assurerCapaciteReel(calculerCapacite(element, capaciteMin));
     }
 
+    /**
+     * change la taille en fonction de la capacité
+     */
     private void assurerCapaciteReel(int capaciteMin) {
         if (capaciteMin - element.length > 0){
             grandir();
         }
     }
 
+    /**
+     * ajoute de l'espace à la liste
+     */
     private void grandir() {
         int oldCapacite = element.length;
         int newCapacite = oldCapacite + (oldCapacite >> 1);
@@ -161,6 +151,9 @@ public class ListeDeTableau<T> {
         element = copyDe(element, newCapacite);
     }
 
+    /**
+     * copi la liste dans une list plus grande.
+     */
     @NotNull
     private static <T> T[] copyDe(T[] original, int newLength) {
         @SuppressWarnings("unchecked")
