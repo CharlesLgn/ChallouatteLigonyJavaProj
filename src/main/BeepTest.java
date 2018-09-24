@@ -9,5 +9,10 @@ public class BeepTest {
         Beep.beepCourt();
         Beep.beepCourt();
         Beep.beepLong();
+        Beep.beepSourd();
+        Beep.beepCourt();
+        Beep.beepCourt();
+        Beep.beepLong();
+
     }
 }

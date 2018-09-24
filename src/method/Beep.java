@@ -47,4 +47,8 @@ public class Beep {
     public static  void beepCourt()throws Exception{
         tone(1000, 100);
     }
+
+    public static  void beepSourd()throws Exception{
+        tone(0, 100);
+    }
 }
