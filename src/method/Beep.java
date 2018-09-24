@@ -7,9 +7,9 @@ import javax.sound.sampled.SourceDataLine;
 
 public class Beep {
 
-    private static float SAMPLE_RATE = 8500f;
+    private static float SAMPLE_RATE = 8000f;
 
-    private static int speed = 50;
+    private static int speed = 30;
 
     private static void tone(int hz, int msecs)
             throws LineUnavailableException
