@@ -1,0 +1,13 @@
+.settings
+.project
+/target
+build
+classes
+.classpath
+.externalToolBuilders
+properties/framework2.properties
+
+# Intellij
+.idea/
+formation.iml
+overlays/
