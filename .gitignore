@@ -4,8 +4,6 @@
 build
 classes
 .classpath
-.externalToolBuilders
-properties/framework2.properties
 
 # Intellij
 .idea/
