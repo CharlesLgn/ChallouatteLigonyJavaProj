@@ -7,6 +7,8 @@ import javafx.stage.DirectoryChooser;
 import javafx.stage.FileChooser;
 import javafx.stage.StageStyle;
 import javafx.stage.Window;
+import method.JouerSon;
+import method.TraductionMorse;
 
 import java.io.*;
 
@@ -28,6 +30,29 @@ public class Controller extends Window {
     private Button bt_nouvelletrad_morse;
     @FXML
     private TextField textbox_cheminexport_morse;
+
+
+    /**
+     * Joue le son morse
+     * @param event
+     * @throws Exception
+     */
+     public void btjouersonmorse(MouseEvent event) throws Exception{
+         System.out.println("plop");
+         String str = this.richtextbox_traduction_morse.getText();
+         Thread threadson = new Thread(){
+             public void run(){
+                 try {
+                     JouerSon.jouerson(str);
+                 } catch (Exception e) {
+                     e.printStackTrace();
+                 }
+             }
+         };
+
+         threadson.run();
+
+     }
 
     /**
      * Sélection du fichier à traduire
@@ -62,8 +87,7 @@ public class Controller extends Window {
                 BufferedReader buff=new BufferedReader(lecture);
                 String ligne;
                 while ((ligne=buff.readLine())!=null){
-                    this.richtextbox_traduction_morse.appendText(ligne);
-                }
+                    this.richtextbox_traduction_morse.appendText(TraductionMorse.Tradphrase(ligne));                }
                 buff.close();
             }catch(Exception ex){
                 System.out.println(ex);
