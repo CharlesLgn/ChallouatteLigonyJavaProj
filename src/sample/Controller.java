@@ -2,11 +2,9 @@ package sample;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
-import javafx.stage.DirectoryChooser;
-import javafx.stage.FileChooser;
-import javafx.stage.StageStyle;
-import javafx.stage.Window;
+import javafx.stage.*;
 import method.JouerSon;
 import method.TraductionMorse;
 
@@ -28,6 +26,8 @@ public class Controller extends Window {
     private Button bt_exporter_morse;
     @FXML
     private Button bt_nouvelletrad_morse;
+    @FXML
+    private Button bt_traduire_morse;
     @FXML
     private TextField textbox_cheminexport_morse;
 
@@ -69,9 +69,11 @@ public class Controller extends Window {
             if (file != null) {
                 this.textbox_chemin_morse.setText(file.getAbsolutePath());
             }
+            this.bt_chemin_morse.setDisable(true);
         }catch (Exception ex){
             System.out.println(ex);
         }
+
     }
 
     /**
@@ -89,6 +91,7 @@ public class Controller extends Window {
                 while ((ligne=buff.readLine())!=null){
                     this.richtextbox_traduction_morse.appendText(TraductionMorse.Tradphrase(ligne));                }
                 buff.close();
+                this.bt_traduire_morse.setDisable(true);
             }catch(Exception ex){
                 System.out.println(ex);
             }
@@ -99,6 +102,7 @@ public class Controller extends Window {
             alert.initStyle(StageStyle.DECORATED);
             alert.setHeaderText("Chemin du fichier");
             alert.setContentText("Sélectionnez un fichier texte valide");
+            ((Stage)alert.getDialogPane().getScene().getWindow()).getIcons().add(new Image("/Images/icon.png"));
             alert.showAndWait();
         }
     }
@@ -121,6 +125,7 @@ public class Controller extends Window {
                     alert.initStyle(StageStyle.DECORATED);
                     alert.setHeaderText("Export");
                     alert.setContentText("La traduction a été exportée");
+                    ((Stage)alert.getDialogPane().getScene().getWindow()).getIcons().add(new Image("/Images/icon.png"));
                     alert.showAndWait();
                     //endregion
                 } else {
@@ -130,6 +135,7 @@ public class Controller extends Window {
                     alert.initStyle(StageStyle.DECORATED);
                     alert.setHeaderText("Chemin du répertoire");
                     alert.setContentText("Sélectionnez un répertoire valide");
+                    ((Stage)alert.getDialogPane().getScene().getWindow()).getIcons().add(new Image("/Images/icon.png"));
                     alert.showAndWait();
                     //endregion
                 }
@@ -140,6 +146,7 @@ public class Controller extends Window {
                 alert.initStyle(StageStyle.DECORATED);
                 alert.setHeaderText("Nom du fichier");
                 alert.setContentText("Entrez un nom de fichier valide");
+                ((Stage)alert.getDialogPane().getScene().getWindow()).getIcons().add(new Image("/Images/icon.png"));
                 alert.showAndWait();
                 //endregion
             }
@@ -156,5 +163,7 @@ public class Controller extends Window {
         this.textbox_chemin_morse.clear();
         this.richtextbox_traduction_morse.clear();
         this.textbox_cheminexport_morse.clear();
+        this.bt_traduire_morse.setDisable(false);
+        this.bt_chemin_morse.setDisable(false);
     }
 }

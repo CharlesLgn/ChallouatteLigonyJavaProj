@@ -40,6 +40,11 @@ public class ArbreBinaire<T> implements List<T> {
     }
 
     @Override
+    public void add(T t, int position) {
+
+    }
+
+    @Override
     public void set(int index, Object nouveauElement) throws IndexOutOfBoundsException {
 
     }
