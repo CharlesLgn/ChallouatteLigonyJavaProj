@@ -1,5 +1,9 @@
 package sample;
 
+import javafx.beans.value.ObservableValue;
+import javafx.concurrent.Service;
+import javafx.concurrent.Task;
+import javafx.concurrent.Worker;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
@@ -31,27 +35,41 @@ public class Controller extends Window {
     @FXML
     private TextField textbox_cheminexport_morse;
 
+    private String str;
+
+    @FXML
+    public void initialize() {
+
+    }
 
     /**
      * Joue le son morse
      * @param event
      * @throws Exception
      */
-     public void btjouersonmorse(MouseEvent event) throws Exception{
+     public void btjouersonmorse(MouseEvent event){
          System.out.println("plop");
-         String str = this.richtextbox_traduction_morse.getText();
-         Thread threadson = new Thread(){
-             public void run(){
-                 try {
-                     JouerSon.jouerson(str);
-                 } catch (Exception e) {
-                     e.printStackTrace();
-                 }
+
+         str = this.richtextbox_traduction_morse.getText();
+
+         final Service<Void> jouerSonService = new Service<Void>() {
+             @Override
+             protected Task<Void> createTask() {
+                 return new Task<Void>() {
+                     @Override
+                     protected Void call() throws Exception {
+                         try {
+                             JouerSon.jouerson(str);
+                         } catch (Exception e) {
+                             e.printStackTrace();
+                         }
+                         return null;
+                     }
+                 };
              }
          };
 
-         threadson.run();
-
+         jouerSonService.start();
      }
 
     /**

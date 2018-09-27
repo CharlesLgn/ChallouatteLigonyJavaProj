@@ -9,7 +9,7 @@ public class Beep {
 
     private static float SAMPLE_RATE = 8000f;
 
-    private static int speed = 30;
+    private static int speed = 50;
 
     private static void tone(int hz, int msecs)
             throws LineUnavailableException
