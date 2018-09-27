@@ -35,7 +35,7 @@ public class ArbreBinaire<T> implements List<T> {
     }
 
     @Override
-    public Object get(int index) {
+    public T get(int index) {
         throw new NullPointerException("can't be get");
     }
 

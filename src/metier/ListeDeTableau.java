@@ -96,6 +96,20 @@ public class ListeDeTableau<T> implements List<T> {
     }
 
     @Override
+    public void add(T t, int position) {
+        assurerCapaciteInterne(taille + 1);  // Increments modCount!!
+        if(position > ++taille){
+            throw new IndexOutOfBoundsException();
+        } else {
+            int p = taille;
+            while (p > position){
+                this.element[p]=this.element[--p];
+            }
+            this.element[position] = t;
+        }
+    }
+
+    @Override
     public void retirer(int index) {
         int numMovement = taille - index - 1;
         if (numMovement > 0)

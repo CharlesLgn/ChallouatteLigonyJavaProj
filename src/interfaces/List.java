@@ -51,6 +51,8 @@ public interface List<T> {
      */
     void add(T t);
 
+    void add(T t, int position);
+
     /**
      * rtire une valeur à la liste
      * @param index le lieu de la valeur

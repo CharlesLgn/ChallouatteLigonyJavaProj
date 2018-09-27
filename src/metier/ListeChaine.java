@@ -118,6 +118,23 @@ public class ListeChaine<T> implements List<T> {
     }
 
     @Override
+    public void add(T t, int position) {
+        if(position == 0){
+            ListeChaine<T> nouv = new ListeChaine<>(this.donne, null, this.suiv);
+            this.donne = t;
+            this.suiv = nouv;
+            if (pred == null){
+                nouv.pred = this;
+            }
+        } else if (suiv != null) {
+            suiv.add(t, position-1);
+        } else if ((suiv == null) && (position == 1)){
+            add(t);
+        }
+        throw new IndexOutOfBoundsException();
+    }
+
+    @Override
     public void retirer(int index) {
         if(index == 1){
             ListeChaine<T> valSuiv = (suiv == null ? null : suiv.suiv);
