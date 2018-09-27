@@ -153,6 +153,11 @@ public class TraductionMorse {
         }
     }
 
+    /**
+     * Construit la phrase en morse
+     * @param phrase
+     * @return
+     */
     public static String Tradphrase (String phrase){
         StringBuilder sb = new StringBuilder();
         for (char lettre: phrase.toCharArray()) {
