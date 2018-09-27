@@ -1,4 +1,4 @@
-package metier;
+package com.util;
 
 import com.sun.istack.internal.NotNull;
 import interfaces.List;

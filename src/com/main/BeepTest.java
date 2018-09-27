@@ -1,6 +1,6 @@
-package main;
+package com.main;
 
-import method.Beep;
+import com.method.Beep;
 
 public class BeepTest {
 

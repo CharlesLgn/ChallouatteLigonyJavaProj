@@ -1,8 +1,6 @@
-package metier;
+package com.util;
 
 import interfaces.List;
-
-import java.util.LinkedList;
 
 public class ListeChaine<T> implements List<T> {
 

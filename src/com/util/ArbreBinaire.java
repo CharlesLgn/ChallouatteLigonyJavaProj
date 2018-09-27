@@ -1,4 +1,4 @@
-package metier;
+package com.util;
 
 import interfaces.List;
 

@@ -1,8 +1,8 @@
-package main;
+package com.main;
 
-import metier.ListeDeTableau;
+import com.util.ListeDeTableau;
 
-public class Main {
+public class MainTerminal {
     public static void main(String[] args){
         ListeDeTableau<Integer> array = new ListeDeTableau<>();
         array.add(1);

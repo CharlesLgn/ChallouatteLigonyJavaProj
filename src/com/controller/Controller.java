@@ -1,16 +1,14 @@
-package sample;
+package com.controller;
 
-import javafx.beans.value.ObservableValue;
 import javafx.concurrent.Service;
 import javafx.concurrent.Task;
-import javafx.concurrent.Worker;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.*;
-import method.JouerSon;
-import method.TraductionMorse;
+import com.method.JouerSon;
+import com.method.TraductionMorse;
 
 import java.io.*;
 
@@ -120,7 +118,7 @@ public class Controller extends Window {
             alert.initStyle(StageStyle.DECORATED);
             alert.setHeaderText("Chemin du fichier");
             alert.setContentText("Sélectionnez un fichier texte valide");
-            ((Stage)alert.getDialogPane().getScene().getWindow()).getIcons().add(new Image("/Images/icon.png"));
+            ((Stage)alert.getDialogPane().getScene().getWindow()).getIcons().add(new Image("/resource/Images/icon.png"));
             alert.showAndWait();
         }
     }
@@ -143,7 +141,7 @@ public class Controller extends Window {
                     alert.initStyle(StageStyle.DECORATED);
                     alert.setHeaderText("Export");
                     alert.setContentText("La traduction a été exportée");
-                    ((Stage)alert.getDialogPane().getScene().getWindow()).getIcons().add(new Image("/Images/icon.png"));
+                    ((Stage)alert.getDialogPane().getScene().getWindow()).getIcons().add(new Image("/resource/Images/icon.png"));
                     alert.showAndWait();
                     //endregion
                 } else {
@@ -153,7 +151,7 @@ public class Controller extends Window {
                     alert.initStyle(StageStyle.DECORATED);
                     alert.setHeaderText("Chemin du répertoire");
                     alert.setContentText("Sélectionnez un répertoire valide");
-                    ((Stage)alert.getDialogPane().getScene().getWindow()).getIcons().add(new Image("/Images/icon.png"));
+                    ((Stage)alert.getDialogPane().getScene().getWindow()).getIcons().add(new Image("/resource/Images/icon.png"));
                     alert.showAndWait();
                     //endregion
                 }
@@ -164,7 +162,7 @@ public class Controller extends Window {
                 alert.initStyle(StageStyle.DECORATED);
                 alert.setHeaderText("Nom du fichier");
                 alert.setContentText("Entrez un nom de fichier valide");
-                ((Stage)alert.getDialogPane().getScene().getWindow()).getIcons().add(new Image("/Images/icon.png"));
+                ((Stage)alert.getDialogPane().getScene().getWindow()).getIcons().add(new Image("/resource/Images/icon.png"));
                 alert.showAndWait();
                 //endregion
             }
