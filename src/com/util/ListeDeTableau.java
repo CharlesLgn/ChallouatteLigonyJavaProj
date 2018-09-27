@@ -1,7 +1,7 @@
 package com.util;
 
 import com.sun.istack.internal.NotNull;
-import interfaces.List;
+import com.interfaces.List;
 
 public class ListeDeTableau<T> implements List<T> {
 

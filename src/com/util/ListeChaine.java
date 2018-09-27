@@ -1,6 +1,6 @@
 package com.util;
 
-import interfaces.List;
+import com.interfaces.List;
 
 public class ListeChaine<T> implements List<T> {
 
