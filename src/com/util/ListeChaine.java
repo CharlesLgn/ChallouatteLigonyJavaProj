@@ -166,4 +166,16 @@ public class ListeChaine<T> implements List<T> {
         }
 
     }
+
+    public T[] toTab(){
+        T[] tab = new T[taille()];
+        ListeChaine<T> p = this;
+        int i=0;
+        while(p.suiv != null){
+            tab[i++] = p.donne;
+            p=p.suiv;
+        }
+
+    }
+
 }
