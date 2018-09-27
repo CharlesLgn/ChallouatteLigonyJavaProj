@@ -13,7 +13,10 @@ import com.method.TraductionMorse;
 import java.io.*;
 
 
-public class Controller extends Window {
+public class ControllerMorse extends Window {
+
+    //region Partie Morse
+
     @FXML
     private TabPane fenetre;
     @FXML
@@ -182,4 +185,105 @@ public class Controller extends Window {
         this.bt_traduire_morse.setDisable(false);
         this.bt_chemin_morse.setDisable(false);
     }
+
+    //endregion
+
+    //region Partie Leet
+
+    @FXML
+    private TextField textbox_chemin_leet;
+    @FXML
+    private Button bt_chemin_leet;
+    @FXML
+    private Button bt_traduire_leet;
+    @FXML
+    private TextArea richtextbox_traduction_leet;
+    @FXML
+    private TextField textbox_cheminexport_leet;
+    @FXML
+    private Button bt_exporter_leet;
+    @FXML
+    private Button bt_nouvelletrad_leet;
+
+    public void btcheminclickleet(MouseEvent event){
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Choisissez un fichier texte");
+        FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("TXT files (*.txt)", "*.txt");
+        fileChooser.getExtensionFilters().add(extFilter);
+        fileChooser.getExtensionFilters();
+        try {
+            File file = fileChooser.showOpenDialog(this);
+            if (file != null) {
+                this.textbox_chemin_leet.setText(file.getAbsolutePath());
+            }
+            this.bt_chemin_leet.setDisable(true);
+        }catch (Exception ex){
+            System.out.println(ex);
+        }
+    }
+
+    public void bttradclickleet(MouseEvent event){
+
+
+
+    }
+
+    public void btexportleet(MouseEvent event){
+
+        try {
+            if (this.textbox_cheminexport_leet.getText() != null && !this.textbox_cheminexport_leet.getText().isEmpty()) {
+                DirectoryChooser directorychooser = new DirectoryChooser();
+                directorychooser.setTitle("Choisissez un répertoire ou exporter votre traduction");
+                File selectedDirectory = directorychooser.showDialog(this);
+                if (selectedDirectory != null) {
+                    File fichierexport = new File(selectedDirectory + "\\" + this.textbox_cheminexport_leet.getText() + ".txt");
+                    fichierexport.createNewFile();
+                    FileWriter fichierexportwrite =new FileWriter(fichierexport);
+                    fichierexportwrite.write(this.richtextbox_traduction_leet.getText());
+                    fichierexportwrite.close();
+                    //region messagebox
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Succès");
+                    alert.initStyle(StageStyle.DECORATED);
+                    alert.setHeaderText("Export");
+                    alert.setContentText("La traduction a été exportée");
+                    ((Stage)alert.getDialogPane().getScene().getWindow()).getIcons().add(new Image("/resource/Images/icon.png"));
+                    alert.showAndWait();
+                    //endregion
+                } else {
+                    //region messagebox
+                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                    alert.setTitle("Erreur");
+                    alert.initStyle(StageStyle.DECORATED);
+                    alert.setHeaderText("Chemin du répertoire");
+                    alert.setContentText("Sélectionnez un répertoire valide");
+                    ((Stage)alert.getDialogPane().getScene().getWindow()).getIcons().add(new Image("/resource/Images/icon.png"));
+                    alert.showAndWait();
+                    //endregion
+                }
+            } else {
+                //region messagebox
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Erreur");
+                alert.initStyle(StageStyle.DECORATED);
+                alert.setHeaderText("Nom du fichier");
+                alert.setContentText("Entrez un nom de fichier valide");
+                ((Stage)alert.getDialogPane().getScene().getWindow()).getIcons().add(new Image("/resource/Images/icon.png"));
+                alert.showAndWait();
+                //endregion
+            }
+        }catch (Exception ex){
+            System.out.println(ex);
+        }
+    }
+
+    public void btnewtradleet(MouseEvent event){
+        this.textbox_chemin_leet.clear();
+        this.richtextbox_traduction_leet.clear();
+        this.textbox_cheminexport_leet.clear();
+        this.bt_traduire_leet.setDisable(false);
+        this.bt_chemin_leet.setDisable(false);
+    }
+
+    //endregion
 }
