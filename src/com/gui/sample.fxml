@@ -71,7 +71,7 @@
                             <RowConstraints maxHeight="98.0" minHeight="98.0" prefHeight="98.0" vgrow="SOMETIMES" />
                           </rowConstraints>
                            <children>
-                              <TextArea fx:id="richtextbox_traduction_morse" prefHeight="51.0" prefWidth="360.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                              <TextArea fx:id="richtextbox_traduction_morse" editable="false" prefHeight="51.0" prefWidth="360.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
                               <Button fx:id="bt_jouerson_morse" mnemonicParsing="false" onMouseClicked="#btjouersonmorse" prefHeight="38.0" prefWidth="124.0" text="Jouer la traduction" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
                               <Separator orientation="VERTICAL" prefHeight="200.0" GridPane.columnIndex="3" GridPane.rowIndex="1">
                                  <GridPane.margin>
@@ -195,7 +195,7 @@
                               <RowConstraints maxHeight="10.0" minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
                            </rowConstraints>
                            <children>
-                              <TextArea fx:id="richtextbox_traduction_leet" prefHeight="51.0" prefWidth="360.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                              <TextArea fx:id="richtextbox_traduction_leet" editable="false" prefHeight="51.0" prefWidth="360.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
                            </children>
                         </GridPane>
                         <GridPane GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="TOP">
@@ -314,7 +314,7 @@
                               <RowConstraints maxHeight="10.0" minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
                            </rowConstraints>
                            <children>
-                              <TextArea fx:id="richtextbox_traduction_transfr" prefHeight="51.0" prefWidth="360.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                              <TextArea fx:id="richtextbox_traduction_transfr" editable="false" prefHeight="51.0" prefWidth="360.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
                            </children>
                         </GridPane>
                         <GridPane GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="TOP">

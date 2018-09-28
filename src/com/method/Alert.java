@@ -6,7 +6,7 @@ import javafx.stage.StageStyle;
 
 public class Alert {
 
-    public static javafx.scene.control.Alert alertGenerique(){
+    public static void alertGenerique(){
         javafx.scene.control.Alert alert = new javafx.scene.control.Alert(javafx.scene.control.Alert.AlertType.INFORMATION);
         alert.setTitle("Erreur");
         alert.initStyle(StageStyle.DECORATED);

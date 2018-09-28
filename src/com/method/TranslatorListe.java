@@ -46,8 +46,23 @@ public class TranslatorListe {
 
                                  new ListeChaine<>(new Code(' '," ","  "),
                                  new ListeChaine<>(new Code('.',".",".-.-.-"),
-                                 new ListeChaine<>(new Code(',',",","--..--")
-                        )))))))))))))))))))))))))))))))))))))));
+                                 new ListeChaine<>(new Code(',',",","--..--"),
+                                 new ListeChaine<>(new Code('?',"?","..--.."),
+                                 new ListeChaine<>(new Code('\'',"'",".----."),
+                                 new ListeChaine<>(new Code('!',"!","-.-.-----."),
+                                 new ListeChaine<>(new Code('/',"/","-..-."),
+                                 new ListeChaine<>(new Code('(',"(","-.--."),
+                                 new ListeChaine<>(new Code(')',")","-.--.-"),
+                                 new ListeChaine<>(new Code('&',"&",".-..."),
+                                 new ListeChaine<>(new Code(':',":","---..."),
+                                 new ListeChaine<>(new Code(';',";","-.-.-."),
+                                 new ListeChaine<>(new Code('=',"=","-...-"),
+                                 new ListeChaine<>(new Code('+',"+",".-.-."),
+                                 new ListeChaine<>(new Code('_',"_","..--.-"),
+                                 new ListeChaine<>(new Code('\"',"\"",".-..-."),
+                                 new ListeChaine<>(new Code('$',"$","...-..-"),
+                                 new ListeChaine<>(new Code('@',"@",".--.-.")
+                                         ))))))))))))))))))))))))))))))))))))))))))))))))))))));
 
     public static String romainToL33t(char rom){
         ListeChaine<Code> p = list;
