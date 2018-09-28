@@ -10,6 +10,7 @@ public class ListeChaine<T> implements List<T> {
 
     //Constructor
     public ListeChaine(){
+        donne = null;
         pred = null;
         suiv = null;
     }
@@ -21,6 +22,10 @@ public class ListeChaine<T> implements List<T> {
 
     public ListeChaine<T> getSuiv() {
         return suiv;
+    }
+
+    public T getDonne() {
+        return donne;
     }
 
     public void setSuiv(ListeChaine<T> suiv) {
@@ -35,9 +40,9 @@ public class ListeChaine<T> implements List<T> {
     }
 
     @SuppressWarnings("unchecked")
-    public ListeChaine(T donne, ListeChaine<? extends T> pred){
+    public ListeChaine(T donne, ListeChaine<? extends T> suiv){
         this.donne = donne;
-        this.pred = (ListeChaine<T>) pred;
+        this.suiv = (ListeChaine<T>) suiv;
     }
 
     @Override
@@ -119,8 +124,16 @@ public class ListeChaine<T> implements List<T> {
 
     @Override
     public void add(T t) {
-        ListeChaine<T> newVal = new ListeChaine<>(t, this, null);
-        suiv = newVal;
+        if (suiv==null){
+            if (donne==null){
+                donne = t;
+            }else {
+                ListeChaine<T> newVal = new ListeChaine<>(t, this, null);
+                suiv = newVal;
+            }
+        } else {
+            suiv.add(t);
+        }
     }
 
     @Override

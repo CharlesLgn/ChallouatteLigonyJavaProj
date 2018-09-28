@@ -27,4 +27,9 @@ public class Objet {
         this.interet = interet;
     }
 
+    @Override
+    public String toString() {
+        return "(m:" + masse +
+               ", i:" + interet + ")";
+    }
 }

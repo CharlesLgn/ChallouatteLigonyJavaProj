@@ -8,8 +8,37 @@ public class Sac {
     private int masseIn;
     private int interetIn;
 
+    public  Sac(Sac sac){
+        this.objets = sac.objets;
+        this.masseSuporte = sac.masseSuporte;
+        masseIn = sac.masseIn;
+        interetIn = sac.interetIn;
+    }
+
     public Sac(ListeChaine<Objet> objets, int masseSuporte) {
         this.objets = objets;
+        this.masseSuporte = masseSuporte;
+        masseIn = getMasse(objets);
+        interetIn = getInter(objets);
+    }
+
+    private int getMasse(ListeChaine<Objet> obj){
+            if (obj.getSuiv() != null){
+                return obj.getDonne().getMasse() + getMasse(obj.getSuiv());
+            } else {
+                return obj.getDonne().getMasse();
+            }
+    }
+    private int getInter(ListeChaine<Objet> obj){
+        if (obj.getSuiv() != null){
+            return obj.getDonne().getInteret() + getInter(obj.getSuiv());
+        } else {
+            return obj.getDonne().getInteret();
+        }
+    }
+
+    public Sac(int masseSuporte){
+        objets = new ListeChaine<>();
         this.masseSuporte = masseSuporte;
         masseIn = 0;
         interetIn = 0;
@@ -57,7 +86,29 @@ public class Sac {
     }
 
     public static Sac optimiserSac(Sac sac, ListeChaine<Objet> obj){
+        Sac autreSac;
+        if (sac.objets.getDonne() == null){
+            autreSac = new Sac(sac.masseSuporte);
+        }else {
+            autreSac = new Sac(sac.objets, sac.masseSuporte);
+        }
 
-        return sac;
+        if (obj.getDonne().getMasse() + sac.masseIn <= sac.masseSuporte){
+            try {
+                sac.add(obj.getDonne());
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        if(obj.getSuiv() != null){
+            sac = Sac.optimiserSac(sac, obj.getSuiv());
+            autreSac = Sac.optimiserSac(autreSac, obj.getSuiv());
+        }
+        return sac.interetIn > autreSac.interetIn ? sac : autreSac;
+    }
+
+    @Override
+    public String toString() {
+        return objets.toString();
     }
 }
