@@ -1,6 +1,7 @@
 package com.util;
 
 import com.interfaces.List;
+import com.metier.Code;
 
 public class ListeChaine<T> implements List<T> {
 
@@ -189,15 +190,15 @@ public class ListeChaine<T> implements List<T> {
     }
 
     @SuppressWarnings("unchecked")
-    public T[] toTab(){
-        Object[] tab = new Object[taille()];
+    public Code[] toTab(){
+        Code[] tab = new Code[taille()];
         ListeChaine<T> p = this;
         int i=0;
         while(p.suiv != null){
-            tab[i++] = p.donne;
+            tab[i++] = (Code) p.donne;
             p=p.suiv;
         }
-        return (T[]) tab;
+        return tab;
     }
 
 }

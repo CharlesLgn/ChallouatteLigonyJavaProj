@@ -370,26 +370,24 @@ public class ControllerMorse extends Window {
         if(this.textbox_chemin_transfr.getText() != null && !this.textbox_chemin_transfr.getText().isEmpty()) {
 
             try {
+                StringBuilder sb = new StringBuilder();
                 InputStream flux = new FileInputStream(this.textbox_chemin_transfr.getText());
                 InputStreamReader lecture = new InputStreamReader(flux);
                 BufferedReader buff=new BufferedReader(lecture);
                 String ligne;
-                String resmorse = "";
                 while ((ligne=buff.readLine())!=null){
                     String[] listeMotsMorse = ligne.split("   ");
+
                     ArrayList listemorse = new ArrayList<>();
                     for (String item:listeMotsMorse) {
                         String[] lettres = item.split(" ");
-                        listemorse.add(lettres);
+                        for(String lettre : lettres){
+                            sb.append(morseToRomain(lettre));
+                        }
+                        sb.append(" ");
                     }
 
-
-                    for (String item:listemorse)
-                         ) {
-
-                    }
-                    resmorse = resmorse + morseToRomain(ligne);
-                    this.richtextbox_traduction_transfr.appendText(resmorse);
+                    this.richtextbox_traduction_transfr.appendText(sb.toString().trim());
                 }
                 buff.close();
                 this.bt_traduire_transfr.setDisable(true);
