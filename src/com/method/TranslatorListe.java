@@ -1,11 +1,12 @@
-package com.main;
+package com.method;
 
 import com.metier.Code;
+import com.util.ArbreBinaire;
 import com.util.ListeChaine;
 
-public class test {
-    public static void main(String[] args){
-        ListeChaine<Code> list = new ListeChaine<>(new Code('a',"@",".-"),
+public class TranslatorListe {
+
+        private static ListeChaine<Code> list = new ListeChaine<>(new Code('a',"@",".-"),
                                  new ListeChaine<>(new Code('b',"8","-..."),
                                  new ListeChaine<>(new Code('c',"(","-.-."),
                                  new ListeChaine<>(new Code('d',"[)","-.."),
@@ -48,14 +49,55 @@ public class test {
                                  new ListeChaine<>(new Code(',',",","--..--")
                         )))))))))))))))))))))))))))))))))))))));
 
-        boolean found = false;
+    public static String romainToL33t(char rom){
         ListeChaine<Code> p = list;
-        while (!found || p != null){
-            if (p.getDonne().getRomain() == 'k'){
-                System.out.println(p.getDonne().getL33t());
-                found = true;
+        while (p != null){
+            if (p.getDonne().getRomain() == rom){
+                return p.getDonne().getL33t();
             }
             p = p.getSuiv();
         }
+        return null;
     }
+
+    public static String romainToMorse(char rom){
+        ListeChaine<Code> p = list;
+        while (p != null){
+            if (p.getDonne().getRomain() == rom){
+                return p.getDonne().getMorse();
+            }
+            p = p.getSuiv();
+        }
+        return null;
+    }
+
+
+    public static char L33tToRomain(String l33t) throws Exception {
+        ListeChaine<Code> p = list;
+        while (p != null){
+            if (p.getDonne().getL33t().equals(l33t)){
+                return p.getDonne().getRomain();
+            }
+            p = p.getSuiv();
+        }
+        throw new Exception("valeur inexistante");
+    }
+
+    public static char morseToRomain(String morse) throws Exception {
+        ListeChaine<Code> p = list;
+        while (p != null){
+            if (p.getDonne().getMorse().equals(morse)){
+                return p.getDonne().getRomain();
+            }
+            p = p.getSuiv();
+        }
+        throw new Exception("valeur inexistante");
+    }
+
+    static ArbreBinaire toArbre(){
+        Code[] tab = list.toTab();
+        ArbreBinaire.tri(tab);
+        return ArbreBinaire.addOrganized(tab);
+    }
+
 }

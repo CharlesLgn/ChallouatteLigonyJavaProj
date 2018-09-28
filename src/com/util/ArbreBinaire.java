@@ -86,6 +86,17 @@ public class ArbreBinaire implements Arbre {
         }
     }
 
+    public Code getByRomain(char a) throws Exception {
+        if(donne.getRomain() == a){
+            return donne;
+        } else if(donne.getRomain() < a){
+            return brancheDroite.getByRomain(a);
+        } else if(donne.getRomain() > a){
+            return brancheGauche.getByRomain(a);
+        }
+        throw new Exception("l'arbre ne contient pas la valeur");
+    }
+
     @Override
     public void retirer(Code t) {
 
@@ -103,7 +114,7 @@ public class ArbreBinaire implements Arbre {
         addOrganized(tab);
     }
 
-    private ArbreBinaire addOrganized(Code[] tab) {
+    public static ArbreBinaire addOrganized(Code[] tab) {
         int pos = (tab.length-1) / 2;
         if(tab.length - pos == 1){
             return new ArbreBinaire(tab[pos]);
