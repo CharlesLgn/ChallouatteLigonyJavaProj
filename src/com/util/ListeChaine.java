@@ -189,7 +189,7 @@ public class ListeChaine<T> implements List<T> {
     }
 
     @SuppressWarnings("unchecked")
-    T[] toTab(){
+    public T[] toTab(){
         Object[] tab = new Object[taille()];
         ListeChaine<T> p = this;
         int i=0;
