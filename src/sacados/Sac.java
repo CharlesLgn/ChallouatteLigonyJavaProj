@@ -73,8 +73,6 @@ public class Sac {
             objets.add(obj);
             masseIn = obj.getMasse() + masseIn;
             interetIn = obj.getInteret() + interetIn;
-        } else {
-            throw new Exception("masse non suporter");
         }
     }
 
@@ -86,25 +84,28 @@ public class Sac {
     }
 
     public static Sac optimiserSac(Sac sac, ListeChaine<Objet> obj){
-        Sac autreSac;
+        Sac sac1;
+        Sac sac2;
         if (sac.objets.getDonne() == null){
-            autreSac = new Sac(sac.masseSuporte);
+            sac1 = new Sac(sac.masseSuporte);
+            sac2 = new Sac(sac.masseSuporte);
         }else {
-            autreSac = new Sac(sac.objets, sac.masseSuporte);
+            sac1 = new Sac(sac.objets, sac.masseSuporte);
+            sac2 = new Sac(sac.objets, sac.masseSuporte);
         }
 
         if (obj.getDonne().getMasse() + sac.masseIn <= sac.masseSuporte){
             try {
-                sac.add(obj.getDonne());
+                sac1.add(obj.getDonne());
             } catch (Exception e) {
                 e.printStackTrace();
             }
         }
         if(obj.getSuiv() != null){
-            sac = Sac.optimiserSac(sac, obj.getSuiv());
-            autreSac = Sac.optimiserSac(autreSac, obj.getSuiv());
+            sac1 = Sac.optimiserSac(sac1, obj.getSuiv());
+            sac2 = Sac.optimiserSac(sac2, obj.getSuiv());
         }
-        return sac.interetIn > autreSac.interetIn ? sac : autreSac;
+        return sac1.interetIn > sac2.interetIn ? sac1 : sac2;
     }
 
     @Override
