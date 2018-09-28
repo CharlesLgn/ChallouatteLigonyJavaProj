@@ -129,13 +129,7 @@ public class ControllerMorse extends Window {
             }
         }
             else{
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Erreur");
-            alert.initStyle(StageStyle.DECORATED);
-            alert.setHeaderText("Chemin du fichier");
-            alert.setContentText("Sélectionnez un fichier texte valide");
-            ((Stage)alert.getDialogPane().getScene().getWindow()).getIcons().add(new Image("/resource/Images/icon.png"));
-            alert.showAndWait();
+            com.method.Alert.alertGenerique();
         }
     }
 
@@ -161,26 +155,10 @@ public class ControllerMorse extends Window {
                     alert.showAndWait();
                     //endregion
                 } else {
-                    //region messagebox
-                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setTitle("Erreur");
-                    alert.initStyle(StageStyle.DECORATED);
-                    alert.setHeaderText("Chemin du répertoire");
-                    alert.setContentText("Sélectionnez un répertoire valide");
-                    ((Stage)alert.getDialogPane().getScene().getWindow()).getIcons().add(new Image("/resource/Images/icon.png"));
-                    alert.showAndWait();
-                    //endregion
+                    com.method.Alert.alertGenerique();
                 }
             } else {
-                //region messagebox
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Erreur");
-                alert.initStyle(StageStyle.DECORATED);
-                alert.setHeaderText("Nom du fichier");
-                alert.setContentText("Entrez un nom de fichier valide");
-                ((Stage)alert.getDialogPane().getScene().getWindow()).getIcons().add(new Image("/resource/Images/icon.png"));
-                alert.showAndWait();
-                //endregion
+                com.method.Alert.alertGenerique();
             }
         }catch (Exception ex){
             System.out.println(ex);
@@ -257,13 +235,7 @@ public class ControllerMorse extends Window {
             }
         }
         else{
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Erreur");
-            alert.initStyle(StageStyle.DECORATED);
-            alert.setHeaderText("Chemin du fichier");
-            alert.setContentText("Sélectionnez un fichier texte valide");
-            ((Stage)alert.getDialogPane().getScene().getWindow()).getIcons().add(new Image("/resource/Images/icon.png"));
-            alert.showAndWait();
+            com.method.Alert.alertGenerique();
         }
     }
 
@@ -290,26 +262,10 @@ public class ControllerMorse extends Window {
                     alert.showAndWait();
                     //endregion
                 } else {
-                    //region messagebox
-                    Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setTitle("Erreur");
-                    alert.initStyle(StageStyle.DECORATED);
-                    alert.setHeaderText("Chemin du répertoire");
-                    alert.setContentText("Sélectionnez un répertoire valide");
-                    ((Stage)alert.getDialogPane().getScene().getWindow()).getIcons().add(new Image("/resource/Images/icon.png"));
-                    alert.showAndWait();
-                    //endregion
+                    com.method.Alert.alertGenerique();
                 }
             } else {
-                //region messagebox
-                Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Erreur");
-                alert.initStyle(StageStyle.DECORATED);
-                alert.setHeaderText("Nom du fichier");
-                alert.setContentText("Entrez un nom de fichier valide");
-                ((Stage)alert.getDialogPane().getScene().getWindow()).getIcons().add(new Image("/resource/Images/icon.png"));
-                alert.showAndWait();
-                //endregion
+                com.method.Alert.alertGenerique();
             }
         }catch (Exception ex){
             System.out.println(ex);
@@ -398,15 +354,8 @@ public class ControllerMorse extends Window {
             }
         }
         else{
-            Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Erreur");
-            alert.initStyle(StageStyle.DECORATED);
-            alert.setHeaderText("Chemin du fichier");
-            alert.setContentText("Sélectionnez un fichier texte valide");
-            ((Stage)alert.getDialogPane().getScene().getWindow()).getIcons().add(new Image("/resource/Images/icon.png"));
-            alert.showAndWait();
+            com.method.Alert.alertGenerique();
         }
-
     }
     public void btexporttransfr(MouseEvent event){
         try {
