@@ -44,7 +44,7 @@ public class TranslatorListe {
                                  new ListeChaine<>(new Code('8',"≥","---.."),
                                  new ListeChaine<>(new Code('9',"≥","----."),
 
-                                 new ListeChaine<>(new Code(' '," ","   "),
+                                 new ListeChaine<>(new Code(' '," ","  "),
                                  new ListeChaine<>(new Code('.',".",".-.-.-"),
                                  new ListeChaine<>(new Code(',',",","--..--")
                         )))))))))))))))))))))))))))))))))))))));
