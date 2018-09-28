@@ -306,6 +306,7 @@ public class ControllerMorse extends Window {
     @FXML
     private Button bt_nouvelletrad_transfr;
 
+
     public void btcheminclicktransfr(MouseEvent event){
 
     }
