@@ -112,7 +112,7 @@ public class ArbreBinaire implements Arbre {
                    sup = new Code[pos];
             for (int i=0 ; i<pos; i++){
                 inf[i] = tab[i];
-                sup[i] = tab[i+pos];
+                sup[i] = tab[i+pos+1];
             }
             return new ArbreBinaire(tab[pos], addOrganized(inf), addOrganized(sup));
         }

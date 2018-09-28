@@ -19,6 +19,14 @@ public class ListeChaine<T> implements List<T> {
         suiv = null;
     }
 
+    public ListeChaine<T> getSuiv() {
+        return suiv;
+    }
+
+    public void setSuiv(ListeChaine<T> suiv) {
+        this.suiv = suiv;
+    }
+
     @SuppressWarnings("unchecked")
     public ListeChaine(T donne, ListeChaine<? extends T> pred, ListeChaine<? extends T> suiv){
         this.donne = donne;
@@ -167,15 +175,16 @@ public class ListeChaine<T> implements List<T> {
 
     }
 
-    public T[] toTab(){
-        T[] tab = new T[taille()];
+    @SuppressWarnings("unchecked")
+    T[] toTab(){
+        Object[] tab = new Object[taille()];
         ListeChaine<T> p = this;
         int i=0;
         while(p.suiv != null){
             tab[i++] = p.donne;
             p=p.suiv;
         }
-
+        return (T[]) tab;
     }
 
 }
