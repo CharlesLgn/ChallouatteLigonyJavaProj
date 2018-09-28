@@ -286,4 +286,38 @@ public class ControllerMorse extends Window {
     }
 
     //endregion
+
+    //region Partie traduire vers français
+
+    @FXML
+    private TextField textbox_chemin_transfr;
+    @FXML
+    private Button bt_chemin_transfr;
+    @FXML
+    private ComboBox combobox_transfr;
+    @FXML
+    private Button bt_traduire_transfr;
+    @FXML
+    private TextArea richtextbox_traduction_transfr;
+    @FXML
+    private TextField textbox_cheminexport_transfr;
+    @FXML
+    private Button bt_exporter_transfr;
+    @FXML
+    private Button bt_nouvelletrad_transfr;
+
+    public void btcheminclicktransfr(MouseEvent event){
+
+    }
+    public void bttradclicktransfr(MouseEvent event){
+
+    }
+    public void btexporttransfr(MouseEvent event){
+
+    }
+    public void btnewtradtransfr(MouseEvent event){
+
+    }
+
+    // endregion
 }

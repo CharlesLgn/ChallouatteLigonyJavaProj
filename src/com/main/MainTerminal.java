@@ -4,7 +4,7 @@ import com.util.ListeDeTableau;
 
 public class MainTerminal {
     public static void main(String[] args){
-        ListeDeTableau<Integer> array = new ListeDeTableau<>();
+            ListeDeTableau<Integer> array = new ListeDeTableau<>();
         array.add(1);
         array.add(2);
         array.add(3);
