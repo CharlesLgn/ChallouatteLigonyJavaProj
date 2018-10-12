@@ -1,23 +1,24 @@
 package com.controller;
 
-import com.util.ListeDeTableau;
+import com.method.JouerSon;
+import com.util.Utilitaires;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.concurrent.Service;
 import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.*;
-import com.method.JouerSon;
-import com.*;
 
 import java.io.*;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.regex.Pattern;
 
-import static com.method.TranslatorListe.morseToRomain;
-import static com.method.TranslatorListe.romainToL33t;
-import static com.method.TranslatorListe.romainToMorse;
+import static com.method.TranslatorListe.*;
+import static com.util.Utilitaires.removeAccents;
 
 
 public class ControllerMorse extends Window {
@@ -133,6 +134,10 @@ public class ControllerMorse extends Window {
         }
     }
 
+    /**
+     * Gère le bouton de l'export du texte traduit dans une fichier
+     * @param event
+     */
     public void btexportmorse(MouseEvent event){
         try {
             if (this.textbox_cheminexport_morse.getText() != null && !this.textbox_cheminexport_morse.getText().isEmpty()) {
@@ -196,6 +201,10 @@ public class ControllerMorse extends Window {
     @FXML
     private Button bt_nouvelletrad_leet;
 
+    /**
+     *
+     * @param event
+     */
     public void btcheminclickleet(MouseEvent event){
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Choisissez un fichier texte");
@@ -300,8 +309,33 @@ public class ControllerMorse extends Window {
     private Button bt_exporter_transfr;
     @FXML
     private Button bt_nouvelletrad_transfr;
+    @FXML
+    private TabPane tabpaneprincipale;
 
     public void initialize() {
+
+        // Évènement déclenché lors d'un changement d'onglet : les champs sont vidés
+
+        tabpaneprincipale.getSelectionModel().selectedItemProperty().addListener(
+                new ChangeListener<Tab>() {
+                    @Override
+                    public void changed(ObservableValue<? extends Tab> ov, Tab t, Tab t1) {
+                        // Lors du changement d'onglet, on clear.
+
+                        textbox_chemin_morse.clear();
+                        richtextbox_traduction_morse.clear();
+                        textbox_cheminexport_morse.clear();
+                        textbox_chemin_leet.clear();
+                        richtextbox_traduction_leet.clear();
+                        textbox_cheminexport_leet.clear();
+                        textbox_chemin_transfr.clear();
+                        richtextbox_traduction_transfr.clear();
+                        textbox_cheminexport_transfr.clear();
+                        richtextbox_direct_fr.clear();
+                        richtextbox_direct_morse.clear();
+                    }
+                }
+        );
 
     }
 
@@ -409,6 +443,91 @@ public class ControllerMorse extends Window {
         this.bt_traduire_transfr.setDisable(false);
         this.bt_chemin_transfr.setDisable(false);
     }
+
+    // endregion
+
+    // region : Traduction directe
+
+    @FXML
+    private TextArea richtextbox_direct_fr;
+    @FXML
+    private TextArea richtextbox_direct_morse;
+
+
+    public void direct_type_morse(KeyEvent event){
+        try {
+            String carac = event.getText();
+            carac = removeAccents(carac);
+            richtextbox_direct_morse.setText("" + richtextbox_direct_morse.getText().substring(0, richtextbox_direct_morse.getText().length() - 1));
+            richtextbox_direct_morse.appendText(carac);
+            if(carac.matches("[A-z0-9 :;!?()&']")) {
+                // Ajoute en morse
+                String texte = richtextbox_direct_morse.getText();
+                char lastchar = richtextbox_direct_morse.getText().toCharArray()[richtextbox_direct_morse.getText().toCharArray().length - 1];
+                String morse = romainToMorse(lastchar);
+                //retire le dernier char
+                richtextbox_direct_morse.setText("" + richtextbox_direct_morse.getText().substring(0, richtextbox_direct_morse.getText().length() - 1));
+                richtextbox_direct_morse.appendText(morse);
+                richtextbox_direct_fr.appendText(String.valueOf(morseToRomain(morse)));
+            }else{
+                if(!event.getText().equals("")){
+                    richtextbox_direct_morse.setText("" + richtextbox_direct_morse.getText().substring(0, richtextbox_direct_morse.getText().length() - 1));
+                }
+
+                // Ajouter la suppression des caractères de l'autre textarea
+
+            }
+        }catch(Exception ex){}
+    }
+
+
+    public void direct_type_fr(KeyEvent event){
+        try{
+            String carac = event.getText();
+            carac = removeAccents(carac);
+            richtextbox_direct_fr.setText("" + richtextbox_direct_fr.getText().substring(0, richtextbox_direct_fr.getText().length() - 1));
+            richtextbox_direct_fr.appendText(carac);
+            if(carac.matches("[A-z0-9 :;!?()&']")) {
+                char lastchar = richtextbox_direct_fr.getText().toCharArray()[richtextbox_direct_fr.getText().toCharArray().length - 1];
+                String morse = romainToMorse(lastchar);
+                richtextbox_direct_morse.appendText(morse);
+            }
+            else{
+                if(!event.getText().equals("")){
+                    richtextbox_direct_fr.setText("" + richtextbox_direct_fr.getText().substring(0, richtextbox_direct_fr.getText().length() - 1));
+                }
+
+                // Ajouter la suppression des caractères de l'autre textarea
+                // Utiliser un last indexof
+                String code = event.getCode().getName();
+                if(code == "Backspace"){
+                    String plop = this.richtextbox_direct_fr.getText();
+                    char last = plop.charAt(this.richtextbox_direct_fr.getText().length() - 1);
+                    String morseAchercher = romainToMorse(last);
+                    int morseAdelete = this.richtextbox_direct_morse.getText().lastIndexOf(morseAchercher);
+                    String stringWithoutmorseAdelete = this.richtextbox_direct_morse.getText().substring(0,morseAdelete);
+                    this.richtextbox_direct_morse.clear();
+                    this.richtextbox_direct_morse.appendText(stringWithoutmorseAdelete);
+
+                }
+
+            }
+        }catch(Exception ex){
+
+        }
+    }
+
+    public void tradirecte_clearclick(MouseEvent event){
+        this.richtextbox_direct_fr.clear();
+        this.richtextbox_direct_morse.clear();
+    }
+
+
+
+
+
+
+
 
     // endregion
 }
