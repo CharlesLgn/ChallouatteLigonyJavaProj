@@ -1,8 +1,6 @@
 package metier;
 
-import com.sun.org.apache.bcel.internal.generic.ExceptionThrower;
-import com.sun.xml.internal.ws.api.message.ExceptionHasMessage;
-import interfaces.List;
+import com.interfaces.List;
 
 public class ArbreBinaire<T> implements List<T> {
 
@@ -39,6 +37,11 @@ public class ArbreBinaire<T> implements List<T> {
     @Override
     public Object get(int index) {
         throw new NullPointerException("can't be get");
+    }
+
+    @Override
+    public void add(T t, int position) {
+
     }
 
     @Override

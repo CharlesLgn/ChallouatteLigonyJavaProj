@@ -4,6 +4,7 @@
 build
 classes
 .classpath
+out/
 
 # Intellij
 .idea/
