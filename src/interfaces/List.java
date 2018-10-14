@@ -35,7 +35,7 @@ public interface List<T> {
      * @return l'objet à l'index demandé
      * @throws IndexOutOfBoundsException index > TAILLE_MAX
      */
-    T get(int index) ;
+    Object get(int index) ;
 
     /**
      * change la valeur d'un element

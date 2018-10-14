@@ -2,8 +2,6 @@ package metier;
 
 import interfaces.List;
 
-import java.util.LinkedList;
-
 public class ListeChaine<T> implements List<T> {
 
     private transient T donne;
@@ -97,7 +95,7 @@ public class ListeChaine<T> implements List<T> {
     }
 
     @Override
-    public T get(int index) {
+    public Object get(int index) {
         if(index == 0) {
             return donne;
         } else if(suiv != null && index > 0){

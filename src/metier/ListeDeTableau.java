@@ -80,7 +80,7 @@ public class ListeDeTableau<T> implements List<T> {
 
     @SuppressWarnings("unchecked")
     @Override
-    public T get(int index) throws IndexOutOfBoundsException, ClassCastException{
+    public Object get(int index) throws IndexOutOfBoundsException, ClassCastException{
         return (T) element[index];
     }
 
