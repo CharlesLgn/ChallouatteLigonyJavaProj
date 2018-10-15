@@ -16,11 +16,13 @@ public class MainJavaFx extends Application {
         setPrimaryStage(primaryStage);
         prStage = primaryStage;
         //Parent root = FXMLLoader.load(getClass().getResource("../gui/sample.fxml"));
-        Parent root = FXMLLoader.load(getClass().getResource("../gui/main.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../gui/NewUI.fxml"));
         prStage.setTitle("Traducteur");
-        prStage.setScene(new Scene(root, 800, 600));
+        Scene scene = new Scene(root, 1280, 720);
+        prStage.setScene(scene);
         prStage.setResizable(false);
         prStage.getIcons().add(new Image("/resource/Images/icon.png"));
+        scene.getStylesheets().add(getClass().getResource("..//controller/NewUICSS.css").toExternalForm());
         prStage.show();
     }
 

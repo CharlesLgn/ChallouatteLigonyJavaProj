@@ -26,50 +26,40 @@ public class Maincontroller extends Window {
     @FXML
     private Button bt_frtoleet;
 
+    @FXML
+    private Button bt_alltofrclick;
+
     public void bt_frtomorseclick(MouseEvent event) {
+        load("Français vers Morse", "../gui/FrToMorse.fxml");
+    }
+     public void bt_frtoleetclick (MouseEvent event){
+        load("Français vers L33t", "../gui/FrtoLeet.fxml");
+     }
+
+    public void bt_alltofrclick (MouseEvent event){
+        load("Langue vers Français", "../gui/AllToFr.fxml");
+    }
+
+    private void load(String name, String link){
         try {
             Pane pane = new Pane();
-            Scene FrtoMorseScene = new Scene(pane, 800, 600);
-            Stage newWindow = new Stage();
-            newWindow.setResizable(false);
-            newWindow.setScene(FrtoMorseScene);
-            newWindow.initModality(Modality.WINDOW_MODAL);
-            newWindow.initOwner(MainJavaFx.getPrimaryStage());
-            newWindow.getIcons().add(new Image("/resource/Images/icon.png"));
-            newWindow.setTitle("Français vers Morse");
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../gui/FrToMorse.fxml"));
+            Scene FrtoLeet = new Scene(pane, 800, 600);
+            Stage newWindowfrtoleet = new Stage();
+            newWindowfrtoleet.setResizable(false);
+            newWindowfrtoleet.setScene(FrtoLeet);
+            newWindowfrtoleet.initModality(Modality.WINDOW_MODAL);
+            newWindowfrtoleet.initOwner(MainJavaFx.getPrimaryStage());
+            newWindowfrtoleet.getIcons().add(new Image("/resource/Images/icon.png"));
+            newWindowfrtoleet.setTitle(name);
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(link));
             Parent root1 = (Parent) fxmlLoader.load();
-            newWindow.setScene(new Scene(root1));
-            newWindow.show();
+            newWindowfrtoleet.setScene(new Scene(root1));
+            newWindowfrtoleet.show();
 
         } catch (Exception ex) {
             System.out.println(ex);
         }
-
     }
-     public void bt_frtoleetclick (MouseEvent event){
-
-         try {
-             Pane pane = new Pane();
-             Scene FrtoMorseScene = new Scene(pane, 800, 600);
-             Stage newWindow = new Stage();
-             newWindow.setResizable(false);
-             newWindow.setScene(FrtoMorseScene);
-             newWindow.initModality(Modality.WINDOW_MODAL);
-             newWindow.initOwner(MainJavaFx.getPrimaryStage());
-             newWindow.getIcons().add(new Image("/resource/Images/icon.png"));
-             newWindow.setTitle("Français vers Morse");
-             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../gui/FrToMorse.fxml"));
-             Parent root1 = (Parent) fxmlLoader.load();
-             newWindow.setScene(new Scene(root1));
-             newWindow.show();
-
-         } catch (Exception ex) {
-             System.out.println(ex);
-         }
-
-     }
-
 
 
 }
