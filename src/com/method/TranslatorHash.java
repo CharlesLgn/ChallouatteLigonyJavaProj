@@ -9,10 +9,10 @@ public class TranslatorHash {
     private static HashMap getHash(){
         HashMap<String,String,String> hash = new HashMap<>();
         hash.put("a", "morse", ".-");
-        hash.put("b", "morse", ".-");
+        hash.put("b", "morse", "-...");
         hash.put("c", "morse", ".-");
         hash.put("d", "morse", ".-");
-        hash.put("e", "morse", ".-");
+        hash.put("e", "morse", ".");
         hash.put("f", "morse", ".-");
         hash.put("g", "morse", ".-");
         hash.put("h", "morse", ".-");
@@ -78,7 +78,7 @@ public class TranslatorHash {
 
 
     @SuppressWarnings("unchecked")
-    public static String L33tToRomain(String l33t) {
+    public static String l33tToRomain(String l33t) {
         return (String) getHash().getClePrimaire("l33t", l33t);
     }
 
