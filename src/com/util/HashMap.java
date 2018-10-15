@@ -183,19 +183,19 @@ public class HashMap<clePrimaire, cleSecondaire, V> {
 
     /**
      * ajoute une valeur à la liste
-     * @param cP la cle primaire
-     * @param cS la cle secondaire
+     * @param clePrimaire la cle primaire
+     * @param cleSecondaire la cle secondaire
      * @param val la valeur à ajouter
      */
     @SuppressWarnings("unchecked")
-    public void put(clePrimaire cP, cleSecondaire cS, V val){
+    public void put(clePrimaire clePrimaire, cleSecondaire cleSecondaire, V val){
         try {
-            int hash = HashMap.hash(cP);
+            int hash = HashMap.hash(clePrimaire);
             if (this.table[hash] == null){
-                this.table[hash]= new Node<>(hash, cP, cS, val, null);
+                this.table[hash]= new Node<>(hash, clePrimaire, cleSecondaire, val, null);
                 this.taille++;
             } else{
-                this.table[hash].add(cP, cS, val);
+                this.table[hash].add(clePrimaire, cleSecondaire, val);
                 this.taille++;
             }
         } catch (Exception e){
