@@ -53,8 +53,6 @@ public class ControllerMorse extends Window {
      * @throws Exception
      */
      public void btjouersonmorse(MouseEvent event){
-         System.out.println("plop");
-
          str = this.richtextbox_traduction_morse.getText();
 
          final Service<Void> jouerSonService = new Service<Void>() {
@@ -130,7 +128,7 @@ public class ControllerMorse extends Window {
             }
         }
             else{
-            com.method.Alert.alertGenerique();
+            com.method.Alert.alertGenerique("Something here to explain");
         }
     }
 
@@ -160,10 +158,10 @@ public class ControllerMorse extends Window {
                     alert.showAndWait();
                     //endregion
                 } else {
-                    com.method.Alert.alertGenerique();
+                    com.method.Alert.alertGenerique("Something here to explain");
                 }
             } else {
-                com.method.Alert.alertGenerique();
+                com.method.Alert.alertGenerique("Something here to explain");
             }
         }catch (Exception ex){
             System.out.println(ex);
@@ -244,7 +242,7 @@ public class ControllerMorse extends Window {
             }
         }
         else{
-            com.method.Alert.alertGenerique();
+            com.method.Alert.alertGenerique("Something here to explain");
         }
     }
 
@@ -271,10 +269,10 @@ public class ControllerMorse extends Window {
                     alert.showAndWait();
                     //endregion
                 } else {
-                    com.method.Alert.alertGenerique();
+                    com.method.Alert.alertGenerique("Something here to explain");
                 }
             } else {
-                com.method.Alert.alertGenerique();
+                com.method.Alert.alertGenerique("Something here to explain");
             }
         }catch (Exception ex){
             System.out.println(ex);
@@ -386,7 +384,7 @@ public class ControllerMorse extends Window {
             }
         }
         else{
-            com.method.Alert.alertGenerique();
+            com.method.Alert.alertGenerique("Something here to explain");
         }
     }
     public void btexporttransfr(MouseEvent event){

@@ -11,11 +11,11 @@
 <GridPane alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controller.NewUIController">
   <columnConstraints>
     <ColumnConstraints hgrow="SOMETIMES" maxWidth="215.0" minWidth="10.0" percentWidth="20.0" prefWidth="215.0" />
-    <ColumnConstraints hgrow="SOMETIMES" maxWidth="1083.0" minWidth="10.0" prefWidth="1065.0" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="1083.0" minWidth="10.0" percentWidth="80.0" prefWidth="1065.0" />
   </columnConstraints>
   <rowConstraints>
     <RowConstraints minHeight="10.0" percentHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" percentHeight="90.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
       <GridPane GridPane.rowIndex="1">
@@ -31,16 +31,17 @@
         </rowConstraints>
          <children>
             <Button fx:id="btFrToMorse" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#btFrToMorseClick" text="Français vers morse" />
-            <Button fx:id="btFrToLeet" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Français vers L33t" GridPane.rowIndex="1" />
-            <Button fx:id="btMorseToFr" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Morse vers Français" GridPane.rowIndex="2" />
-            <Button fx:id="btTradDirecte" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Traduction directe" GridPane.rowIndex="3" />
+            <Button fx:id="btFrToLeet" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#btFrToLeetClick" text="Français vers L33t" GridPane.rowIndex="1" />
+            <Button fx:id="btMorseToFr" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#btMorseToFrClick" text="Morse vers Français" GridPane.rowIndex="2" />
+            <Button fx:id="btTradDirecte" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#btTradDirecteClick" text="Traduction directe" GridPane.rowIndex="3" />
             <Label fx:id="lbBienvenu" alignment="CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" textAlignment="JUSTIFY" GridPane.rowIndex="4" />
          </children>
       </GridPane>
       <Separator orientation="VERTICAL" prefHeight="200.0" style="-fx-background-color: white;" GridPane.columnIndex="1" />
       <Separator orientation="VERTICAL" prefHeight="200.0" style="-fx-background-color: white;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-      <Pane fx:id="pnZoneTravail" prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      <Pane fx:id="pnZoneTravail" minWidth="-Infinity" GridPane.columnIndex="1" GridPane.rowIndex="1" />
       <Separator prefWidth="200.0" style="-fx-background-color: white;" GridPane.valignment="BOTTOM" />
       <Separator prefWidth="200.0" style="-fx-background-color: white;" GridPane.columnIndex="1" GridPane.valignment="BOTTOM" />
+      <Label fx:id="lbTitre" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
    </children>
 </GridPane>
