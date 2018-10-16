@@ -20,9 +20,7 @@ public class HashMap<clePrimaire, cleSecondaire, V> {
         final int hash;
         final clePrimaire key;
         final cleSecondaire key2;
-
         V value;
-
         Node<clePrimaire, cleSecondaire, V> next;
 
         Node(int hash, clePrimaire key, cleSecondaire key2, V value, Node<clePrimaire, cleSecondaire, V> next) {
