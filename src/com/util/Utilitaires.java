@@ -1,5 +1,10 @@
 package com.util;
 
+
+import javafx.scene.Node;
+import javafx.scene.input.MouseEvent;
+import javafx.stage.Window;
+
 import java.text.Normalizer;
 
 public class Utilitaires {
@@ -8,5 +13,10 @@ public class Utilitaires {
         s = Normalizer.normalize(s, Normalizer.Form.NFD);
         s = s.replaceAll("[\\p{InCombiningDiacriticalMarks}]", "");
         return s;
+    }
+
+    public static Window getScene(MouseEvent event){
+        Node source = (Node) event.getSource();
+        return source.getScene().getWindow();
     }
 }

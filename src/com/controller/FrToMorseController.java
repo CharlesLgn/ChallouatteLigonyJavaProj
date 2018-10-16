@@ -1,6 +1,7 @@
 package com.controller;
 
 import com.method.JouerSon;
+import com.util.Utilitaires;
 import javafx.concurrent.Service;
 import javafx.concurrent.Task;
 import javafx.fxml.FXML;
@@ -50,9 +51,7 @@ public class FrToMorseController {
         fileChooser.getExtensionFilters().add(extFilter);
         fileChooser.getExtensionFilters();
         try {
-            Node source = (Node) event.getSource();
-            Window theStage = source.getScene().getWindow();
-            File file = fileChooser.showOpenDialog(theStage);
+            File file = fileChooser.showOpenDialog(Utilitaires.getScene(event));
             if (file != null) {
                 this.texBoxCheminFrToMorse.setText(file.getAbsolutePath());
             }
@@ -122,9 +121,7 @@ public class FrToMorseController {
             if (this.richTextboxFrToMorse.getText() != null && !this.richTextboxFrToMorse.getText().isEmpty()) {
                 DirectoryChooser directorychooser = new DirectoryChooser();
                 directorychooser.setTitle("Choisissez un répertoire ou exporter votre traduction");
-                Node source = (Node) event.getSource();
-                Window theStage = source.getScene().getWindow();
-                File selectedDirectory = directorychooser.showDialog(theStage);
+                File selectedDirectory = directorychooser.showDialog(Utilitaires.getScene(event));
                 if (selectedDirectory != null) {
                     File fichierexport = new File(selectedDirectory + "\\" + this.textboxExporterFrToMorse.getText() + ".txt");
                     fichierexport.createNewFile();
