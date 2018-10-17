@@ -22,7 +22,7 @@
     <RowConstraints minHeight="10.0" percentHeight="90.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <GridPane style="-fx-background-color: rgb(43,48,51);" GridPane.rowIndex="1">
+      <GridPane style="-fx-background-color: rgb(47,49,54);" GridPane.rowIndex="1">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
         </columnConstraints>
@@ -44,17 +44,15 @@
                </GridPane.margin></Label>
          </children>
       </GridPane>
-      <Separator orientation="VERTICAL" prefHeight="200.0" style="-fx-background-color: white;" GridPane.columnIndex="1" />
-      <Separator orientation="VERTICAL" prefHeight="200.0" style="-fx-background-color: white;" GridPane.columnIndex="1" GridPane.rowIndex="1" />
       <Pane fx:id="pnZoneTravail" minWidth="-Infinity" GridPane.columnIndex="1" GridPane.rowIndex="1" />
       <Separator prefWidth="200.0" style="-fx-background-color: white;" GridPane.valignment="BOTTOM" />
       <Separator prefWidth="200.0" style="-fx-background-color: white;" GridPane.columnIndex="1" GridPane.valignment="BOTTOM" />
-      <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: rgb(36,41,44);" GridPane.columnIndex="1" />
+      <Pane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: rgb(32,34,37);" GridPane.columnIndex="1" />
       <Label fx:id="lbTitre" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
          <font>
             <Font name="Calibri" size="24.0" />
          </font></Label>
-      <GridPane style="-fx-background-color: rgb(36,41,44);;">
+      <GridPane style="-fx-background-color: rgb(32,34,37);">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="123.0" minWidth="10.0" prefWidth="96.0" />
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="197.0" minWidth="10.0" prefWidth="160.0" />

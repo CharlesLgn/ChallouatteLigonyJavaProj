@@ -1,5 +1,6 @@
 package com.controller;
 
+import com.method.TranslatorHash;
 import com.util.Utilitaires;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -71,7 +72,7 @@ public class FrToLeetController {
                 String resmorse = "";
                 while ((ligne=buff.readLine())!=null){
                     for (char lettre:ligne.toCharArray()) {
-                        resmorse = resmorse + romainToL33t(lettre);
+                        resmorse = resmorse + TranslatorHash.romainToL33t(""+lettre);
                     }
                     this.richtextboxLeet.appendText(resmorse);
                 }

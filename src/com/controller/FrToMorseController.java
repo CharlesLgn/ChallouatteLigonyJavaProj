@@ -1,6 +1,7 @@
 package com.controller;
 
 import com.method.JouerSon;
+import com.method.TranslatorHash;
 import com.util.Utilitaires;
 import javafx.concurrent.Service;
 import javafx.concurrent.Task;
@@ -76,7 +77,7 @@ public class FrToMorseController {
                         if(romainToMorse(lettre) != "  "){
                             resmorse = resmorse + romainToMorse(lettre) + " ";
                         }else{
-                            resmorse = resmorse + romainToMorse(lettre);
+                            resmorse = resmorse + TranslatorHash.romainToMorse(""+lettre);
                         }
                     }
                     this.richTextboxFrToMorse.appendText(resmorse.trim());

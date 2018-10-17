@@ -1,5 +1,6 @@
 package com.controller;
 
+import com.method.TranslatorHash;
 import com.util.Utilitaires;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
@@ -74,7 +75,7 @@ public class AllToFrController {
                     for (String item:listeMotsMorse) {
                         String[] lettres = item.split(" ");
                         for(String lettre : lettres){
-                            sb.append(morseToRomain(lettre));
+                            sb.append(TranslatorHash.morseToRomain(lettre));
                         }
                         sb.append(" ");
                     }
