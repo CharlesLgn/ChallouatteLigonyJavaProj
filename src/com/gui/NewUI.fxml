@@ -34,10 +34,10 @@
           <RowConstraints minHeight="10.0" percentHeight="60.0" prefHeight="30.0" vgrow="SOMETIMES" />
         </rowConstraints>
          <children>
-            <Button fx:id="btFrToMorse" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#btFrToMorseClick" stylesheets="@../controller/BoutonsDashBoard.css" text="Français vers morse" />
-            <Button fx:id="btFrToLeet" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#btFrToLeetClick" stylesheets="@../controller/BoutonsDashBoard.css" text="Français vers L33t" GridPane.rowIndex="1" />
-            <Button fx:id="btMorseToFr" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#btMorseToFrClick" stylesheets="@../controller/BoutonsDashBoard.css" text="Morse vers Français" GridPane.rowIndex="2" />
-            <Button fx:id="btTradDirecte" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#btTradDirecteClick" stylesheets="@../controller/BoutonsDashBoard.css" text="Traduction directe" GridPane.rowIndex="3" />
+            <Button fx:id="btFrToMorse" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#btFrToMorseClick" stylesheets="@./css/BoutonsDashBoard.css" text="Français vers morse" />
+            <Button fx:id="btFrToLeet" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#btFrToLeetClick" stylesheets="@./css/BoutonsDashBoard.css" text="Français vers L33t" GridPane.rowIndex="1" />
+            <Button fx:id="btMorseToFr" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#btMorseToFrClick" stylesheets="@./css/BoutonsDashBoard.css" text="Morse vers Français" GridPane.rowIndex="2" />
+            <Button fx:id="btTradDirecte" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onMouseClicked="#btTradDirecteClick" stylesheets="@./css/BoutonsDashBoard.css" text="Traduction directe" GridPane.rowIndex="3" />
             <Label fx:id="lbBienvenu" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" textAlignment="JUSTIFY" GridPane.halignment="CENTER" GridPane.rowIndex="4" GridPane.valignment="BOTTOM">
                <GridPane.margin>
                   <Insets bottom="20.0" />

@@ -42,8 +42,8 @@
                         <Insets left="20.0" right="20.0" />
                      </GridPane.margin>
                   </TextField>
-                  <Button fx:id="btCheminMorse" mnemonicParsing="false" onMouseClicked="#btCheminMorseClick" prefHeight="45.0" prefWidth="200.0" stylesheets="@../controller/Boutons.css" text="Choisir un fichier" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-                  <Button fx:id="btTradFrToMorse" mnemonicParsing="false" onMouseClicked="#btTradFrToMorseClick" prefHeight="45.0" prefWidth="200.0" stylesheets="@../controller/Boutons.css" text="Traduire" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                  <Button fx:id="btCheminMorse" mnemonicParsing="false" onMouseClicked="#btCheminMorseClick" prefHeight="45.0" prefWidth="200.0" stylesheets="@./css/Boutons.css" text="Choisir un fichier" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                  <Button fx:id="btTradFrToMorse" mnemonicParsing="false" onMouseClicked="#btTradFrToMorseClick" prefHeight="45.0" prefWidth="200.0" stylesheets="@./css/Boutons.css" text="Traduire" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                      <GridPane.margin>
                         <Insets right="10.0" />
                      </GridPane.margin></Button>
@@ -68,7 +68,7 @@
                <GridPane.margin>
                   <Insets bottom="70.0" left="20.0" right="10.0" top="70.0" />
                </GridPane.margin></TextArea>
-            <Button fx:id="btJouerSonFrToMorse" mnemonicParsing="false" onMouseClicked="#btJouerSonFrToMorseClick" prefHeight="45.0" prefWidth="200.0" stylesheets="@../controller/Boutons.css" text="Jouer la traduction" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+            <Button fx:id="btJouerSonFrToMorse" mnemonicParsing="false" onMouseClicked="#btJouerSonFrToMorseClick" prefHeight="45.0" prefWidth="200.0" stylesheets="@./css/Boutons.css" text="Jouer la traduction" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                <GridPane.margin>
                   <Insets right="20.0" />
                </GridPane.margin></Button>
@@ -101,10 +101,10 @@
                         <Insets left="20.0" right="20.0" />
                      </GridPane.margin>
                   </TextField>
-                  <Button fx:id="btExporterFrToMorse" mnemonicParsing="false" onMouseClicked="#btExporterFrToMorseClick" prefHeight="45.0" prefWidth="200.0" stylesheets="@../controller/Boutons.css" text="Exporter" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                  <Button fx:id="btExporterFrToMorse" mnemonicParsing="false" onMouseClicked="#btExporterFrToMorseClick" prefHeight="45.0" prefWidth="200.0" stylesheets="@./css/Boutons.css" text="Exporter" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
                </children>
             </GridPane>
-            <Button fx:id="btNouvelleTrad" mnemonicParsing="false" onMouseClicked="#btNouvelleTradClick" prefHeight="45.0" prefWidth="200.0" stylesheets="@../controller/Boutons.css" text="Nouvelle traduction" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
+            <Button fx:id="btNouvelleTrad" mnemonicParsing="false" onMouseClicked="#btNouvelleTradClick" prefHeight="45.0" prefWidth="200.0" stylesheets="@./css/Boutons.css" text="Nouvelle traduction" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
                <GridPane.margin>
                   <Insets bottom="20.0" right="20.0" />
                </GridPane.margin>

@@ -34,8 +34,8 @@
                   <Insets left="20.0" right="20.0" />
                </GridPane.margin>
             </TextField>
-            <Button fx:id="btChoixFichierLeet" mnemonicParsing="false" onMouseClicked="#btChoixFichierLeetClick" prefHeight="45.0" prefWidth="200.0" stylesheets="@../controller/Boutons.css" text="Choisir un fichier" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
-            <Button fx:id="btTradLeet" mnemonicParsing="false" onMouseClicked="#btTradLeetClick" prefHeight="45.0" prefWidth="200.0" stylesheets="@../controller/Boutons.css" text="Traduire" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+            <Button fx:id="btChoixFichierLeet" mnemonicParsing="false" onMouseClicked="#btChoixFichierLeetClick" prefHeight="45.0" prefWidth="200.0" stylesheets="@./css/Boutons.css" text="Choisir un fichier" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+            <Button fx:id="btTradLeet" mnemonicParsing="false" onMouseClicked="#btTradLeetClick" prefHeight="45.0" prefWidth="200.0" stylesheets="@./css/Boutons.css" text="Traduire" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
             <Separator prefWidth="200.0" style="-fx-background-color: rgb(36,41,44);" GridPane.valignment="BOTTOM" />
             <Separator prefWidth="200.0" style="-fx-background-color: rgb(36,41,44);" GridPane.columnIndex="1" GridPane.valignment="BOTTOM" />
             <Separator prefWidth="200.0" style="-fx-background-color: rgb(36,41,44);" GridPane.columnIndex="2" GridPane.valignment="BOTTOM" />
@@ -82,11 +82,11 @@
                         <Insets left="20.0" right="20.0" />
                      </GridPane.margin>
                   </TextField>
-                  <Button fx:id="btExporterLeet" mnemonicParsing="false" onMouseClicked="#btExporterLeetClick" prefHeight="45.0" prefWidth="200.0" stylesheets="@../controller/Boutons.css" text="Exporter" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                  <Button fx:id="btExporterLeet" mnemonicParsing="false" onMouseClicked="#btExporterLeetClick" prefHeight="45.0" prefWidth="200.0" stylesheets="@./css/Boutons.css" text="Exporter" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
                   <Separator prefWidth="200.0" style="-fx-background-color: rgb(36,41,44);" GridPane.valignment="TOP" />
                </children>
             </GridPane>
-            <Button fx:id="btNouvelleTradLeet" mnemonicParsing="false" onMouseClicked="#btNouvelleTradLeetClick" prefHeight="45.0" prefWidth="200.0" stylesheets="@../controller/Boutons.css" text="Nouvelle traduction" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
+            <Button fx:id="btNouvelleTradLeet" mnemonicParsing="false" onMouseClicked="#btNouvelleTradLeetClick" prefHeight="45.0" prefWidth="200.0" stylesheets="@./css/Boutons.css" text="Nouvelle traduction" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
                <GridPane.margin>
                   <Insets bottom="30.0" right="20.0" />
                </GridPane.margin>

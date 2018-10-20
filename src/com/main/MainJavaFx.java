@@ -22,7 +22,7 @@ public class MainJavaFx extends Application {
         prStage.setScene(scene);
         prStage.setResizable(false);
         prStage.getIcons().add(new Image("/resource/Images/icon.png"));
-        scene.getStylesheets().add(getClass().getResource("..//controller/NewUICSS.css").toExternalForm());
+        scene.getStylesheets().add(getClass().getResource("..//gui/css/NewUICSS.css").toExternalForm());
         prStage.show();
     }
 

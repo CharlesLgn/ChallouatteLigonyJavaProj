@@ -32,7 +32,7 @@ public class Maincontroller extends Window {
     public void bt_frtomorseclick(MouseEvent event) {
         load("Français vers Morse", "../gui/FrToMorse.fxml");
     }
-     public void bt_frtoleetclick (MouseEvent event){
+    public void bt_frtoleetclick (MouseEvent event){
         load("Français vers L33t", "../gui/FrtoLeet.fxml");
      }
 
