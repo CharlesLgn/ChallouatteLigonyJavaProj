@@ -3,6 +3,7 @@
 }
 
 .text-field, .text-area .content {
+    -fx-border-color:     rgb(72,75,81) ;
     -fx-background-color: rgb(72,75,81);
 }
 
