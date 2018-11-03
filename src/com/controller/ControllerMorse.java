@@ -133,7 +133,7 @@ public class ControllerMorse extends Window {
     }
 
     /**
-     * Gère le bouton de l'export du texte traduit dans une fichier
+     * Gère le bouton de l'EXPORT du texte traduit dans une fichier
      * @param event
      */
     public void btexportmorse(MouseEvent event){

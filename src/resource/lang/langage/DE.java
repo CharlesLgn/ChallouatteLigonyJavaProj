@@ -5,33 +5,36 @@ import resource.lang.Lang;
 public class DE extends Lang {
 
     @Override
-    public String[] getJourSemaine() {
-        String sunday    = "Sontag";
-        String monday    = "Montag";
-        String tuesday   = "Dienstag";
-        String wednesay  = "Mitwoch";
-        String thursday  = "Donnerstag";
-        String fryday    = "Freitag";
-        String saturday  = "Samstag";
-        return new String[]{sunday, monday, tuesday, wednesay, thursday, fryday, saturday};
+    protected String[] getBoutonName() {
+        String chooseFile       = "Datei Wählen";
+        String translate        = "Übersetzen";
+        String playTranslate    = "Übersetzung abspielen";
+        String export           = "Export";
+        String newTranslate     = "Neu Übersetzung";
+        String restart          = "Wieder beginnen";
+
+        return new String[] {chooseFile, translate, playTranslate,
+                export, newTranslate, restart};
     }
 
     @Override
-    public String[] getMois() {
-        String january   = "Januar";
-        String february  = "Februar";
-        String march     = "März";
-        String april     = "April";
-        String may       = "May";
-        String june      = "Juny";
-        String july      = "July";
-        String august    = "August";
-        String september = "September";
-        String october   = "Oktober";
-        String november  = "November";
-        String december  = "December";
+    protected String[] getTitleName() {
+        String languageToMorse  = "Deutsch zu Morse";
+        String languageToL33t   = "Deutsch zu L33t";
+        String morseToLanguage  = "Morse zu Deutsch";
+        String directTranslate  = "Live-Übersetzung";
 
-        return new String[] {january, february, march, april, may,
-                june, july, august, september, october, november, december};
+        return new String[] {languageToMorse, languageToL33t,
+                morseToLanguage, directTranslate};
+    }
+
+    @Override
+    protected String[] getLabel() {
+        String writeRoman  = "Schreiben Sie in Deutsch";
+        String writeMorse  = "Schreiben Sie in Morse";
+        String welcome     = "Wilkommen";
+        String title       = "Übersetzer";
+
+        return new String[] {writeRoman, writeMorse, welcome, title};
     }
 }

@@ -1,37 +1,40 @@
 package resource.lang.langage;
 
-import lang.Lang;
+import resource.lang.Lang;
 
 public class RU extends Lang {
 
     @Override
-    public String[] getJourSemaine() {
-        String sunday    = "воскресенье";
-        String monday    = "понедельник";
-        String tuesday   = "вторник";
-        String wednesay  = "среда";
-        String thursday  = "четверг";
-        String fryday    = "пятница";
-        String saturday  = "суббота";
-        return new String[]{sunday, monday, tuesday, wednesay, thursday, fryday, saturday};
+    protected String[] getBoutonName() {
+        String chooseFile       = "Выберите файл";
+        String translate        = "переводить";
+        String playTranslate    = "осуществлять перевод";
+        String export           = "экспорт";
+        String newTranslate     = "Новый перевод";
+        String restart          = "начать заново";
+
+        return new String[] {chooseFile, translate, playTranslate,
+                export, newTranslate, restart};
     }
 
     @Override
-    public String[] getMois() {
-        String january   = "январь";
-        String february  = "февраль";
-        String march     = "Марс";
-        String april     = "апреля";
-        String may       = "может";
-        String june      = "июнь";
-        String july      = "июль";
-        String august    = "августейший";
-        String september = "сентябрь";
-        String october   = "октября";
-        String november  = "ноябрь";
-        String december  = "декабрь";
+    protected String[] getTitleName() {
+        String languageToMorse  = "Русский на Морзе";
+        String languageToL33t   = "Русский на L33t";
+        String morseToLanguage  = "Морзе на  Русский";
+        String directTranslate  = "Прямой перевод";
 
-        return new String[] {january, february, march, april, may,
-                june, july, august, september, october, november, december};
+        return new String[] {languageToMorse, languageToL33t,
+                morseToLanguage, directTranslate};
+    }
+
+    @Override
+    protected String[] getLabel() {
+        String writeRoman  = "Написать на русском";
+        String writeMorse  = "Написать на Морзе";
+        String welcome     = "добро пожаловать";
+        String title       = "переводчик";
+
+        return new String[] {writeRoman, writeMorse, welcome, title};
     }
 }

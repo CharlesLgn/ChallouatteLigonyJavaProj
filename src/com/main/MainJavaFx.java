@@ -6,13 +6,24 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import resource.lang.Lang;
+import resource.lang.langage.EN;
+import resource.lang.langage.FR;
 
 public class MainJavaFx extends Application {
 
+    private static Lang langue;
+
     private static Stage prStage;
+
+    public static void main(String[] args) {
+        launch(args);
+    }
 
     @Override
     public void start(Stage primaryStage) throws Exception{
+        langue = new EN();
+
         setPrimaryStage(primaryStage);
         prStage = primaryStage;
         //Parent root = FXMLLoader.load(getClass().getResource("../gui/sample.fxml"));
@@ -34,8 +45,12 @@ public class MainJavaFx extends Application {
         MainJavaFx.prStage = prStage;
     }
 
-    public static void main(String[] args) {
-        launch(args);
+    public static Lang getLangue() {
+        return langue;
+    }
+
+    public static void setLangue(Lang langue) {
+        MainJavaFx.langue = langue;
     }
 
 }

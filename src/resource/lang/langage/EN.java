@@ -1,37 +1,40 @@
 package resource.lang.langage;
 
-import lang.Lang;
+import resource.lang.Lang;
 
 public class EN extends Lang {
 
     @Override
-    public String[] getJourSemaine() {
-        String sunday    = "Sunday";
-        String monday    = "Monday";
-        String tuesday   = "Tuesday";
-        String wednesay  = "Wednsday";
-        String thursday  = "Thursday";
-        String fryday    = "Fryday";
-        String saturday  = "Saturday";
-        return new String[]{sunday, monday, tuesday, wednesay, thursday, fryday, saturday};
+    protected String[] getBoutonName() {
+        String chooseFile       = "Choose a file";
+        String translate        = "Translate";
+        String playTranslate    = "Play translation";
+        String export           = "Export";
+        String newTranslate     = "New translation";
+        String restart          = "Restart";
+
+        return new String[] {chooseFile, translate, playTranslate,
+                export, newTranslate, restart};
     }
 
     @Override
-    public String[] getMois() {
-        String january   = "January";
-        String february  = "February";
-        String march     = "March";
-        String april     = "April";
-        String may       = "May";
-        String june      = "June";
-        String july      = "July";
-        String august    = "August";
-        String september = "September";
-        String october   = "October";
-        String november  = "November";
-        String december  = "December";
+    protected String[] getTitleName() {
+        String languageToMorse  = "English to Morse";
+        String languageToL33t   = "English to L33t";
+        String morseToLanguage  = "Morse to English";
+        String directTranslate  = "Live Translation";
 
-        return new String[] {january, february, march, april, may,
-                june, july, august, september, october, november, december};
+        return new String[] {languageToMorse, languageToL33t,
+                morseToLanguage, directTranslate};
+    }
+
+    @Override
+    protected String[] getLabel() {
+        String writeRoman  = "Write in English";
+        String writeMorse  = "Write in Morse";
+        String welcome     = "Welcome";
+        String title       = "Translator";
+
+        return new String[] {writeRoman, writeMorse, welcome, title};
     }
 }

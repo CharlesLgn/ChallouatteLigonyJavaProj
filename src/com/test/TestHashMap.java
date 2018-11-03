@@ -4,8 +4,6 @@ import com.method.TranslatorHash;
 import org.junit.Assert;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
 public class TestHashMap {
     @Test
     public void romainToL33t_A(){

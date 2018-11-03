@@ -1,17 +1,34 @@
 package com.controller;
 
+import com.main.MainJavaFx;
+import javafx.animation.AnimationTimer;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import resource.lang.Lang;
+import resource.lang.Translate;
+import resource.lang.typetrad.ButonName;
+import resource.lang.typetrad.LabelName;
+
+import java.net.URL;
+import java.util.ResourceBundle;
 
 import static com.method.TranslatorListe.morseToRomain;
 import static com.method.TranslatorListe.romainToMorse;
 import static com.util.Utilitaires.removeAccents;
 
-public class tradDirecteController {
+public class tradDirecteController implements Initializable {
+
+    @FXML
+    private Label lblFr;
+
+    @FXML
+    private Label lblMorse;
 
     @FXML
     private TextArea richtextbox_direct_fr;
@@ -94,4 +111,21 @@ public class tradDirecteController {
     }
 
 
+    private void translate(){
+        Lang lang = MainJavaFx.getLangue();
+
+        lblFr.setText(Translate.haveIt(LabelName.WRITE_ROMAN, lang.label));
+        lblMorse.setText(Translate.haveIt(LabelName.WRITE_MORSE, lang.label));
+        tradDirecteRecommencer.setText(Translate.haveIt(ButonName.RESTART, lang.butonName));
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        new AnimationTimer() {
+            @Override
+            public void handle(long now) {
+                translate();
+            }
+        }.start();
+    }
 }
