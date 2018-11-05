@@ -1,5 +1,6 @@
 package com.controller;
 
+import com.method.TranslatorHash;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
@@ -12,6 +13,10 @@ import static com.method.TranslatorListe.romainToMorse;
 import static com.util.Utilitaires.removeAccents;
 
 public class tradDirecteController {
+
+    private char[] table = new char[1 << 15];
+    private char[] tablesuppr = new char[1 << 15];
+
 
     @FXML
     private TextArea richtextbox_direct_fr;
@@ -37,7 +42,7 @@ public class tradDirecteController {
                 //retire le dernier char
                 richtextbox_direct_morse.setText("" + richtextbox_direct_morse.getText().substring(0, richtextbox_direct_morse.getText().length() - 1));
                 richtextbox_direct_morse.appendText(morse);
-                richtextbox_direct_fr.appendText(String.valueOf(morseToRomain(morse)));
+                richtextbox_direct_fr.appendText(String.valueOf(TranslatorHash.morseToRomain(morse)));
             }else{
                 if(!event.getText().equals("")){
                     richtextbox_direct_morse.setText("" + richtextbox_direct_morse.getText().substring(0, richtextbox_direct_morse.getText().length() - 1));
@@ -56,9 +61,11 @@ public class tradDirecteController {
             carac = removeAccents(carac);
             richtextbox_direct_fr.setText("" + richtextbox_direct_fr.getText().substring(0, richtextbox_direct_fr.getText().length() - 1));
             richtextbox_direct_fr.appendText(carac);
+            this.table = this.richtextbox_direct_fr.getText().toCharArray();
+            char lastchar = richtextbox_direct_fr.getText().toCharArray()[richtextbox_direct_fr.getText().toCharArray().length - 1];
             if(carac.matches("[A-z0-9 :;!?()&']")) {
-                char lastchar = richtextbox_direct_fr.getText().toCharArray()[richtextbox_direct_fr.getText().toCharArray().length - 1];
-                String morse = romainToMorse(lastchar);
+                // char lastchar = richtextbox_direct_fr.getText().toCharArray()[richtextbox_direct_fr.getText().toCharArray().length - 1];
+                String morse = TranslatorHash.romainToMorse("" + lastchar);
                 richtextbox_direct_morse.appendText(morse);
             }
             else{
@@ -70,13 +77,18 @@ public class tradDirecteController {
                 // Utiliser un last indexof
                 String code = event.getCode().getName();
                 if(code == "Backspace"){
-                    String plop = this.richtextbox_direct_fr.getText();
-                    char last = plop.charAt(this.richtextbox_direct_fr.getText().length() - 1);
-                    String morseAchercher = romainToMorse(last);
+           /*         String plop = this.richtextbox_direct_fr.getText();
+                    String morseAchercher = romainToMorse(lastchar);
                     int morseAdelete = this.richtextbox_direct_morse.getText().lastIndexOf(morseAchercher);
                     String stringWithoutmorseAdelete = this.richtextbox_direct_morse.getText().substring(0,morseAdelete);
                     this.richtextbox_direct_morse.clear();
-                    this.richtextbox_direct_morse.appendText(stringWithoutmorseAdelete);
+                    this.richtextbox_direct_morse.appendText(stringWithoutmorseAdelete);*/
+
+                    tablesuppr = this.richtextbox_direct_fr.getText().toCharArray();
+                    if(table.length == tablesuppr.length - 1){
+                        
+                    }
+
 
                 }
 
