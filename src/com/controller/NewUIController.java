@@ -8,12 +8,17 @@ import com.main.MainJavaFx;
 import javafx.animation.AnimationTimer;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 
@@ -145,6 +150,22 @@ public class NewUIController {
 
     public void toEn() {
         MainJavaFx.setLangue(new EN());
+    }
+
+    public void about() {
+        try {
+            Stage st = new Stage();
+            st.initModality(Modality.APPLICATION_MODAL);
+            st.setTitle("à propos");
+            Parent root = FXMLLoader.load(getClass().getResource("../gui/propos.fxml"));
+            Scene scene = new Scene(root, 800, 600);
+            st.setScene(scene);
+            st.setResizable(false);
+            st.getIcons().add(new Image("/resource/Images/icon.png"));
+            st.show();
+        }catch(Exception ex){
+            System.out.println(ex);
+        }
     }
 }
 

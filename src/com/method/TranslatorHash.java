@@ -135,7 +135,6 @@ public class TranslatorHash {
         return (String) getHash().getVal(rom, "morse");
     }
 
-
     @SuppressWarnings("unchecked")
     public static String l33tToRomain(String l33t) {
         return (String) getHash().getClePrimaire("l33t", l33t);
