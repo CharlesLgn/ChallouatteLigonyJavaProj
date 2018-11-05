@@ -26,7 +26,6 @@ public class MainJavaFx extends Application {
 
         setPrimaryStage(primaryStage);
         prStage = primaryStage;
-        //Parent root = FXMLLoader.load(getClass().getResource("../gui/sample.fxml"));
         Parent root = FXMLLoader.load(getClass().getResource("../gui/NewUI.fxml"));
         prStage.setTitle("Traducteur");
         Scene scene = new Scene(root, 1280, 720);

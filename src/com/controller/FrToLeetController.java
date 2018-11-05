@@ -93,7 +93,7 @@ public class FrToLeetController implements Initializable {
                 String ligne;
                 String resmorse = "";
                 while ((ligne=buff.readLine())!=null){
-                    for (char lettre:ligne.toCharArray()) {
+                    for (char lettre:ligne.toLowerCase().toCharArray()) {
                         resmorse = resmorse + TranslatorHash.romainToL33t(""+lettre);
                     }
                     this.richtextboxLeet.appendText(resmorse);

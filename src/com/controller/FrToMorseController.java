@@ -80,8 +80,8 @@ public class FrToMorseController implements Initializable {
                 BufferedReader buff=new BufferedReader(lecture);
                 String ligne;
                 String resmorse = "";
-                while ((ligne=buff.readLine())!=null){
-                    for (char lettre:ligne.toCharArray()) {
+                while ((ligne = buff.readLine())!=null){
+                    for (char lettre:ligne.toLowerCase().toCharArray()) {
                         String ajoutlettre = null;
                         if(romainToMorse(lettre) != "  "){
                             resmorse = resmorse + romainToMorse(lettre) + " ";

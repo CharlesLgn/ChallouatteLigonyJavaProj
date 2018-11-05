@@ -2,7 +2,7 @@
     -fx-text-fill: white;
 }
 
-.text-field, .text-area .content, .menu-item{
+.text-field, .text-area .content {
     -fx-border-color:     rgb(72,75,81) ;
     -fx-background-color: rgb(72,75,81);
 }
@@ -13,9 +13,4 @@
 
 .text-input{
     -fx-text-fill: white;
-}
-
-.menu-bar, .menu{
-    -fx-background-color: rgb(32,34,37);
-    -fx-border-color:     rgb(32,34,37) ;
 }

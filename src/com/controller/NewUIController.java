@@ -1,5 +1,9 @@
 package com.controller;
 
+import com.util.Utilitaires;
+import javafx.animation.FadeTransition;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import com.main.MainJavaFx;
 import javafx.animation.AnimationTimer;
 import javafx.fxml.FXML;
@@ -8,6 +12,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
+import javafx.stage.Stage;
+import javafx.util.Duration;
+
+import java.lang.invoke.LambdaConversionException;
+import java.util.SimpleTimeZone;
 import resource.lang.Lang;
 import resource.lang.Translate;
 import resource.lang.langage.DE;
@@ -56,41 +67,59 @@ public class NewUIController {
     }
 
 
-    public void btFrToMorseClick(MouseEvent event){
+    public void btFrToMorseClick(MouseEvent event) {
+        this.lbTitre.setText("Français vers Morse");
+        fadeout(this.pnZoneTravail);
         titre = TitleName.LANGUAGE_TO_MORSE;
-        loadFxml(event,"..//gui/FrToMorse.fxml");
+        loadFxml(event, "..//gui/FrToMorse.fxml");
     }
 
-    public void btFrToLeetClick(MouseEvent event){
+    public void btFrToLeetClick(MouseEvent event) {
+        this.lbTitre.setText("Français vers L33t");
+        fadeout(this.pnZoneTravail);
         titre = TitleName.LANGUAGE_TO_L33T;
         loadFxml(event, "..//gui/FrToLeet.fxml");
     }
 
-    public void btMorseToFrClick(MouseEvent event){
+    public void btMorseToFrClick(MouseEvent event) {
+        this.lbTitre.setText("Morse vers français");
+        fadeout(this.pnZoneTravail);
         titre = TitleName.MORSE_TO_LANGUAGE;
         loadFxml(event, "..//gui/AllToFr.fxml");
     }
 
-    public void btTradDirecteClick(MouseEvent event){
+    public void btTradDirecteClick(MouseEvent event) {
+        this.lbTitre.setText("Traduction directe");
+        fadeout(this.pnZoneTravail);
         titre = TitleName.DIRECT_TRANSLATE;
         loadFxml(event, "..//gui/tradDirecte.fxml");
     }
 
 
-    public void loadFxml (MouseEvent event, String form)  {
+    public void loadFxml(MouseEvent event, String form) {
         try {
-            this.pnZoneTravail.getChildren().clear();
+            pnZoneTravail.getChildren().clear();
             Pane newLoadedPane = FXMLLoader.load(getClass().getResource(form));
             this.pnZoneTravail.getChildren().add(newLoadedPane);
-        }catch(Exception ex){
+        } catch (Exception ex) {
             System.out.println(ex);
         }
     }
 
-    private void translate(){
+    public void fadeout(Pane pane) {
+        FadeTransition fadeTransition = new FadeTransition(Duration.millis(250), pane);
+        fadeTransition.setNode(pane);
+        fadeTransition.setFromValue(1);
+        fadeTransition.setToValue(0);
+        fadeTransition.setCycleCount(2);
+        fadeTransition.setAutoReverse(true);
+        fadeTransition.play();
+    }
+
+    private void translate() {
         Lang lang = MainJavaFx.getLangue();
 
-        if (titre != -1){
+        if (titre != -1) {
             lbTitre.setText(Translate.haveIt(titre, lang.titleName));
         }
         btFrToMorse.setText(Translate.haveIt(TitleName.LANGUAGE_TO_MORSE, lang.titleName));
@@ -102,19 +131,20 @@ public class NewUIController {
         lblTranslate.setText(Translate.haveIt(LabelName.TITLE, lang.label));
     }
 
-    public void toFr()  {
+    public void toFr() {
         MainJavaFx.setLangue(new FR());
     }
 
-    public void toDe()  {
+    public void toDe() {
         MainJavaFx.setLangue(new DE());
     }
 
-    public void toRu()  {
+    public void toRu() {
         MainJavaFx.setLangue(new RU());
     }
 
-    public void toEn()  {
+    public void toEn() {
         MainJavaFx.setLangue(new EN());
     }
 }
+
