@@ -40,19 +40,19 @@ public class DE extends Lang {
 
     @Override
     protected String[] getPopUp() {
-        String chooseFileTrad  = "Choisissez un fichier texte";
-        String chooseFileExport= "Choisissez un répertoire ou exporter votre traduction";
+        String chooseFileTrad  = "Wählen Sie ein Datei";
+        String chooseFileExport= "Wählen Sie ein Rekord, wo zu exportieren";
 
 
 
-        String popUpSuccesTittle    = "Succès";
+        String popUpSuccesTittle    = "Erfolg";
         String popUpSuccesName      = "Export";
-        String popUpSuccesDesc      = "La traduction a été exportée";
+        String popUpSuccesDesc      = "Die Übersetzung ist exportieren";
 
-        String popUpErrorTittle     = "Erreur";
-        String popUpErrorName       = "Chemin du fichier";
-        String popUpErrorDescTrad   = "Sélectionnez dans un premier temps un fichier texte à traduire";
-        String popUpErrorDescExport = "Vérifiez qu'un traduction a été effectuée";
+        String popUpErrorTittle     = "Fehler";
+        String popUpErrorName       = "Dateipfad";
+        String popUpErrorDescTrad   = "Erst Wählen Sie die Datei";
+        String popUpErrorDescExport = "Überprüfen Sie, dass ein übersetzung gemacht wird";
 
         return new String[] {chooseFileTrad, chooseFileExport, popUpSuccesTittle, popUpSuccesName,
                 popUpSuccesDesc, popUpErrorTittle, popUpErrorName, popUpErrorDescTrad, popUpErrorDescExport};

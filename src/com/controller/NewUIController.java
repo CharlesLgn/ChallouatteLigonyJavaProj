@@ -52,9 +52,6 @@ public class NewUIController {
     private Button btTradDirecte;
 
     @FXML
-    Pane secPane;
-
-    @FXML
     Pane pnZoneTravail;
 
     public void initialize() {
@@ -108,17 +105,17 @@ public class NewUIController {
     }
 
 
-    public void loadFxml(MouseEvent event, String form) {
+    private void loadFxml(MouseEvent event, String form) {
         try {
             pnZoneTravail.getChildren().clear();
             Pane newLoadedPane = FXMLLoader.load(getClass().getResource(form));
             this.pnZoneTravail.getChildren().add(newLoadedPane);
         } catch (Exception ex) {
-            System.out.println(ex);
+            System.err.println(ex);
         }
     }
 
-    public void fadeout(Pane pane) {
+    private void fadeout(Pane pane) {
         FadeTransition fadeTransition = new FadeTransition(Duration.millis(250), pane);
         fadeTransition.setNode(pane);
         fadeTransition.setFromValue(1);
