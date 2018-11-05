@@ -58,12 +58,25 @@ public class NewUIController {
     Pane pnZoneTravail;
 
     public void initialize() {
+        String lan = System.getProperty("user.language");
+        if(lan.equalsIgnoreCase("fr")){
+            MainJavaFx.setLangue(new FR());
+        } else if (lan.equalsIgnoreCase("de")){
+            MainJavaFx.setLangue(new DE());
+        } else if (lan.equalsIgnoreCase("ru")) {
+            MainJavaFx.setLangue(new RU());
+        } else {
+            MainJavaFx.setLangue(new EN());
+        }
+            System.out.println(System.getProperty("user.language"));
         new AnimationTimer() {
             @Override
             public void handle(long now) {
                 translate();
             }
         }.start();
+
+
     }
 
 
