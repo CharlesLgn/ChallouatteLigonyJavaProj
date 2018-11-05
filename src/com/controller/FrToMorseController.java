@@ -20,6 +20,7 @@ import javafx.stage.*;
 import resource.lang.Lang;
 import resource.lang.Translate;
 import resource.lang.typetrad.ButonName;
+import resource.lang.typetrad.PopUpName;
 
 import java.io.*;
 import java.net.URL;
@@ -55,7 +56,7 @@ public class FrToMorseController implements Initializable {
 
     public void btCheminMorseClick (MouseEvent event){
         FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle("Choisissez un fichier texte");
+        fileChooser.setTitle(Translate.haveIt(PopUpName.CHOOSE_FILE_TRAD, MainJavaFx.getLangue().popUp));
         FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("TXT files (*.txt)", "*.txt");
         fileChooser.getExtensionFilters().add(extFilter);
         fileChooser.getExtensionFilters();
@@ -97,7 +98,7 @@ public class FrToMorseController implements Initializable {
             }
         }
         else{
-            com.method.Alert.alertGenerique("Sélectionnez dans un premier temps un fichier texte à traduire");
+            com.method.Alert.alertGenerique(Translate.haveIt(PopUpName.POP_UP_ERROR_DESC_EXPORT, MainJavaFx.getLangue().popUp), MainJavaFx.getLangue());
         }
     }
 
@@ -139,18 +140,18 @@ public class FrToMorseController implements Initializable {
                     fichierexportwrite.close();
                     //region messagebox
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setTitle("Succès");
+                    alert.setTitle(Translate.haveIt(PopUpName.POP_UP_SUCCES_TITTLE, MainJavaFx.getLangue().popUp));
                     alert.initStyle(StageStyle.DECORATED);
-                    alert.setHeaderText("Export");
-                    alert.setContentText("La traduction a été exportée");
+                    alert.setHeaderText(Translate.haveIt(PopUpName.POP_UP_SUCCES_NAME, MainJavaFx.getLangue().popUp));
+                    alert.setContentText(Translate.haveIt(PopUpName.POP_UP_SUCCES_DESC, MainJavaFx.getLangue().popUp));
                     ((Stage)alert.getDialogPane().getScene().getWindow()).getIcons().add(new Image("/resource/Images/icon.png"));
                     alert.showAndWait();
                     //endregion
                 } else {
-                    com.method.Alert.alertGenerique("Sélectionnez un fichier texte valide");
+                    com.method.Alert.alertGenerique(Translate.haveIt(PopUpName.POP_UP_ERROR_DESC_EXPORT, MainJavaFx.getLangue().popUp), MainJavaFx.getLangue());
                 }
             } else {
-                com.method.Alert.alertGenerique("Vérifiez qu'un traduction a été effectuée");
+                com.method.Alert.alertGenerique(Translate.haveIt(PopUpName.POP_UP_ERROR_DESC_EXPORT, MainJavaFx.getLangue().popUp), MainJavaFx.getLangue());
             }
         }catch (Exception ex){
             System.out.println(ex);

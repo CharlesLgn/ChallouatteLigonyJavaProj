@@ -21,6 +21,7 @@ import resource.lang.Lang;
 import resource.lang.typetrad.ButonName;
 import resource.lang.Translate;
 import resource.lang.typetrad.LabelName;
+import resource.lang.typetrad.PopUpName;
 import resource.lang.typetrad.TitleName;
 
 import java.io.*;
@@ -67,7 +68,7 @@ public class FrToLeetController implements Initializable {
 
     public void btChoixFichierLeetClick(MouseEvent event){
         FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle("Choisissez un fichier texte");
+        fileChooser.setTitle(Translate.haveIt(PopUpName.CHOOSE_FILE_TRAD, MainJavaFx.getLangue().popUp));
         FileChooser.ExtensionFilter extFilter = new FileChooser.ExtensionFilter("TXT files (*.txt)", "*.txt");
         fileChooser.getExtensionFilters().add(extFilter);
         fileChooser.getExtensionFilters();
@@ -104,7 +105,7 @@ public class FrToLeetController implements Initializable {
             }
         }
         else{
-            com.method.Alert.alertGenerique("Vérifiez qu'un fichier a été sélectionné");
+            com.method.Alert.alertGenerique(Translate.haveIt(PopUpName.POP_UP_ERROR_DESC_TRAD, MainJavaFx.getLangue().popUp), MainJavaFx.getLangue());
         }
     }
 
@@ -112,7 +113,7 @@ public class FrToLeetController implements Initializable {
         try {
             if (this.richtextboxLeet.getText() != null && !this.richtextboxLeet.getText().isEmpty()) {
                 DirectoryChooser directorychooser = new DirectoryChooser();
-                directorychooser.setTitle("Choisissez un répertoire ou exporter votre traduction");
+                directorychooser.setTitle(Translate.haveIt(PopUpName.CHOOSE_FILE_EXPORT, MainJavaFx.getLangue().popUp));
                 File selectedDirectory = directorychooser.showDialog(Utilitaires.getScene(event));
                 if (selectedDirectory != null) {
                     File fichierexport = new File(selectedDirectory + "\\" + this.textboxExportLeet.getText() + ".txt");
@@ -122,18 +123,18 @@ public class FrToLeetController implements Initializable {
                     fichierexportwrite.close();
                     //region messagebox
                     Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                    alert.setTitle("Succès");
+                    alert.setTitle(Translate.haveIt(PopUpName.POP_UP_SUCCES_TITTLE, MainJavaFx.getLangue().popUp));
                     alert.initStyle(StageStyle.DECORATED);
-                    alert.setHeaderText("Export");
-                    alert.setContentText("La traduction a été exportée");
+                    alert.setHeaderText(Translate.haveIt(PopUpName.POP_UP_SUCCES_NAME, MainJavaFx.getLangue().popUp));
+                    alert.setContentText(Translate.haveIt(PopUpName.POP_UP_SUCCES_DESC, MainJavaFx.getLangue().popUp));
                     ((Stage)alert.getDialogPane().getScene().getWindow()).getIcons().add(new Image("/resource/Images/icon.png"));
                     alert.showAndWait();
                     //endregion
                 } else {
-                    com.method.Alert.alertGenerique("Vérifiez que vous avez bien sélectionné un fichier");
+                    com.method.Alert.alertGenerique(Translate.haveIt(PopUpName.POP_UP_ERROR_DESC_EXPORT, MainJavaFx.getLangue().popUp), MainJavaFx.getLangue());
                 }
             } else {
-                com.method.Alert.alertGenerique("Vérifiez qu'une traduction a bien été sélectionné");
+                com.method.Alert.alertGenerique(Translate.haveIt(PopUpName.POP_UP_ERROR_DESC_EXPORT, MainJavaFx.getLangue().popUp), MainJavaFx.getLangue());
             }
         }catch (Exception ex){
             System.out.println(ex);

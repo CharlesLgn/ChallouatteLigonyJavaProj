@@ -37,4 +37,24 @@ public class EN extends Lang {
 
         return new String[] {writeRoman, writeMorse, welcome, title};
     }
+
+    @Override
+    protected String[] getPopUp() {
+        String chooseFileTrad  = "Choisissez un fichier texte";
+        String chooseFileExport= "Choisissez un répertoire ou exporter votre traduction";
+
+
+
+        String popUpSuccesTittle    = "Succès";
+        String popUpSuccesName      = "Export";
+        String popUpSuccesDesc      = "La traduction a été exportée";
+
+        String popUpErrorTittle     = "Erreur";
+        String popUpErrorName       = "Chemin du fichier";
+        String popUpErrorDescTrad   = "Sélectionnez dans un premier temps un fichier texte à traduire";
+        String popUpErrorDescExport = "Vérifiez qu'un traduction a été effectuée";
+
+        return new String[] {chooseFileTrad, chooseFileExport, popUpSuccesTittle, popUpSuccesName,
+                popUpSuccesDesc, popUpErrorTittle, popUpErrorName, popUpErrorDescTrad, popUpErrorDescExport};
+    }
 }
