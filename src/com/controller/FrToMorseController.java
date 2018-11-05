@@ -1,11 +1,14 @@
 package com.controller;
 
+import com.main.MainJavaFx;
 import com.method.JouerSon;
 import com.method.TranslatorHash;
 import com.util.Utilitaires;
+import javafx.animation.AnimationTimer;
 import javafx.concurrent.Service;
 import javafx.concurrent.Task;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
@@ -14,12 +17,17 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.*;
+import resource.lang.Lang;
+import resource.lang.Translate;
+import resource.lang.typetrad.ButonName;
 
 import java.io.*;
+import java.net.URL;
+import java.util.ResourceBundle;
 
 import static com.method.TranslatorListe.romainToMorse;
 
-public class FrToMorseController {
+public class FrToMorseController implements Initializable {
 
     @FXML
     Button btCheminMorse;
@@ -71,8 +79,8 @@ public class FrToMorseController {
                 BufferedReader buff=new BufferedReader(lecture);
                 String ligne;
                 String resmorse = "";
-                while ((ligne=buff.readLine())!=null){
-                    for (char lettre:ligne.toCharArray()) {
+                while ((ligne = buff.readLine())!=null){
+                    for (char lettre:ligne.toLowerCase().toCharArray()) {
                         String ajoutlettre = null;
                         if(romainToMorse(lettre) != "  "){
                             resmorse = resmorse + romainToMorse(lettre) + " ";
@@ -155,5 +163,25 @@ public class FrToMorseController {
         this.textboxExporterFrToMorse.clear();
         this.btTradFrToMorse.setDisable(false);
         this.btCheminMorse.setDisable(false);
+    }
+
+    private void translate(){
+        Lang lang = MainJavaFx.getLangue();
+
+        btCheminMorse.setText(Translate.haveIt(ButonName.CHOOSE_FILE, lang.butonName));
+        btTradFrToMorse.setText(Translate.haveIt(ButonName.TRANSLATE, lang.butonName));
+        btJouerSonFrToMorse.setText(Translate.haveIt(ButonName.PLAY_TRANSLATE, lang.butonName));
+        btExporterFrToMorse.setText(Translate.haveIt(ButonName.EXPORT, lang.butonName));
+        btNouvelleTrad.setText(Translate.haveIt(ButonName.NEW_TRANSLATE, lang.butonName));
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        new AnimationTimer() {
+            @Override
+            public void handle(long now) {
+                translate();
+            }
+        }.start();
     }
 }
