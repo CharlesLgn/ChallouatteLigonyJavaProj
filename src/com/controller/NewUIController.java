@@ -68,7 +68,6 @@ public class NewUIController {
         } else {
             MainJavaFx.setLangue(new EN());
         }
-            System.out.println(System.getProperty("user.language"));
         new AnimationTimer() {
             @Override
             public void handle(long now) {
