@@ -29,9 +29,6 @@ public class tradDirecteController implements Initializable {
     @FXML
     private Label lblMorse;
 
-    private char[] table = new char[1 << 15];
-    private char[] tablesuppr = new char[1 << 15];
-
     @FXML
     private TextArea richtextbox_direct_fr;
 
@@ -41,7 +38,10 @@ public class tradDirecteController implements Initializable {
     @FXML
     private Button tradDirecteRecommencer;
 
-
+    /**
+     * Traduit directement les entrées utilisateur dans la textarea et recopie les entrées dans l'autre textarea, gère aussi la suppression des deux côtés
+     * @param event : Évènement entrée clavier relâché
+     */
     public void direct_type_morse(KeyEvent event){
         try {
             String carac = event.getText().toLowerCase();
@@ -60,11 +60,6 @@ public class tradDirecteController implements Initializable {
                     richtextbox_direct_fr.appendText(String.valueOf(TranslatorHash.morseToRomain(morse)));
                 }
             }else{
-     /*           if(!event.getText().equals("")){
-                    richtextbox_direct_morse.setText("" + richtextbox_direct_morse.getText().substring(0, richtextbox_direct_morse.getText().length() - 1));
-                }*/
-
-                // Pour chaque élément split par espace, le traduire et l'append
                 String code = event.getCode().getName();
                 if(code == "Backspace" || code == "Delete"){
                     String [] tabmorse = this.richtextbox_direct_morse.getText().split(" ");
@@ -77,12 +72,15 @@ public class tradDirecteController implements Initializable {
 
                     this.richtextbox_direct_fr.clear();
                     this.richtextbox_direct_fr.appendText(sb.toString());
-                }
+                    }
             }
         }catch(Exception ex){}
     }
 
-
+    /**
+     * Traduit directement les entrées utilisateur dans l'autre textarea et écrit dans la textarea actuelle les entrées utilisateur, gère aussi la suppression des deux côtés
+     * @param event : Évènement entrée clavier relâché
+     */
     public void direct_type_fr(KeyEvent event){
         try{
             String carac = event.getText().toLowerCase();
@@ -90,20 +88,13 @@ public class tradDirecteController implements Initializable {
                 carac = removeAccents(carac);
                 richtextbox_direct_fr.setText("" + richtextbox_direct_fr.getText().substring(0, richtextbox_direct_fr.getText().length() - 1));
                 richtextbox_direct_fr.appendText(carac);
-                this.table = this.richtextbox_direct_fr.getText().toCharArray();
                 char lastchar = richtextbox_direct_fr.getText().toCharArray()[richtextbox_direct_fr.getText().toCharArray().length - 1];
-
                 if(carac.matches("[A-z0-9 :;!?()&']")) {
-                    // char lastchar = richtextbox_direct_fr.getText().toCharArray()[richtextbox_direct_fr.getText().toCharArray().length - 1];
                     String morse = TranslatorHash.romainToMorse("" + lastchar);
                     richtextbox_direct_morse.appendText(morse + " ");
                 }
             }
             else{
-           /*     if(!event.getText().equals("")){
-                    richtextbox_direct_fr.setText("" + richtextbox_direct_fr.getText().substring(0, richtextbox_direct_fr.getText().length() - 1));
-                }*/
-
                 String code = event.getCode().getName();
                 if(code == "Backspace" || code == "Delete"){
                     StringBuilder sb = new StringBuilder();
@@ -122,11 +113,18 @@ public class tradDirecteController implements Initializable {
         }
     }
 
+    /**
+     * Vide le formulaire
+     * @param event : Évènement clic souris
+     */
     public void tradDirecteRecommencerClick(MouseEvent event){
         this.richtextbox_direct_fr.clear();
         this.richtextbox_direct_morse.clear();
     }
 
+    /**
+     * Traduit les composants
+     */
     private void translate(){
         Lang lang = MainJavaFx.getLangue();
 
@@ -135,6 +133,11 @@ public class tradDirecteController implements Initializable {
         tradDirecteRecommencer.setText(Translate.haveIt(ButonName.RESTART, lang.butonName));
     }
 
+    /**
+     * Lance la traduction des utilisateurs
+     * @param location : not used
+     * @param resources : not used
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         new AnimationTimer() {

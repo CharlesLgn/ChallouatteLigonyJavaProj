@@ -97,7 +97,6 @@ public class AllToFrController implements Initializable {
                     this.richtextboxAllToFr.appendText(sb.toString().trim());
                 }
                 buff.close();
-                this.btTradAllToFr.setDisable(true);
             }catch(Exception ex){
                 System.out.println(ex);
             }
@@ -107,10 +106,20 @@ public class AllToFrController implements Initializable {
         }
     }
 
+    /**
+     * Vide le formulaire
+     * @param event : Évènement souris
+     */
     public void btNouvelleTradAllToFrClick(MouseEvent event){
-
+        this.textboxAllToFr.clear();
+        this.richtextboxAllToFr.clear();
+        this.textboxExportAllToFr.clear();
     }
 
+    /**
+     * Permet d'exporter la traduction vers un fichier texte
+     * @param event : Évènement clic souris
+     */
     public void btExportAllToFrClick(MouseEvent event){
         try {
             if (this.richtextboxAllToFr.getText() != null && !this.richtextboxAllToFr.getText().isEmpty()) {
@@ -143,6 +152,9 @@ public class AllToFrController implements Initializable {
         }
     }
 
+    /**
+     * Réalise la traduction des composants
+     */
     private void translate(){
         Lang lang = MainJavaFx.getLangue();
 
@@ -152,6 +164,11 @@ public class AllToFrController implements Initializable {
         btNouvelleTradAllToFr.setText(Translate.haveIt(ButonName.NEW_TRANSLATE, lang.butonName));
     }
 
+    /**
+     * Initialisation de la fenêtre, lance la traduction
+     * @param location not used
+     * @param resources : not used
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         new AnimationTimer() {

@@ -1,8 +1,5 @@
 package com.controller;
 
-import com.main.MainJavaFx;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.GridPane;
