@@ -11,13 +11,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import javafx.stage.Window;
 import javafx.util.Duration;
 import resource.lang.Lang;
 import resource.lang.Translate;
@@ -74,6 +72,9 @@ public class NewUIController {
     @FXML
     private GridPane moveBar;
 
+    /**
+     * Initialisation de la fenêtre, lance la traduction en fonction de la langue sélectionnée
+     */
     public void initialize() {
         String lan = System.getProperty("user.language");
         if(lan.equalsIgnoreCase("fr")){
@@ -139,7 +140,10 @@ public class NewUIController {
         ((Stage)pnPrincipal.getScene().getWindow()).close();
     }
 
-
+    /**
+     * Lance la fenêtre : traduction français vers morse
+     * @param event : Évènement clic souris
+     */
     public void btFrToMorseClick(MouseEvent event) {
         this.lbTitre.setText("Français vers Morse");
         fadeout(this.pnZoneTravail);
@@ -147,6 +151,10 @@ public class NewUIController {
         loadFxml(event, "..//gui/FrToMorse.fxml");
     }
 
+    /**
+     * Lance la fenêtre : traduction français vers l33t
+     * @param event : Évènement clic souris
+     */
     public void btFrToLeetClick(MouseEvent event) {
         this.lbTitre.setText("Français vers L33t");
         fadeout(this.pnZoneTravail);
@@ -154,6 +162,10 @@ public class NewUIController {
         loadFxml(event, "..//gui/FrToLeet.fxml");
     }
 
+    /**
+     * Lance la fenêtre : traduction morse vers français
+     * @param event : Évènement clic souris
+     */
     public void btMorseToFrClick(MouseEvent event) {
         this.lbTitre.setText("Morse vers français");
         fadeout(this.pnZoneTravail);
@@ -161,6 +173,10 @@ public class NewUIController {
         loadFxml(event, "..//gui/AllToFr.fxml");
     }
 
+    /**
+     * Lance la fenêtre : traduction directe dans les deux sens (français vers morse / morse vers français)
+     * @param event : Évènement clic souris
+     */
     public void btTradDirecteClick(MouseEvent event) {
         this.lbTitre.setText("Traduction directe");
         fadeout(this.pnZoneTravail);
@@ -168,7 +184,11 @@ public class NewUIController {
         loadFxml(event, "..//gui/tradDirecte.fxml");
     }
 
-
+    /**
+     * Lance la fenêtre correspondante dans la pane prévue à cet effet
+     * @param event : Évènement clic souris
+     * @param form : fxml à charger
+     */
     private void loadFxml(MouseEvent event, String form) {
         try {
             pnZoneTravail.getChildren().clear();
@@ -179,6 +199,10 @@ public class NewUIController {
         }
     }
 
+    /**
+     * Effet de transition
+     * @param pane : Pane (zone de travail) où s'affichent les différentes fonctionnalités
+     */
     private void fadeout(Pane pane) {
         FadeTransition fadeTransition = new FadeTransition(Duration.millis(250), pane);
         fadeTransition.setNode(pane);
@@ -189,46 +213,60 @@ public class NewUIController {
         fadeTransition.play();
     }
 
+    /**
+     * Traduction des composants
+     */
     private void translate() {
         Lang lang = MainJavaFx.getLangue();
 
         if (titre != -1) {
             lbTitre.setText(Translate.haveIt(titre, lang.titleName));
         }
+
         MainJavaFx.getPrimaryStage().setTitle(Translate.haveIt(LabelName.TITLE, lang.label));
         btFrToMorse.setText(Translate.haveIt(TitleName.LANGUAGE_TO_MORSE, lang.titleName));
         btFrToLeet.setText(Translate.haveIt(TitleName.LANGUAGE_TO_L33T, lang.titleName));
         btMorseToFr.setText(Translate.haveIt(TitleName.MORSE_TO_LANGUAGE, lang.titleName));
         btTradDirecte.setText(Translate.haveIt(TitleName.DIRECT_TRANSLATE, lang.titleName));
-
         lbBienvenu.setText(Translate.haveIt(LabelName.WELCOME, lang.label) + " " + username);
         lblTranslate.setText(Translate.haveIt(LabelName.TITLE, lang.label));
-
         mnuMenu.setText(Translate.haveIt(MenuName.MENU_MENU, lang.menu));
         mnuAbout.setText(Translate.haveIt(MenuName.MENU_ABOUT, lang.menu));
         mnuHelp.setText(Translate.haveIt(MenuName.MENU_HELP, lang.menu));
         mnuLanguage.setText(Translate.haveIt(MenuName.MENU_LANGUAGE, lang.menu));
-
-
-
     }
 
+    /**
+     * Affecte la langue
+     */
     public void toFr() {
         MainJavaFx.setLangue(new FR());
     }
 
+    /**
+     * Affecte la langue
+     */
     public void toDe() {
         MainJavaFx.setLangue(new DE());
     }
 
+    /**
+     * Affecte la langue
+     */
     public void toRu() {
         MainJavaFx.setLangue(new RU());
     }
 
+    /**
+     * Affecte la langue
+     */
     public void toEn() {
         MainJavaFx.setLangue(new EN());
     }
 
+    /**
+     * Lance la fenêtre à propos de l'application
+     */
     public void about() {
         try {
             Stage st = new Stage();

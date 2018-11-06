@@ -56,6 +56,10 @@ public class FrToMorseController implements Initializable {
     @FXML
     Button btNouvelleTrad;
 
+    /**
+     * Permet de sélectionner un fichier texte et d'afficher la sélection dans une textfield
+     * @param event : Évènement clic souris
+     */
     public void btCheminMorseClick (MouseEvent event){
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle(Translate.haveIt(PopUpName.CHOOSE_FILE_TRAD, MainJavaFx.getLangue().popUp));
@@ -72,6 +76,10 @@ public class FrToMorseController implements Initializable {
         }
     }
 
+    /**
+     * Traduit le contenu du fichier et affiche le résultat dans la textarea
+     * @param event : Évènement clic souris
+     */
     public void btTradFrToMorseClick(MouseEvent event){
         if(this.texBoxCheminFrToMorse.getText() != null && !this.texBoxCheminFrToMorse.getText().isEmpty()) {
 
@@ -103,6 +111,10 @@ public class FrToMorseController implements Initializable {
         }
     }
 
+    /**
+     * Permet d'écouter la traduction en morse
+     * @param event : Évènement clic souris
+     */
     public void btJouerSonFrToMorseClick(MouseEvent event) {
         String str;
         str = this.richTextboxFrToMorse.getText();
@@ -130,6 +142,10 @@ public class FrToMorseController implements Initializable {
         }
     }
 
+    /**
+     * Permet d'exporter la traduction dans le fichier texte sélectionné
+     * @param event : Évènement clic souris
+     */
     public void btExporterFrToMorseClick(MouseEvent event){
         try {
             if (this.richTextboxFrToMorse.getText() != null && !this.richTextboxFrToMorse.getText().isEmpty()) {
@@ -162,17 +178,21 @@ public class FrToMorseController implements Initializable {
         }
     }
 
+    /**
+     * Vide le formualaire
+     * @param event : Évènement clic souris
+     */
     public void btNouvelleTradClick(MouseEvent event){
         this.texBoxCheminFrToMorse.clear();
         this.richTextboxFrToMorse.clear();
         this.textboxExporterFrToMorse.clear();
-        this.btTradFrToMorse.setDisable(false);
-        this.btCheminMorse.setDisable(false);
     }
 
+    /**
+     * Traduction des composants
+     */
     private void translate(){
         Lang lang = MainJavaFx.getLangue();
-
         btCheminMorse.setText(Translate.haveIt(ButonName.CHOOSE_FILE, lang.butonName));
         btTradFrToMorse.setText(Translate.haveIt(ButonName.TRANSLATE, lang.butonName));
         btJouerSonFrToMorse.setText(Translate.haveIt(ButonName.PLAY_TRANSLATE, lang.butonName));
@@ -180,6 +200,11 @@ public class FrToMorseController implements Initializable {
         btNouvelleTrad.setText(Translate.haveIt(ButonName.NEW_TRANSLATE, lang.butonName));
     }
 
+    /**
+     * Initialisation de la fenêtre, lance la traduction des composants
+     * @param location
+     * @param resources
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         new AnimationTimer() {

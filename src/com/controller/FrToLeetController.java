@@ -29,9 +29,6 @@ import java.util.ResourceBundle;
 public class FrToLeetController implements Initializable {
 
     @FXML
-    private GridPane panFrToL33t;
-
-    @FXML
     private TextField textboxCheminLeet;
 
     @FXML
@@ -44,7 +41,6 @@ public class FrToLeetController implements Initializable {
     private TextArea
     richtextboxLeet;
 
-
     @FXML private TextField
     textboxExportLeet;
 
@@ -54,6 +50,11 @@ public class FrToLeetController implements Initializable {
     @FXML
     private Button btNouvelleTradLeet;
 
+    /**
+     * Itialisation de la fenêtre, lance la traduction
+     * @param location
+     * @param resources
+     */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         new AnimationTimer() {
@@ -64,6 +65,10 @@ public class FrToLeetController implements Initializable {
         }.start();
     }
 
+    /**
+     * Ouvre une fenêtre de choix de fichier texte et place la sélection dans une textfield
+     * @param event : Évènement clic souris
+     */
     public void btChoixFichierLeetClick(MouseEvent event){
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle(Translate.haveIt(PopUpName.CHOOSE_FILE_TRAD, MainJavaFx.getLangue().popUp));
@@ -80,6 +85,10 @@ public class FrToLeetController implements Initializable {
         }
     }
 
+    /**
+     * Traduit le contenu du fichier texte et écrit le résultat dans la textarea
+     * @param event : Évènement clic souris
+     */
     public void btTradLeetClick(MouseEvent event){
         if(this.textboxCheminLeet.getText() != null && !this.textboxCheminLeet.getText().isEmpty()) {
 
@@ -106,6 +115,10 @@ public class FrToLeetController implements Initializable {
         }
     }
 
+    /**
+     * Export la traduction vers un fichier texte sélectionné
+     * @param event
+     */
     public void btExporterLeetClick(MouseEvent event){
         try {
             if (this.richtextboxLeet.getText() != null && !this.richtextboxLeet.getText().isEmpty()) {
@@ -138,17 +151,21 @@ public class FrToLeetController implements Initializable {
         }
     }
 
+    /**
+     * Vide le formulaire
+     * @param event : Évènement clic souris
+     */
     public void btNouvelleTradLeetClick(MouseEvent event){
         this.textboxCheminLeet.clear();
         this.richtextboxLeet.clear();
         this.textboxExportLeet.clear();
-        this.btTradLeet.setDisable(false);
-        this.btChoixFichierLeet.setDisable(false);
     }
 
+    /**
+     * Traduction du texte des composants
+     */
     private void translate(){
         Lang lang = MainJavaFx.getLangue();
-
         btChoixFichierLeet.setText(Translate.haveIt(ButonName.CHOOSE_FILE, lang.butonName));
         btTradLeet.setText(Translate.haveIt(ButonName.TRANSLATE, lang.butonName));
         btExporterLeet.setText(Translate.haveIt(ButonName.EXPORT, lang.butonName));
