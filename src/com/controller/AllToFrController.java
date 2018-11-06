@@ -49,6 +49,10 @@ public class AllToFrController implements Initializable {
     @FXML
     private Button btNouvelleTradAllToFr;
 
+    /**
+     * Ouvre une fenêtre de choix de fichier texte pour y récupérer son contenu
+     * @param event : Évènement click de souris
+     */
     public void btChoixAllToFrClick(MouseEvent event){
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle(Translate.haveIt(PopUpName.CHOOSE_FILE_TRAD, MainJavaFx.getLangue().popUp));
@@ -60,12 +64,17 @@ public class AllToFrController implements Initializable {
             if (file != null) {
                 this.textboxAllToFr.setText(file.getAbsolutePath());
             }
+
             this.btChoixAllToFr.setDisable(true);
         }catch (Exception ex){
             System.out.println(ex);
         }
     }
 
+    /**
+     * Traduit le texte contenu dans le fichier et affiche le résultat dans la TextArea
+     * @param event : Évènement click souris
+     */
     public void btTradAllToFrClick(MouseEvent event){
         if(this.textboxAllToFr.getText() != null && !this.textboxAllToFr.getText().isEmpty()) {
 

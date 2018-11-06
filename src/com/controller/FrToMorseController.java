@@ -104,28 +104,31 @@ public class FrToMorseController implements Initializable {
         }
     }
 
-    public void btJouerSonFrToMorseClick(MouseEvent event){
+    public void btJouerSonFrToMorseClick(MouseEvent event) {
         String str;
         str = this.richTextboxFrToMorse.getText();
-
-        final Service<Void> jouerSonService = new Service<Void>() {
-            @Override
-            protected Task<Void> createTask() {
-                return new Task<Void>() {
-                    @Override
-                    protected Void call() throws Exception {
-                        try {
-                            JouerSon.jouerson(str);
-                        } catch (Exception e) {
-                            e.printStackTrace();
+        if (str != null && !str.isEmpty()){
+            final Service<Void> jouerSonService = new Service<Void>() {
+                @Override
+                protected Task<Void> createTask() {
+                    return new Task<Void>() {
+                        @Override
+                        protected Void call() throws Exception {
+                            try {
+                                JouerSon.jouerson(str);
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+                            return null;
                         }
-                        return null;
-                    }
-                };
-            }
-        };
+                    };
+                }
+            };
 
-        jouerSonService.start();
+            jouerSonService.start();
+        }else{
+            com.method.Alert.alertGenerique(Translate.haveIt(PopUpName.POP_UP_ERROR_DESC_EXPORT, MainJavaFx.getLangue().popUp), MainJavaFx.getLangue());
+        }
     }
 
     public void btExporterFrToMorseClick(MouseEvent event){

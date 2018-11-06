@@ -12,4 +12,7 @@ public class PopUpName {
   public static int POP_UP_ERROR_NAME        = 6;
   public static int POP_UP_ERROR_DESC_TRAD   = 7;
   public static int POP_UP_ERROR_DESC_EXPORT = 8;
+  public static int POP_UP_ERROR_NO_FILE_SELECTED = 9;
+  public static int POP_UP_ERROR_PLAY_TRAD = 10;
+
 }

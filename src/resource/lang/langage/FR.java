@@ -51,9 +51,12 @@ public class FR extends Lang {
         String popUpErrorTittle     = "Erreur";
         String popUpErrorName       = "Chemin du fichier";
         String popUpErrorDescTrad   = "Sélectionnez dans un premier temps un fichier texte à traduire";
-        String popUpErrorDescExport = "Vérifiez qu'un traduction a été effectuée";
+        String popUpErrorDescExport = "Vérifiez qu'une traduction a été effectuée";
+        String popUpErrorNoFileSelected = "Vérifiez qu'un fichier a été sélectionné";
+        String popUpErrorPlayTrad = "Vérifiez que la traduction a un résultat";
 
         return new String[] {chooseFileTrad, chooseFileExport, popUpSuccesTittle, popUpSuccesName,
-                             popUpSuccesDesc, popUpErrorTittle, popUpErrorName, popUpErrorDescTrad, popUpErrorDescExport};
+                             popUpSuccesDesc, popUpErrorTittle, popUpErrorName, popUpErrorDescTrad, popUpErrorDescExport,
+                            popUpErrorNoFileSelected, popUpErrorPlayTrad};
     }
 }

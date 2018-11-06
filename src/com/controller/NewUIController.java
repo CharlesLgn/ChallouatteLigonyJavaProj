@@ -1,11 +1,8 @@
 package com.controller;
 
-import com.util.Utilitaires;
-import javafx.animation.FadeTransition;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import com.main.MainJavaFx;
 import javafx.animation.AnimationTimer;
+import javafx.animation.FadeTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -14,16 +11,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
-import javafx.scene.paint.Color;
-import javafx.scene.shape.Rectangle;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-
-import java.lang.invoke.LambdaConversionException;
-import java.util.SimpleTimeZone;
 import resource.lang.Lang;
 import resource.lang.Translate;
 import resource.lang.langage.DE;
