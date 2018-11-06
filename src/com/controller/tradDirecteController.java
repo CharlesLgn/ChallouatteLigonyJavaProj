@@ -32,7 +32,6 @@ public class tradDirecteController implements Initializable {
     private char[] table = new char[1 << 15];
     private char[] tablesuppr = new char[1 << 15];
 
-
     @FXML
     private TextArea richtextbox_direct_fr;
 
@@ -123,13 +122,10 @@ public class tradDirecteController implements Initializable {
         }
     }
 
-
-
     public void tradDirecteRecommencerClick(MouseEvent event){
         this.richtextbox_direct_fr.clear();
         this.richtextbox_direct_morse.clear();
     }
-
 
     private void translate(){
         Lang lang = MainJavaFx.getLangue();

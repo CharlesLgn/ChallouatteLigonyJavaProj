@@ -18,11 +18,9 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import resource.lang.Lang;
-import resource.lang.typetrad.ButonName;
 import resource.lang.Translate;
-import resource.lang.typetrad.LabelName;
+import resource.lang.typetrad.ButonName;
 import resource.lang.typetrad.PopUpName;
-import resource.lang.typetrad.TitleName;
 
 import java.io.*;
 import java.net.URL;

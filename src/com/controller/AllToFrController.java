@@ -26,8 +26,6 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-import static com.method.TranslatorListe.morseToRomain;
-
 public class AllToFrController implements Initializable {
 
     @FXML
