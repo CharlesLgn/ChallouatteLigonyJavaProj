@@ -61,4 +61,13 @@ public class DE extends Lang {
                 popUpSuccesDesc, popUpErrorTittle, popUpErrorName, popUpErrorDescTrad, popUpErrorDescExport,
                 popUpErrorNoFileSelected, popUpErrorPlayTrad};
     }
+
+    @Override
+    protected String[] getMenu() {
+        String menuMenu     = "Menü";
+        String menuHelp     = "Hilfe";
+        String menuLangage  = "Sprach";
+        String menuAbout    = "Über";
+        return new String[] {menuMenu, menuHelp, menuLangage, menuAbout};
+    }
 }

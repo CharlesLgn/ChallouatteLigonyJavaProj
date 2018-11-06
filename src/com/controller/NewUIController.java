@@ -9,6 +9,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.Menu;
+import javafx.scene.control.MenuItem;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
@@ -22,6 +24,7 @@ import resource.lang.langage.EN;
 import resource.lang.langage.FR;
 import resource.lang.langage.RU;
 import resource.lang.typetrad.LabelName;
+import resource.lang.typetrad.MenuName;
 import resource.lang.typetrad.TitleName;
 
 public class NewUIController {
@@ -49,6 +52,15 @@ public class NewUIController {
 
     @FXML
     Pane pnZoneTravail;
+
+    @FXML
+    private Menu mnuMenu;
+    @FXML
+    private Menu mnuHelp;
+    @FXML
+    private Menu mnuLanguage;
+    @FXML
+    private MenuItem mnuAbout;
 
     public void initialize() {
         String lan = System.getProperty("user.language");
@@ -127,6 +139,7 @@ public class NewUIController {
         if (titre != -1) {
             lbTitre.setText(Translate.haveIt(titre, lang.titleName));
         }
+        MainJavaFx.getPrimaryStage().setTitle(Translate.haveIt(LabelName.TITLE, lang.label));
         btFrToMorse.setText(Translate.haveIt(TitleName.LANGUAGE_TO_MORSE, lang.titleName));
         btFrToLeet.setText(Translate.haveIt(TitleName.LANGUAGE_TO_L33T, lang.titleName));
         btMorseToFr.setText(Translate.haveIt(TitleName.MORSE_TO_LANGUAGE, lang.titleName));
@@ -134,6 +147,14 @@ public class NewUIController {
 
         lbBienvenu.setText(Translate.haveIt(LabelName.WELCOME, lang.label) + " " + username);
         lblTranslate.setText(Translate.haveIt(LabelName.TITLE, lang.label));
+
+        mnuMenu.setText(Translate.haveIt(MenuName.MENU_MENU, lang.menu));
+        mnuAbout.setText(Translate.haveIt(MenuName.MENU_ABOUT, lang.menu));
+        mnuHelp.setText(Translate.haveIt(MenuName.MENU_HELP, lang.menu));
+        mnuLanguage.setText(Translate.haveIt(MenuName.MENU_LANGUAGE, lang.menu));
+
+
+
     }
 
     public void toFr() {

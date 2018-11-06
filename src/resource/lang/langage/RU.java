@@ -61,4 +61,13 @@ public class RU extends Lang {
                 popUpSuccesDesc, popUpErrorTittle, popUpErrorName, popUpErrorDescTrad, popUpErrorDescExport,
                 popUpErrorNoFileSelected, popUpErrorPlayTrad};
     }
+
+    @Override
+    protected String[] getMenu() {
+        String menuMenu     = "Menu";
+        String menuHelp     = "Aide";
+        String menuLangage  = "Langue";
+        String menuAbout    = "A propos";
+        return new String[] {menuMenu, menuHelp, menuLangage, menuAbout};
+    }
 }

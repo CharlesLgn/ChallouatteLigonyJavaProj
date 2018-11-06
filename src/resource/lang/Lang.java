@@ -6,6 +6,7 @@ public abstract class Lang {
     protected abstract String[] getTitleName();
     protected abstract String[] getLabel();
     protected abstract String[] getPopUp();
+    protected abstract String[] getMenu();
 
     public LambdaString butonName = (pos) -> getBoutonName()[pos];
 
@@ -14,4 +15,6 @@ public abstract class Lang {
     public LambdaString label     = (pos) -> getLabel()[pos];
 
     public LambdaString popUp     = (pos) -> getPopUp()[pos];
+
+    public LambdaString menu     = (pos) -> getMenu()[pos];
 }
