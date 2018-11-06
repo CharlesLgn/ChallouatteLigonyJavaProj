@@ -176,10 +176,10 @@ public class NewUIController {
     public void about() {
         try {
             Stage st = new Stage();
-            st.initModality(Modality.APPLICATION_MODAL);
+            st.initModality(Modality.NONE);
             st.setTitle("à propos");
             Parent root = FXMLLoader.load(getClass().getResource("../gui/propos.fxml"));
-            Scene scene = new Scene(root, 800, 600);
+            Scene scene = new Scene(root, 500, 300);
             st.setScene(scene);
             st.setResizable(false);
             st.getIcons().add(new Image("/resource/Images/icon.png"));
