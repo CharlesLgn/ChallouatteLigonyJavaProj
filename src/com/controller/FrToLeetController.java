@@ -75,7 +75,6 @@ public class FrToLeetController implements Initializable {
             if (file != null) {
                 this.textboxCheminLeet.setText(file.getAbsolutePath());
             }
-            this.btChoixFichierLeet.setDisable(true);
         }catch (Exception ex){
             System.out.println(ex);
         }

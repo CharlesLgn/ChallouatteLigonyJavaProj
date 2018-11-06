@@ -64,8 +64,6 @@ public class AllToFrController implements Initializable {
             if (file != null) {
                 this.textboxAllToFr.setText(file.getAbsolutePath());
             }
-
-            this.btChoixAllToFr.setDisable(true);
         }catch (Exception ex){
             System.out.println(ex);
         }

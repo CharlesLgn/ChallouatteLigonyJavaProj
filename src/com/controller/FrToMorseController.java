@@ -67,7 +67,6 @@ public class FrToMorseController implements Initializable {
             if (file != null) {
                 this.texBoxCheminFrToMorse.setText(file.getAbsolutePath());
             }
-            this.texBoxCheminFrToMorse.setDisable(true);
         }catch (Exception ex){
             System.out.println(ex);
         }
@@ -100,7 +99,7 @@ public class FrToMorseController implements Initializable {
             }
         }
         else{
-            com.method.Alert.alertGenerique(Translate.haveIt(PopUpName.POP_UP_ERROR_DESC_EXPORT, MainJavaFx.getLangue().popUp), MainJavaFx.getLangue());
+            com.method.Alert.alertGenerique(Translate.haveIt(PopUpName.POP_UP_ERROR_NO_FILE_SELECTED, MainJavaFx.getLangue().popUp), MainJavaFx.getLangue());
         }
     }
 
@@ -127,7 +126,7 @@ public class FrToMorseController implements Initializable {
 
             jouerSonService.start();
         }else{
-            com.method.Alert.alertGenerique(Translate.haveIt(PopUpName.POP_UP_ERROR_DESC_EXPORT, MainJavaFx.getLangue().popUp), MainJavaFx.getLangue());
+            com.method.Alert.alertGenerique(Translate.haveIt(PopUpName.POP_UP_ERROR_PLAY_TRAD, MainJavaFx.getLangue().popUp), MainJavaFx.getLangue());
         }
     }
 
