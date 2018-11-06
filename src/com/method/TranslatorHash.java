@@ -33,6 +33,7 @@ public class TranslatorHash {
         hash.put("w", "morse", ".--");
         hash.put("x", "morse", "-..-");
         hash.put("y", "morse", "-.--");
+        hash.put("z", "morse", "--..");
 
         hash.put("0", "morse", "-----");
         hash.put("1", "morse", ".----");
