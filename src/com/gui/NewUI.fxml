@@ -20,21 +20,21 @@
    <children>
       <MenuBar prefHeight="25.0" prefWidth="960.0" stylesheets="@css/Menubar.css">
          <menus>
-            <Menu mnemonicParsing="false" text="Menu">
+            <Menu fx:id="mnuMenu" mnemonicParsing="false" text="Menu">
                <items>
                   <Menu fx:id="mnuLanguage" mnemonicParsing="false" text="Langue">
                     <items>
-                        <MenuItem mnemonicParsing="false" onAction="#toFr" text="Français" />
-                      <MenuItem mnemonicParsing="false" onAction="#toEn" text="English" />
-                        <MenuItem mnemonicParsing="false" onAction="#toDe" text="Deutsch" />
-                        <MenuItem mnemonicParsing="false" onAction="#toRu" text="Русский" />
+                        <MenuItem fx:id="mnuFr" mnemonicParsing="false" onAction="#toFr" text="Français" />
+                      <MenuItem fx:id="mnuEn" mnemonicParsing="false" onAction="#toEn" text="English" />
+                        <MenuItem fx:id="mnuDe" mnemonicParsing="false" onAction="#toDe" text="Deutsch" />
+                        <MenuItem fx:id="mnuRu" mnemonicParsing="false" onAction="#toRu" text="Русский" />
                     </items>
                   </Menu>
                </items>
             </Menu>
-            <Menu mnemonicParsing="false" text="Help">
+            <Menu fx:id="mnuHelp" mnemonicParsing="false" text="Help">
                <items>
-                  <MenuItem mnemonicParsing="false" onAction="#about" text="About" />
+                  <MenuItem fx:id="mnuAbout" mnemonicParsing="false" onAction="#about" text="About" />
                </items>
             </Menu>
          </menus>

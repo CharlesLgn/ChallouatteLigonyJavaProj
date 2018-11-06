@@ -55,4 +55,13 @@ public class EN extends Lang {
         return new String[] {chooseFileTrad, chooseFileExport, popUpSuccesTittle, popUpSuccesName,
                 popUpSuccesDesc, popUpErrorTittle, popUpErrorName, popUpErrorDescTrad, popUpErrorDescExport};
     }
+
+    @Override
+    protected String[] getMenu() {
+        String menuMenu     = "Menu";
+        String menuHelp     = "Help";
+        String menuLangage  = "Languages";
+        String menuAbout    = "About";
+        return new String[] {menuMenu, menuHelp, menuLangage, menuAbout};
+    }
 }
