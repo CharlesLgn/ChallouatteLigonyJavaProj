@@ -37,4 +37,24 @@ public class DE extends Lang {
 
         return new String[] {writeRoman, writeMorse, welcome, title};
     }
+
+    @Override
+    protected String[] getPopUp() {
+        String chooseFileTrad  = "Wählen Sie ein Datei";
+        String chooseFileExport= "Wählen Sie ein Rekord, wo zu exportieren";
+
+
+
+        String popUpSuccesTittle    = "Erfolg";
+        String popUpSuccesName      = "Export";
+        String popUpSuccesDesc      = "Die Übersetzung ist exportieren";
+
+        String popUpErrorTittle     = "Fehler";
+        String popUpErrorName       = "Dateipfad";
+        String popUpErrorDescTrad   = "Erst Wählen Sie die Datei";
+        String popUpErrorDescExport = "Überprüfen Sie, dass ein übersetzung gemacht wird";
+
+        return new String[] {chooseFileTrad, chooseFileExport, popUpSuccesTittle, popUpSuccesName,
+                popUpSuccesDesc, popUpErrorTittle, popUpErrorName, popUpErrorDescTrad, popUpErrorDescExport};
+    }
 }
