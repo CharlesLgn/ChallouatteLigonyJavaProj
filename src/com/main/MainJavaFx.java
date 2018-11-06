@@ -6,9 +6,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import resource.lang.Lang;
 import resource.lang.langage.EN;
-import resource.lang.langage.FR;
 
 public class MainJavaFx extends Application {
 
@@ -28,12 +28,15 @@ public class MainJavaFx extends Application {
         prStage = primaryStage;
         Parent root = FXMLLoader.load(getClass().getResource("../gui/NewUI.fxml"));
         prStage.setTitle("Traducteur");
+        prStage.initStyle(StageStyle.UNDECORATED);
         Scene scene = new Scene(root, 1280, 720);
         prStage.setScene(scene);
         prStage.setResizable(false);
         prStage.getIcons().add(new Image("/resource/Images/icon.png"));
         scene.getStylesheets().add(getClass().getResource("..//gui/css/NewUICSS.css").toExternalForm());
+
         prStage.show();
+
     }
 
     public static Stage getPrimaryStage() {

@@ -3,19 +3,21 @@ package com.controller;
 import com.main.MainJavaFx;
 import javafx.animation.AnimationTimer;
 import javafx.animation.FadeTransition;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
-import javafx.scene.control.Menu;
-import javafx.scene.control.MenuItem;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.Pane;
+import javafx.scene.layout.*;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+import javafx.stage.Window;
 import javafx.util.Duration;
 import resource.lang.Lang;
 import resource.lang.Translate;
@@ -28,7 +30,8 @@ import resource.lang.typetrad.MenuName;
 import resource.lang.typetrad.TitleName;
 
 public class NewUIController {
-
+    private static double xOffset = 0;
+    private static double yOffset = 0;
 
     @FXML
     private Label lbBienvenu;
@@ -54,6 +57,12 @@ public class NewUIController {
     Pane pnZoneTravail;
 
     @FXML
+    private VBox pnPrincipal;
+
+    @FXML
+    private MenuBar mnuBar;
+
+    @FXML
     private Menu mnuMenu;
     @FXML
     private Menu mnuHelp;
@@ -61,6 +70,9 @@ public class NewUIController {
     private Menu mnuLanguage;
     @FXML
     private MenuItem mnuAbout;
+
+    @FXML
+    private GridPane moveBar;
 
     public void initialize() {
         String lan = System.getProperty("user.language");
@@ -80,7 +92,51 @@ public class NewUIController {
             }
         }.start();
 
+        //grab your root here
+        moveBar.setOnMousePressed(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                mousePressed(event);
+            }
+        });
 
+        //move around here
+        moveBar.setOnMouseDragged(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                mouseDrag(event);
+            }
+        });
+
+        //grab your root here
+        mnuBar.setOnMousePressed(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                mousePressed(event);
+            }
+        });
+
+        //move around here
+        mnuBar.setOnMouseDragged(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                mouseDrag(event);
+            }
+        });
+
+    }
+
+    private void mouseDrag(MouseEvent event){
+        MainJavaFx.getPrimaryStage().setX(event.getScreenX() - xOffset);
+        MainJavaFx.getPrimaryStage().setY(event.getScreenY() - yOffset);
+    }
+    private void mousePressed(MouseEvent event){
+        xOffset = event.getSceneX();
+        yOffset = event.getSceneY();
+    }
+
+    public void close(){
+        ((Stage)pnPrincipal.getScene().getWindow()).close();
     }
 
 
@@ -177,13 +233,23 @@ public class NewUIController {
         try {
             Stage st = new Stage();
             st.initModality(Modality.NONE);
-            st.setTitle("à propos");
+            st.initOwner(pnPrincipal.getScene().getWindow());
+            st.initStyle(StageStyle.UNDECORATED);
+
             Parent root = FXMLLoader.load(getClass().getResource("../gui/propos.fxml"));
             Scene scene = new Scene(root, 500, 300);
             st.setScene(scene);
             st.setResizable(false);
-            st.getIcons().add(new Image("/resource/Images/icon.png"));
             st.show();
+            st.focusedProperty().addListener(new ChangeListener<Boolean>() {
+                @Override
+                public void changed(ObservableValue<? extends Boolean> arg0, Boolean oldPropertyValue, Boolean newPropertyValue) {
+                    if (!newPropertyValue){
+                        st.close();
+                    }
+                }
+            });
+
         }catch(Exception ex){
             System.out.println(ex);
         }

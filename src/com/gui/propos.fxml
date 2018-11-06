@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.text.Font?>
 
-<GridPane fx:id="gridpane" prefHeight="300.0" prefWidth="500.0" style="-fx-background-color: rgb(54, 57, 63);" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controller.proposController">
+<GridPane prefHeight="300.0" prefWidth="500.0" style="-fx-background-color: rgb(50, 50, 60);" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controller.proposController">
   <columnConstraints>
       <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="400.0" />
   </columnConstraints>
@@ -20,7 +20,7 @@
     <RowConstraints maxHeight="94.0" minHeight="9.0" prefHeight="30.0" vgrow="SOMETIMES" />
   </rowConstraints>
    <children>
-      <GridPane>
+      <GridPane fx:id="panClasse">
         <columnConstraints>
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="312.0" minWidth="10.0" prefWidth="77.0" />
           <ColumnConstraints hgrow="SOMETIMES" maxWidth="310.0" minWidth="10.0" prefWidth="97.0" />
@@ -41,7 +41,7 @@
             </Label>
             <ImageView fitHeight="105.0" fitWidth="92.0" pickOnBounds="true" preserveRatio="true" GridPane.columnIndex="1">
                <image>
-                  <Image url="@../../resource/Images/icon.png" />
+                  <Image url="@../../resource/Images/icon2.png" />
                </image>
             </ImageView>
          </children>
