@@ -23,7 +23,6 @@ import resource.lang.typetrad.PopUpName;
 
 import java.io.*;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class AllToFrController implements Initializable {
@@ -71,9 +70,8 @@ public class AllToFrController implements Initializable {
 
     /**
      * Traduit le texte contenu dans le fichier et affiche le résultat dans la TextArea
-     * @param event : Évènement click souris
      */
-    public void btTradAllToFrClick(MouseEvent event){
+    public void btTradAllToFrClick(){
         if(this.textboxAllToFr.getText() != null && !this.textboxAllToFr.getText().isEmpty()) {
 
             try {
@@ -83,9 +81,7 @@ public class AllToFrController implements Initializable {
                 BufferedReader buff=new BufferedReader(lecture);
                 String ligne;
                 while ((ligne=buff.readLine())!=null){
-                    String[] listeMotsMorse = ligne.split("   ");
-
-                    ArrayList listemorse = new ArrayList<>();
+                    String[] listeMotsMorse = ligne.split(" {3}");
                     for (String item:listeMotsMorse) {
                         String[] lettres = item.split(" ");
                         for(String lettre : lettres){
@@ -108,9 +104,8 @@ public class AllToFrController implements Initializable {
 
     /**
      * Vide le formulaire
-     * @param event : Évènement souris
      */
-    public void btNouvelleTradAllToFrClick(MouseEvent event){
+    public void btNouvelleTradAllToFrClick(){
         this.textboxAllToFr.clear();
         this.richtextboxAllToFr.clear();
         this.textboxExportAllToFr.clear();

@@ -12,7 +12,6 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.GridPane;
 import javafx.stage.DirectoryChooser;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -52,8 +51,6 @@ public class FrToLeetController implements Initializable {
 
     /**
      * Itialisation de la fenêtre, lance la traduction
-     * @param location
-     * @param resources
      */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -87,9 +84,8 @@ public class FrToLeetController implements Initializable {
 
     /**
      * Traduit le contenu du fichier texte et écrit le résultat dans la textarea
-     * @param event : Évènement clic souris
      */
-    public void btTradLeetClick(MouseEvent event){
+    public void btTradLeetClick(){
         if(this.textboxCheminLeet.getText() != null && !this.textboxCheminLeet.getText().isEmpty()) {
 
             try {
@@ -117,7 +113,6 @@ public class FrToLeetController implements Initializable {
 
     /**
      * Export la traduction vers un fichier texte sélectionné
-     * @param event
      */
     public void btExporterLeetClick(MouseEvent event){
         try {
@@ -153,9 +148,8 @@ public class FrToLeetController implements Initializable {
 
     /**
      * Vide le formulaire
-     * @param event : Évènement clic souris
      */
-    public void btNouvelleTradLeetClick(MouseEvent event){
+    public void btNouvelleTradLeetClick(){
         this.textboxCheminLeet.clear();
         this.richtextboxLeet.clear();
         this.textboxExportLeet.clear();
@@ -165,7 +159,9 @@ public class FrToLeetController implements Initializable {
      * Traduction du texte des composants
      */
     private void translate(){
-        Lang lang = MainJavaFx.getLangue();
+
+        Lang lang;
+        lang = MainJavaFx.getLangue();
         btChoixFichierLeet.setText(Translate.haveIt(ButonName.CHOOSE_FILE, lang.butonName));
         btTradLeet.setText(Translate.haveIt(ButonName.TRANSLATE, lang.butonName));
         btExporterLeet.setText(Translate.haveIt(ButonName.EXPORT, lang.butonName));
