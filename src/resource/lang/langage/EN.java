@@ -52,8 +52,8 @@ public class EN extends Lang {
         String popUpErrorDescTrad   = "Select a file to translate first";
         String popUpErrorDescExport = "Verify that a translation has been done";
 
-        String popUpErrorNoFileSelected = "Vérifiez qu'un fichier a été sélectionné";
-        String popUpErrorPlayTrad = "Vérifiez que la traduction a un résultat";
+        String popUpErrorNoFileSelected = "Verify that a file is selected";
+        String popUpErrorPlayTrad = "Verify that a translation has a result";
 
         return new String[] {chooseFileTrad, chooseFileExport, popUpSuccesTittle, popUpSuccesName,
                 popUpSuccesDesc, popUpErrorTittle, popUpErrorName, popUpErrorDescTrad, popUpErrorDescExport,

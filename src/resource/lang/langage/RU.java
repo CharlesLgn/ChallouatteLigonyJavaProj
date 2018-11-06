@@ -43,8 +43,6 @@ public class RU extends Lang {
         String chooseFileTrad  = "Choisissez un fichier texte";
         String chooseFileExport= "Choisissez un répertoire ou exporter votre traduction";
 
-
-
         String popUpSuccesTittle    = "Succès";
         String popUpSuccesName      = "Export";
         String popUpSuccesDesc      = "La traduction a été exportée";
@@ -55,7 +53,7 @@ public class RU extends Lang {
         String popUpErrorDescExport = "Vérifiez qu'un traduction a été effectuée";
 
         String popUpErrorNoFileSelected = "Vérifiez qu'un fichier a été sélectionné";
-        String popUpErrorPlayTrad = "Vérifiez que la traduction a un résultat";
+        String popUpErrorPlayTrad       = "Vérifiez que la traduction a un résultat";
 
         return new String[] {chooseFileTrad, chooseFileExport, popUpSuccesTittle, popUpSuccesName,
                 popUpSuccesDesc, popUpErrorTittle, popUpErrorName, popUpErrorDescTrad, popUpErrorDescExport,
@@ -64,10 +62,10 @@ public class RU extends Lang {
 
     @Override
     protected String[] getMenu() {
-        String menuMenu     = "Menu";
-        String menuHelp     = "Aide";
-        String menuLangage  = "Langue";
-        String menuAbout    = "A propos";
+        String menuMenu     = "Меню";
+        String menuHelp     = "Помощь";
+        String menuLangage  = "Язык";
+        String menuAbout    = "О";
         return new String[] {menuMenu, menuHelp, menuLangage, menuAbout};
     }
 }

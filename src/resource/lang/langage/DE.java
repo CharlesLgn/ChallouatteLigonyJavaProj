@@ -43,8 +43,6 @@ public class DE extends Lang {
         String chooseFileTrad  = "Wählen Sie ein Datei";
         String chooseFileExport= "Wählen Sie ein Rekord, wo zu exportieren";
 
-
-
         String popUpSuccesTittle    = "Erfolg";
         String popUpSuccesName      = "Export";
         String popUpSuccesDesc      = "Die Übersetzung ist exportieren";
@@ -54,8 +52,8 @@ public class DE extends Lang {
         String popUpErrorDescTrad   = "Erst Wählen Sie die Datei";
         String popUpErrorDescExport = "Überprüfen Sie, dass ein übersetzung gemacht wird";
 
-        String popUpErrorNoFileSelected = "Vérifiez qu'un fichier a été sélectionné";
-        String popUpErrorPlayTrad = "Vérifiez que la traduction a un résultat";
+        String popUpErrorNoFileSelected = "Überprüfen Sie, dass ein Datein ausgewählt ist";
+        String popUpErrorPlayTrad = "Überprüfen Sie, dass die übersetzung ein resultat gemacht hat";
 
         return new String[] {chooseFileTrad, chooseFileExport, popUpSuccesTittle, popUpSuccesName,
                 popUpSuccesDesc, popUpErrorTittle, popUpErrorName, popUpErrorDescTrad, popUpErrorDescExport,
