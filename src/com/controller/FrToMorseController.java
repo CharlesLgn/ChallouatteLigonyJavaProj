@@ -26,6 +26,7 @@ import resource.lang.typetrad.PopUpName;
 
 import java.io.*;
 import java.net.URL;
+import java.util.Objects;
 import java.util.ResourceBundle;
 
 import static com.method.TranslatorListe.romainToMorse;
@@ -78,9 +79,8 @@ public class FrToMorseController implements Initializable {
 
     /**
      * Traduit le contenu du fichier et affiche le résultat dans la textarea
-     * @param event : Évènement clic souris
      */
-    public void btTradFrToMorseClick(MouseEvent event){
+    public void btTradFrToMorseClick(){
         if(this.texBoxCheminFrToMorse.getText() != null && !this.texBoxCheminFrToMorse.getText().isEmpty()) {
 
             try {
@@ -88,17 +88,16 @@ public class FrToMorseController implements Initializable {
                 InputStreamReader lecture = new InputStreamReader(flux);
                 BufferedReader buff=new BufferedReader(lecture);
                 String ligne;
-                String resmorse = "";
+                StringBuilder resmorse = new StringBuilder();
                 while ((ligne = buff.readLine())!=null){
                     for (char lettre:ligne.toLowerCase().toCharArray()) {
-                        String ajoutlettre = null;
-                        if(romainToMorse(lettre) != "  "){
-                            resmorse = resmorse + romainToMorse(lettre) + " ";
+                        if(!Objects.equals(romainToMorse(lettre), "  ")){
+                            resmorse.append(romainToMorse(lettre)).append(" ");
                         }else{
-                            resmorse = resmorse + TranslatorHash.romainToMorse(""+lettre);
+                            resmorse.append(TranslatorHash.romainToMorse("" + lettre));
                         }
                     }
-                    this.richTextboxFrToMorse.appendText(resmorse.trim());
+                    this.richTextboxFrToMorse.appendText(resmorse.toString().trim());
                 }
                 buff.close();
                 this.btTradFrToMorse.setDisable(true);
@@ -113,9 +112,8 @@ public class FrToMorseController implements Initializable {
 
     /**
      * Permet d'écouter la traduction en morse
-     * @param event : Évènement clic souris
      */
-    public void btJouerSonFrToMorseClick(MouseEvent event) {
+    public void btJouerSonFrToMorseClick() {
         String str;
         str = this.richTextboxFrToMorse.getText();
         if (str != null && !str.isEmpty()){
@@ -124,7 +122,7 @@ public class FrToMorseController implements Initializable {
                 protected Task<Void> createTask() {
                     return new Task<Void>() {
                         @Override
-                        protected Void call() throws Exception {
+                        protected Void call() {
                             try {
                                 JouerSon.jouerson(str);
                             } catch (Exception e) {
@@ -180,9 +178,8 @@ public class FrToMorseController implements Initializable {
 
     /**
      * Vide le formualaire
-     * @param event : Évènement clic souris
      */
-    public void btNouvelleTradClick(MouseEvent event){
+    public void btNouvelleTradClick(){
         this.texBoxCheminFrToMorse.clear();
         this.richTextboxFrToMorse.clear();
         this.textboxExporterFrToMorse.clear();
@@ -202,8 +199,6 @@ public class FrToMorseController implements Initializable {
 
     /**
      * Initialisation de la fenêtre, lance la traduction des composants
-     * @param location
-     * @param resources
      */
     @Override
     public void initialize(URL location, ResourceBundle resources) {

@@ -3,9 +3,6 @@ package com.controller;
 import com.main.MainJavaFx;
 import javafx.animation.AnimationTimer;
 import javafx.animation.FadeTransition;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -94,36 +91,16 @@ public class NewUIController {
         }.start();
 
         //grab your root here
-        moveBar.setOnMousePressed(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                mousePressed(event);
-            }
-        });
+        moveBar.setOnMousePressed(this::mousePressed);
 
         //move around here
-        moveBar.setOnMouseDragged(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                mouseDrag(event);
-            }
-        });
+        moveBar.setOnMouseDragged(this::mouseDrag);
 
         //grab your root here
-        mnuBar.setOnMousePressed(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                mousePressed(event);
-            }
-        });
+        mnuBar.setOnMousePressed(this::mousePressed);
 
         //move around here
-        mnuBar.setOnMouseDragged(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                mouseDrag(event);
-            }
-        });
+        mnuBar.setOnMouseDragged(this::mouseDrag);
 
     }
 
@@ -142,54 +119,49 @@ public class NewUIController {
 
     /**
      * Lance la fenêtre : traduction français vers morse
-     * @param event : Évènement clic souris
      */
-    public void btFrToMorseClick(MouseEvent event) {
+    public void btFrToMorseClick() {
         this.lbTitre.setText("Français vers Morse");
         fadeout(this.pnZoneTravail);
         titre = TitleName.LANGUAGE_TO_MORSE;
-        loadFxml(event, "..//gui/FrToMorse.fxml");
+        loadFxml("..//gui/FrToMorse.fxml");
     }
 
     /**
      * Lance la fenêtre : traduction français vers l33t
-     * @param event : Évènement clic souris
      */
-    public void btFrToLeetClick(MouseEvent event) {
+    public void btFrToLeetClick() {
         this.lbTitre.setText("Français vers L33t");
         fadeout(this.pnZoneTravail);
         titre = TitleName.LANGUAGE_TO_L33T;
-        loadFxml(event, "..//gui/FrToLeet.fxml");
+        loadFxml("..//gui/FrToLeet.fxml");
     }
 
     /**
      * Lance la fenêtre : traduction morse vers français
-     * @param event : Évènement clic souris
      */
-    public void btMorseToFrClick(MouseEvent event) {
+    public void btMorseToFrClick() {
         this.lbTitre.setText("Morse vers français");
         fadeout(this.pnZoneTravail);
         titre = TitleName.MORSE_TO_LANGUAGE;
-        loadFxml(event, "..//gui/AllToFr.fxml");
+        loadFxml("..//gui/AllToFr.fxml");
     }
 
     /**
      * Lance la fenêtre : traduction directe dans les deux sens (français vers morse / morse vers français)
-     * @param event : Évènement clic souris
      */
-    public void btTradDirecteClick(MouseEvent event) {
+    public void btTradDirecteClick() {
         this.lbTitre.setText("Traduction directe");
         fadeout(this.pnZoneTravail);
         titre = TitleName.DIRECT_TRANSLATE;
-        loadFxml(event, "..//gui/tradDirecte.fxml");
+        loadFxml("..//gui/tradDirecte.fxml");
     }
 
     /**
      * Lance la fenêtre correspondante dans la pane prévue à cet effet
-     * @param event : Évènement clic souris
      * @param form : fxml à charger
      */
-    private void loadFxml(MouseEvent event, String form) {
+    private void loadFxml(String form) {
         try {
             pnZoneTravail.getChildren().clear();
             Pane newLoadedPane = FXMLLoader.load(getClass().getResource(form));
@@ -279,12 +251,9 @@ public class NewUIController {
             st.setScene(scene);
             st.setResizable(false);
             st.show();
-            st.focusedProperty().addListener(new ChangeListener<Boolean>() {
-                @Override
-                public void changed(ObservableValue<? extends Boolean> arg0, Boolean oldPropertyValue, Boolean newPropertyValue) {
-                    if (!newPropertyValue){
-                        st.close();
-                    }
+            st.focusedProperty().addListener((arg0, oldPropertyValue, newPropertyValue) -> {
+                if (!newPropertyValue){
+                    st.close();
                 }
             });
 

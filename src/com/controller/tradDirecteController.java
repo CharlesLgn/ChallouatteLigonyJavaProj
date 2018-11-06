@@ -9,7 +9,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.input.MouseEvent;
 import resource.lang.Lang;
 import resource.lang.Translate;
 import resource.lang.typetrad.ButonName;
@@ -45,13 +44,12 @@ public class tradDirecteController implements Initializable {
     public void direct_type_morse(KeyEvent event){
         try {
             String carac = event.getText().toLowerCase();
-            if(carac != null && !carac.equals("")) {
+            if(!carac.equals("")) {
                 carac = removeAccents(carac);
                 if(carac.matches("[A-z0-9 :;!?()&',.\'=+_\"$@]")) {
                     richtextbox_direct_morse.setText("" + richtextbox_direct_morse.getText().substring(0, richtextbox_direct_morse.getText().length() - 1));
                     richtextbox_direct_morse.appendText(carac);
                     // Ajoute en morse
-                    String texte = richtextbox_direct_morse.getText();
                     char lastchar = richtextbox_direct_morse.getText().toCharArray()[richtextbox_direct_morse.getText().toCharArray().length - 1];
                     String morse = romainToMorse(lastchar);
                     //retire le dernier char
@@ -65,8 +63,8 @@ public class tradDirecteController implements Initializable {
                 }
             }else{
                 String code = event.getCode().getName();
-                if(code == "Backspace" || code == "Delete") {
-                    String[] tabmorse = this.richtextbox_direct_morse.getText().split(" ");
+                if(code.equals("Backspace") || code.equals("Delete")){
+                    String [] tabmorse = this.richtextbox_direct_morse.getText().split(" ");
                     StringBuilder sb = new StringBuilder();
                     for (String item : tabmorse) {
                         if (TranslatorHash.morseToRomain(item) != null) {
@@ -78,7 +76,7 @@ public class tradDirecteController implements Initializable {
                     this.richtextbox_direct_fr.appendText(sb.toString());
                 }
             }
-        }catch(Exception ex){}
+        }catch(Exception ignored){}
     }
 
     /**
@@ -88,7 +86,7 @@ public class tradDirecteController implements Initializable {
     public void direct_type_fr(KeyEvent event){
         try{
             String carac = event.getText().toLowerCase();
-            if(carac != null && !carac.equals("")) {
+            if(!carac.equals("")) {
                 carac = removeAccents(carac);
                 if(carac.matches("[A-z0-9 :;!?()&',.\'=+_\"$@]")) {
                     richtextbox_direct_fr.setText("" + richtextbox_direct_fr.getText().substring(0, richtextbox_direct_fr.getText().length() - 1));
@@ -104,7 +102,7 @@ public class tradDirecteController implements Initializable {
             }
             else{
                 String code = event.getCode().getName();
-                if(code == "Backspace" || code == "Delete"){
+                if(code.equals("Backspace") || code.equals("Delete")){
                     StringBuilder sb = new StringBuilder();
                     for (char item: this.richtextbox_direct_fr.getText().toCharArray()) {
                         if((""+item).matches("[A-z0-9 :;!?()&',.\'=+_\"$@]")) {
@@ -118,16 +116,13 @@ public class tradDirecteController implements Initializable {
             }
 
         }
-        catch(Exception ex) {
-
-        }
+        catch(Exception ignored) {}
     }
 
     /**
      * Vide le formulaire
-     * @param event : Évènement clic souris
      */
-    public void tradDirecteRecommencerClick(MouseEvent event){
+    public void tradDirecteRecommencerClick(){
         this.richtextbox_direct_fr.clear();
         this.richtextbox_direct_morse.clear();
     }
