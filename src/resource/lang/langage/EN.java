@@ -68,4 +68,12 @@ public class EN extends Lang {
         String menuAbout    = "About";
         return new String[] {menuMenu, menuHelp, menuLangage, menuAbout};
     }
+
+    @Override
+    protected String[] getDisclimer() {
+        String lblBuild   = "Build 40969d7 built on November 07 2018";
+        String lblRealise = "Made by:";
+        String lblCadre   = "for the cours \"Algo Java\"";
+        return new String[]{lblBuild, lblRealise, lblCadre};
+    }
 }

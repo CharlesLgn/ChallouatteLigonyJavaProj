@@ -7,6 +7,7 @@ public abstract class Lang {
     protected abstract String[] getLabel();
     protected abstract String[] getPopUp();
     protected abstract String[] getMenu();
+    protected abstract String[] getDisclimer();
 
     public LambdaString butonName = (pos) -> getBoutonName()[pos];
 
@@ -17,4 +18,6 @@ public abstract class Lang {
     public LambdaString popUp     = (pos) -> getPopUp()[pos];
 
     public LambdaString menu      = (pos) -> getMenu()[pos];
+
+    public LambdaString disclimer = (pos) -> getDisclimer()[pos];
 }

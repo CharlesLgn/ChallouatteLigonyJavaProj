@@ -68,5 +68,13 @@ public class FR extends Lang {
         return new String[] {menuMenu, menuHelp, menuLangage, menuAbout};
     }
 
+    @Override
+    protected String[] getDisclimer() {
+        String lblBuild   = "Build n°40969d7 du 07 Novembre 2018";
+        String lblRealise = "Réalisé par :";
+        String lblCadre   = "Dans le cadre de la matière \"Algo Java\"";
+        return new String[]{lblBuild, lblRealise, lblCadre};
+    }
+
 
 }
