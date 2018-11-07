@@ -68,4 +68,12 @@ public class DE extends Lang {
         String menuAbout    = "Über";
         return new String[] {menuMenu, menuHelp, menuLangage, menuAbout};
     }
+
+    @Override
+    protected String[] getDisclimer() {
+        String lblBuild   = "Build 40969d7 von 07. November 2018";
+        String lblRealise = "Macht bei :";
+        String lblCadre   = "Für \"Algo Java\" Untericht";
+        return new String[]{lblBuild, lblRealise, lblCadre};
+    }
 }

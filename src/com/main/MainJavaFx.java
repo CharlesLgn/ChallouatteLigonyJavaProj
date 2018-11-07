@@ -1,5 +1,6 @@
 package com.main;
 
+import com.util.HashMap;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -12,6 +13,8 @@ import resource.lang.langage.EN;
 
 public class MainJavaFx extends Application {
 
+    private static HashMap<String,String,String> traductor;
+
     private static Lang langue;
 
     private static Stage prStage;
@@ -22,6 +25,7 @@ public class MainJavaFx extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
+        traductor = new HashMap<>();
         langue = new EN();
 
         setPrimaryStage(primaryStage);
@@ -55,4 +59,7 @@ public class MainJavaFx extends Application {
         MainJavaFx.langue = langue;
     }
 
+    public static HashMap<String, String, String> getTraductor() {
+        return traductor;
+    }
 }
