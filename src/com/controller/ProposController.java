@@ -16,7 +16,7 @@ import resource.lang.typetrad.LabelName;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class proposController implements Initializable{
+public class ProposController implements Initializable{
     @FXML
     private GridPane panClasse;
 
@@ -31,7 +31,7 @@ public class proposController implements Initializable{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        BackgroundImage myBI= new BackgroundImage(new Image("./resource/Images/back1.jpg",1280,600,true,true),
+        BackgroundImage myBI= new BackgroundImage(new Image("./src/resource/Images/back1.jpg",1280,600,true,true),
                 BackgroundRepeat.REPEAT, BackgroundRepeat.NO_REPEAT, new BackgroundPosition(Side.LEFT, -120, true, Side.TOP, -50, false),
                 BackgroundSize.DEFAULT);
 //then you set to your node

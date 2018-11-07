@@ -73,9 +73,6 @@ public class NewUIController {
      * Initialisation de la fenêtre, lance la traduction en fonction de la langue sélectionnée
      */
     public void initialize() {
-
-
-
         String lan = System.getProperty("user.language");
         if(lan.equalsIgnoreCase("fr")){
             MainJavaFx.setLangue(new FR());

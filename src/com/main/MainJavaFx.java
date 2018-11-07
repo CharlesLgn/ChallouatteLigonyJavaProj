@@ -11,6 +11,12 @@ import javafx.stage.StageStyle;
 import resource.lang.Lang;
 import resource.lang.langage.EN;
 
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
+
 public class MainJavaFx extends Application {
 
     private static HashMap<String,String,String> traductor;
@@ -39,7 +45,24 @@ public class MainJavaFx extends Application {
         prStage.getIcons().add(new Image("/resource/Images/icon.png"));
         scene.getStylesheets().add(getClass().getResource("..//gui/css/NewUICSS.css").toExternalForm());
         prStage.show();
+    }
 
+    public static void loadTrad(){
+        MainJavaFx.getTraductor().put(" ", "morse", "   ");
+        MainJavaFx.getTraductor().put(" ", "l33t", " ");
+        try {
+            Thread.sleep(4000);
+            BufferedReader br = new BufferedReader(new FileReader("./src/resource/dico.txt"));
+            String line;
+            while ((line = br.readLine()) != null) {
+                // process the line.
+                String[] str = line.split(" ");
+                MainJavaFx.getTraductor().put(str[0], str[1], str[2]);
+                System.out.println(line);
+            }
+        } catch (IOException | InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     public static Stage getPrimaryStage() {
