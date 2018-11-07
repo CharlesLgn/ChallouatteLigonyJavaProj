@@ -26,14 +26,17 @@ public class MainJavaFx extends Application {
 
         setPrimaryStage(primaryStage);
         prStage = primaryStage;
-        Parent root = FXMLLoader.load(getClass().getResource("../gui/NewUI.fxml"));
+        //Parent root = FXMLLoader.load(getClass().getResource("../gui/NewUI.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../gui/SplashScreen.fxml"));
         prStage.setTitle("Traducteur");
         prStage.initStyle(StageStyle.UNDECORATED);
-        Scene scene = new Scene(root, 1280, 720);
+        //Scene scene = new Scene(root, 1280, 720);
+        Scene scene = new Scene(root, 500, 300);
         prStage.setScene(scene);
         prStage.setResizable(false);
         prStage.getIcons().add(new Image("/resource/Images/icon.png"));
-        scene.getStylesheets().add(getClass().getResource("..//gui/css/NewUICSS.css").toExternalForm());
+        //scene.getStylesheets().add(getClass().getResource("..//gui/css/NewUICSS.css").toExternalForm());
+        scene.getStylesheets().add(getClass().getResource("..//gui/css/ProgressBar.css").toExternalForm());
 
         prStage.show();
 

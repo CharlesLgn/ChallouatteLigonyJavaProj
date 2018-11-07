@@ -37,6 +37,9 @@ public class tradDirecteController implements Initializable {
     @FXML
     private Button tradDirecteRecommencer;
 
+    private int longueurtradmorse;
+    private int longueurtradfr;
+
     /**
      * Traduit directement les entrées utilisateur dans la textarea et recopie les entrées dans l'autre textarea, gère aussi la suppression des deux côtés
      * @param event : Évènement entrée clavier relâché
@@ -44,39 +47,41 @@ public class tradDirecteController implements Initializable {
     public void direct_type_morse(KeyEvent event){
         try {
             String carac = event.getText().toLowerCase();
-            if(!carac.equals("")) {
-                carac = removeAccents(carac);
-                if(carac.matches("[A-z0-9 :;!?()&',.\'=+_\"$@]")) {
-                    richtextbox_direct_morse.setText("" + richtextbox_direct_morse.getText().substring(0, richtextbox_direct_morse.getText().length() - 1));
-                    richtextbox_direct_morse.appendText(carac);
-                    // Ajoute en morse
-                    char lastchar = richtextbox_direct_morse.getText().toCharArray()[richtextbox_direct_morse.getText().toCharArray().length - 1];
-                    String morse = romainToMorse(lastchar);
-                    //retire le dernier char
-                    richtextbox_direct_morse.setText("" + richtextbox_direct_morse.getText().substring(0, richtextbox_direct_morse.getText().length() - 1));
-                    richtextbox_direct_morse.appendText(morse + " ");
-                    richtextbox_direct_fr.appendText(String.valueOf(TranslatorHash.morseToRomain(morse)));
-                }else {
-                    String newtext = this.richtextbox_direct_morse.getText().replace(carac, "");
-                    this.richtextbox_direct_morse.clear();
-                    this.richtextbox_direct_morse.appendText(newtext);
-                }
-            }else{
-                String code = event.getCode().getName();
-                if(code.equals("Backspace") || code.equals("Delete")){
-                    String [] tabmorse = this.richtextbox_direct_morse.getText().split(" ");
-                    StringBuilder sb = new StringBuilder();
-                    for (String item : tabmorse) {
-                        if (TranslatorHash.morseToRomain(item) != null) {
-                            sb.append(TranslatorHash.morseToRomain(item));
-                        }
+                if (!carac.equals("")) {
+                    carac = removeAccents(carac);
+                    if (carac.matches("[A-z0-9 :;!?()&',.\'=+_\"$@]")) {
+                        richtextbox_direct_morse.setText("" + richtextbox_direct_morse.getText().substring(0, richtextbox_direct_morse.getText().length() - 1));
+                        richtextbox_direct_morse.appendText(carac);
+                        // Ajoute en morse
+                        char lastchar = richtextbox_direct_morse.getText().toCharArray()[richtextbox_direct_morse.getText().toCharArray().length - 1];
+                        String morse = romainToMorse(lastchar);
+                        //retire le dernier char
+                        richtextbox_direct_morse.setText("" + richtextbox_direct_morse.getText().substring(0, richtextbox_direct_morse.getText().length() - 1));
+                        richtextbox_direct_morse.appendText(morse + " ");
+                        richtextbox_direct_fr.appendText(String.valueOf(TranslatorHash.morseToRomain(morse)));
+                    } else {
+                        String newtext = this.richtextbox_direct_morse.getText().replace(carac, "");
+                        this.richtextbox_direct_morse.clear();
+                        this.richtextbox_direct_morse.appendText(newtext);
                     }
+                } else {
+                    String code = event.getCode().getName();
+                    if (code.equals("Backspace") || code.equals("Delete")) {
+                        String[] tabmorse = this.richtextbox_direct_morse.getText().split(" ");
+                        StringBuilder sb = new StringBuilder();
+                        for (String item : tabmorse) {
+                            if (TranslatorHash.morseToRomain(item) != null) {
+                                sb.append(TranslatorHash.morseToRomain(item));
+                            }
+                        }
 
-                    this.richtextbox_direct_fr.clear();
-                    this.richtextbox_direct_fr.appendText(sb.toString());
+                        this.richtextbox_direct_fr.clear();
+                        this.richtextbox_direct_fr.appendText(sb.toString());
+                    }
                 }
-            }
         }catch(Exception ignored){}
+
+        longueurtradmorse = this.richtextbox_direct_fr.getText().length();
     }
 
     /**
@@ -84,39 +89,38 @@ public class tradDirecteController implements Initializable {
      * @param event : Évènement entrée clavier relâché
      */
     public void direct_type_fr(KeyEvent event){
-        try{
+        try {
             String carac = event.getText().toLowerCase();
-            if(!carac.equals("")) {
-                carac = removeAccents(carac);
-                if(carac.matches("[A-z0-9 :;!?()&',.\'=+_\"$@]")) {
-                    richtextbox_direct_fr.setText("" + richtextbox_direct_fr.getText().substring(0, richtextbox_direct_fr.getText().length() - 1));
-                    richtextbox_direct_fr.appendText(carac);
-                    char lastchar = richtextbox_direct_fr.getText().toCharArray()[richtextbox_direct_fr.getText().toCharArray().length - 1];
-                    String morse = TranslatorHash.romainToMorse("" + lastchar);
-                    richtextbox_direct_morse.appendText(morse + " ");
-                }else {
-                    String newtext = this.richtextbox_direct_fr.getText().replace(carac, "");
-                    this.richtextbox_direct_fr.clear();
-                    this.richtextbox_direct_fr.appendText(newtext);
-                }
-            }
-            else{
-                String code = event.getCode().getName();
-                if(code.equals("Backspace") || code.equals("Delete")){
-                    StringBuilder sb = new StringBuilder();
-                    for (char item: this.richtextbox_direct_fr.getText().toCharArray()) {
-                        if((""+item).matches("[A-z0-9 :;!?()&',.\'=+_\"$@]")) {
-                            sb.append(TranslatorHash.romainToMorse("" + item));
-                        }
+                if (!carac.equals("")) {
+                    carac = removeAccents(carac);
+                    if (carac.matches("[A-z0-9 :;!?()&',.\'=+_\"$@]")) {
+                        richtextbox_direct_fr.setText("" + richtextbox_direct_fr.getText().substring(0, richtextbox_direct_fr.getText().length() - 1));
+                        richtextbox_direct_fr.appendText(carac);
+                        char lastchar = richtextbox_direct_fr.getText().toCharArray()[richtextbox_direct_fr.getText().toCharArray().length - 1];
+                        String morse = TranslatorHash.romainToMorse("" + lastchar);
+                        richtextbox_direct_morse.appendText(morse + " ");
+                    } else {
+                        String newtext = this.richtextbox_direct_fr.getText().replace(carac, "");
+                        this.richtextbox_direct_fr.clear();
+                        this.richtextbox_direct_fr.appendText(newtext);
                     }
+                } else {
+                    String code = event.getCode().getName();
+                    if (code.equals("Backspace") || code.equals("Delete")) {
+                        StringBuilder sb = new StringBuilder();
+                        for (char item : this.richtextbox_direct_fr.getText().toCharArray()) {
+                            if (("" + item).matches("[A-z0-9 :;!?()&',.\'=+_\"$@]")) {
+                                sb.append(TranslatorHash.romainToMorse("" + item));
+                            }
+                        }
 
-                    this.richtextbox_direct_morse.clear();
-                    this.richtextbox_direct_morse.appendText(sb.toString());
+                        this.richtextbox_direct_morse.clear();
+                        this.richtextbox_direct_morse.appendText(sb.toString());
+                    }
                 }
-            }
-
         }
         catch(Exception ignored) {}
+        longueurtradfr = this.richtextbox_direct_fr.getText().length();
     }
 
     /**
@@ -151,5 +155,29 @@ public class tradDirecteController implements Initializable {
                 translate();
             }
         }.start();
+
+     /*   this.richtextbox_direct_fr.textProperty().addListener((observable, oldValue, newValue) -> {
+            String diff = "";
+            //this.richtextbox_direct_fr.clear();
+            for (char item : newValue.toCharArray()) {
+                for (char item2 : oldValue.toCharArray()) {
+                    if(item != item2){
+                        diff = "" + item;
+                    }
+                }
+            }
+            if(this.richtextbox_direct_morse.getText().length() > 0 && this.richtextbox_direct_fr.getText().length() > 0){
+            this.richtextbox_direct_morse.appendText(TranslatorHash.romainToMorse(diff + " "));
+            }else{
+                this.richtextbox_direct_morse.appendText(TranslatorHash.romainToMorse(newValue + " "));
+            }
+        });
+
+        this.richtextbox_direct_morse.textProperty().addListener((observable, oldValue, newValue) -> {
+            System.out.println("plop");
+        });*/
+
+        longueurtradmorse = 0;
+        longueurtradfr = 0;
     }
 }

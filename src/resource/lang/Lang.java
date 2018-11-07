@@ -16,5 +16,5 @@ public abstract class Lang {
 
     public LambdaString popUp     = (pos) -> getPopUp()[pos];
 
-    public LambdaString menu     = (pos) -> getMenu()[pos];
+    public LambdaString menu      = (pos) -> getMenu()[pos];
 }

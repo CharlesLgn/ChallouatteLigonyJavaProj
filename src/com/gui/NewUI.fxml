@@ -75,6 +75,11 @@
                         <Insets bottom="50.0" />
                      </GridPane.margin>
                   </Label>
+                  <Separator prefWidth="200.0" stylesheets="@css/BoutonsDashBoard.css" GridPane.rowIndex="1" GridPane.valignment="TOP" />
+                  <Separator prefWidth="200.0" stylesheets="@css/BoutonsDashBoard.css" GridPane.valignment="TOP" />
+                  <Separator prefWidth="200.0" stylesheets="@css/BoutonsDashBoard.css" GridPane.rowIndex="2" GridPane.valignment="TOP" />
+                  <Separator prefWidth="200.0" stylesheets="@css/BoutonsDashBoard.css" GridPane.rowIndex="3" GridPane.valignment="TOP" />
+                  <Separator prefWidth="200.0" stylesheets="@css/BoutonsDashBoard.css" GridPane.rowIndex="4" GridPane.valignment="TOP" />
                </children>
             </GridPane>
             <Pane fx:id="pnZoneTravail" minWidth="-Infinity" GridPane.columnIndex="1" GridPane.rowIndex="3" />

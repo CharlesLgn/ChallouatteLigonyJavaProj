@@ -30,7 +30,7 @@ public class NewUIController {
 
     @FXML
     private Label lbBienvenu;
-    private String username = System.getProperty("user.name");
+    private final String username = System.getProperty("user.name");
     private int titre = -1;
 
     @FXML
