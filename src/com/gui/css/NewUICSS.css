@@ -14,7 +14,3 @@
 .text-input{
     -fx-text-fill: white;
 }
-
-.button:hover{
-    -fx-text-fill: rgb(83,85,89);
-}
