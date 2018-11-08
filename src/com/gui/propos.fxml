@@ -11,9 +11,9 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.text.Font?>
 
-<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-effect: dropshadow(three-pass-box, purple, 50, 0, 0, 0);" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controller.ProposController">
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="386.0" prefWidth="600.0" style="-fx-background-insets: 50; -fx-effect: dropshadow(three-pass-box, derive(cadetblue, -20%), 10, 0, 4, 4); -fx-background-color: derive(cadetblue, -20%);" xmlns="http://javafx.com/javafx/8.0.172-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controller.ProposController">
    <children>
-      <GridPane prefHeight="300.0" prefWidth="500.0" style="-fx-effect: dropshadow(three-pass-box,  black, 50, 0, 0, 0); -fx-background-color: rgb(50, 50, 60);">
+      <GridPane prefHeight="400.0" prefWidth="600.0" style="-fx-effect: dropshadow(three-pass-box,  black, 50, 0, 0, 0); -fx-background-color: rgb(50, 50, 60);">
          <columnConstraints>
             <ColumnConstraints hgrow="SOMETIMES" maxWidth="1.7976931348623157E308" minWidth="10.0" prefWidth="400.0" />
          </columnConstraints>
@@ -24,7 +24,7 @@
             <RowConstraints maxHeight="94.0" minHeight="9.0" prefHeight="30.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <GridPane fx:id="panClasse">
+            <GridPane fx:id="panClasse" prefHeight="90.0" prefWidth="600.0">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="312.0" minWidth="10.0" prefWidth="77.0" />
                   <ColumnConstraints hgrow="SOMETIMES" maxWidth="310.0" minWidth="10.0" prefWidth="97.0" />
@@ -50,7 +50,7 @@
                   </ImageView>
                </children>
             </GridPane>
-            <GridPane GridPane.rowIndex="1">
+            <GridPane prefHeight="170.0" prefWidth="600.0" GridPane.rowIndex="1">
                <columnConstraints>
                   <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                </columnConstraints>

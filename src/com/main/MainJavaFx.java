@@ -45,6 +45,7 @@ public class MainJavaFx extends Application {
         prStage.getIcons().add(new Image("/resource/Images/icon.png"));
         scene.getStylesheets().add(getClass().getResource("..//gui/css/NewUICSS.css").toExternalForm());
         prStage.show();
+        loadTrad();
     }
 
     public static void loadTrad(){
