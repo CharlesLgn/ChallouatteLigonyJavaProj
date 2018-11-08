@@ -7,6 +7,7 @@ import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.geometry.Side;
 import javafx.scene.control.Label;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import resource.lang.Lang;
@@ -48,7 +49,7 @@ public class ProposController implements Initializable{
       }
 
       panShadow.setPadding(new Insets(20,20,20,20));
-      panShadow.getScene().getRoot().setEffect(new Do);
+      panShadow.getScene().getRoot().setEffect(new DropShadow());
 
         new AnimationTimer() {
             @Override
