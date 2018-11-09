@@ -15,7 +15,6 @@ import resource.lang.typetrad.ButonName;
 import resource.lang.typetrad.LabelName;
 
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 import static com.method.TranslatorListe.romainToMorse;
@@ -45,40 +44,35 @@ public class tradDirecteController implements Initializable {
     public void direct_type_morse(KeyEvent event){
         try {
             String carac = event.getText().toLowerCase();
-            if (carac.length() < 2){
-                if (!carac.equals("")) {
-                    carac = removeAccents(carac);
-                    if (carac.matches("[A-z0-9 :;!?()&',.\'=+_\"$@]")) {
-                        richtextbox_direct_fr.appendText(carac);
-                        richtextbox_direct_morse.setText("" + richtextbox_direct_morse.getText().substring(0, richtextbox_direct_morse.getText().length() - 1));
-                        richtextbox_direct_morse.appendText(carac);
-                        // Ajoute en morse
-                        char lastchar = richtextbox_direct_morse.getText().toCharArray()[richtextbox_direct_morse.getText().toCharArray().length - 1];
-                        String morse = romainToMorse(lastchar);
-                        //retire le dernier char
-                        richtextbox_direct_morse.setText("" + richtextbox_direct_morse.getText().substring(0, richtextbox_direct_morse.getText().length() - 1));
-                        richtextbox_direct_morse.appendText(morse + " ");
-                        //richtextbox_direct_fr.appendText(String.valueOf(TranslatorHash.morseToRomain(morse)));
-                    } else {
-                        deniedMorse(carac);
-                    }
+            if (!carac.equals("")) {
+                carac = removeAccents(carac);
+                if (carac.matches("[A-z0-9 :;!?()&',.\'=+_\"$@]")) {
+                    richtextbox_direct_fr.appendText(carac);
+                    richtextbox_direct_morse.setText("" + richtextbox_direct_morse.getText().substring(0, richtextbox_direct_morse.getText().length() - 1));
+                    richtextbox_direct_morse.appendText(carac);
+                    // Ajoute en morse
+                    char lastchar = richtextbox_direct_morse.getText().toCharArray()[richtextbox_direct_morse.getText().toCharArray().length - 1];
+                    String morse = romainToMorse(lastchar);
+                    //retire le dernier char
+                    richtextbox_direct_morse.setText("" + richtextbox_direct_morse.getText().substring(0, richtextbox_direct_morse.getText().length() - 1));
+                    richtextbox_direct_morse.appendText(morse + " ");
                 } else {
-                    String code = event.getCode().getName();
-                    if (code.equals("Backspace") || code.equals("Delete")) {
-                        String[] tabmorse = this.richtextbox_direct_morse.getText().split(" ");
-                        StringBuilder sb = new StringBuilder();
-                        for (String item : tabmorse) {
-                            if (TranslatorHash.morseToRomain(item) != null) {
-                                sb.append(TranslatorHash.morseToRomain(item));
-                            }
-                        }
-
-                        this.richtextbox_direct_fr.clear();
-                        this.richtextbox_direct_fr.appendText(sb.toString());
-                    }
+                    deniedMorse(carac);
                 }
-            }else{
-                translateEverything();
+            } else {
+                String code = event.getCode().getName();
+                if (code.equals("Backspace") || code.equals("Delete")) {
+                    String[] tabmorse = this.richtextbox_direct_morse.getText().split(" ");
+                    StringBuilder sb = new StringBuilder();
+                    for (String item : tabmorse) {
+                        if (TranslatorHash.morseToRomain(item) != null) {
+                            sb.append(TranslatorHash.morseToRomain(item));
+                        }
+                    }
+
+                    this.richtextbox_direct_fr.clear();
+                    this.richtextbox_direct_fr.appendText(sb.toString());
+                }
             }
         }catch(Exception ignored){}
     }
@@ -129,35 +123,6 @@ public class tradDirecteController implements Initializable {
                 }
             }
         catch(Exception ignored) {}
-    }
-
-    public void translateEverything(){
-        int tailleFr = this.richtextbox_direct_fr.getText().length();
-        int tailleMorse = this.richtextbox_direct_morse.getText().split(" ").length;
-
-        if(tailleFr > tailleMorse){
-            String[] tabmorse = this.richtextbox_direct_morse.getText().split(" ");
-            StringBuilder sb = new StringBuilder();
-            for (String item : tabmorse) {
-                if (TranslatorHash.morseToRomain(item) != null) {
-                    sb.append(TranslatorHash.morseToRomain(item));
-                }
-            }
-
-            this.richtextbox_direct_fr.clear();
-            this.richtextbox_direct_fr.appendText(sb.toString());
-
-        }else {
-            StringBuilder sb = new StringBuilder();
-            for (char item : this.richtextbox_direct_fr.getText().toCharArray()) {
-                if (("" + item).matches("[A-z0-9 :;!?()&',.\'=+_\"$@]")) {
-                    sb.append(TranslatorHash.romainToMorse("" + item));
-                }
-            }
-
-            this.richtextbox_direct_morse.clear();
-            this.richtextbox_direct_morse.appendText(sb.toString());
-        }
     }
 
     /**
