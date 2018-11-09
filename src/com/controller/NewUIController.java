@@ -248,7 +248,7 @@ public class NewUIController {
             Stage st = new Stage();
             st.initModality(Modality.NONE);
             st.initOwner(pnPrincipal.getScene().getWindow());
-            st.initStyle(StageStyle.TRANSPARENT);
+            st.initStyle(StageStyle.UNDECORATED);
 
             Parent root = FXMLLoader.load(getClass().getResource("../gui/propos.fxml"));
             Scene scene = new Scene(root, 500, 300);

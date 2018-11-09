@@ -6,10 +6,12 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
 import javafx.geometry.Side;
+import javafx.scene.Parent;
 import javafx.scene.control.Label;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
 import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
 import resource.lang.Lang;
 import resource.lang.Translate;
 import resource.lang.typetrad.DisclimerName;
@@ -47,9 +49,6 @@ public class ProposController implements Initializable{
       } catch (Exception e){
         System.err.println(e);
       }
-
-      panShadow.setPadding(new Insets(20,20,20,20));
-      panShadow.getScene().getRoot().setEffect(new DropShadow());
 
         new AnimationTimer() {
             @Override
