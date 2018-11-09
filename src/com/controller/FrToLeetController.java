@@ -86,6 +86,7 @@ public class FrToLeetController implements Initializable {
      * Traduit le contenu du fichier texte et écrit le résultat dans la textarea
      */
     public void btTradLeetClick(){
+        richtextboxLeet.clear();
         if(this.textboxCheminLeet.getText() != null && !this.textboxCheminLeet.getText().isEmpty()) {
 
             try {
@@ -101,7 +102,6 @@ public class FrToLeetController implements Initializable {
                     this.richtextboxLeet.appendText(resmorse);
                 }
                 buff.close();
-                this.btTradLeet.setDisable(true);
             }catch(Exception ex){
                 System.out.println(ex);
             }

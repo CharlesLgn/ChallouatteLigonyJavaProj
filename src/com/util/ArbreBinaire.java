@@ -27,7 +27,7 @@ public class ArbreBinaire implements Arbre {
             return 1;
         }else if(brancheDroite != null && brancheGauche == null){
             return 1 + brancheDroite.taille();
-        }else if((brancheDroite == null) && (brancheGauche != null)){
+        }else if(brancheDroite == null){
             return 1 + brancheGauche.taille();
         } else {
             return 1 + brancheGauche.taille() + brancheDroite.taille();
@@ -48,7 +48,7 @@ public class ArbreBinaire implements Arbre {
             return false;
         }else if(brancheDroite != null && brancheGauche == null){
             return brancheDroite.contient(obj);
-        }else if((brancheDroite == null) && (brancheGauche != null)){
+        }else if(brancheDroite == null){
             return brancheGauche.contient(obj);
         } else {
             return brancheGauche.contient(obj) || brancheDroite.contient(obj);
@@ -175,13 +175,13 @@ public class ArbreBinaire implements Arbre {
 
     private ListeChaine<Code> toList(){
         if(brancheDroite == null && brancheGauche == null){
-            return new ListeChaine<Code>(donne, null, null);
+            return new ListeChaine<>(donne, null, null);
         }else if(brancheDroite != null && brancheGauche == null){
-            return new ListeChaine<Code>(donne, null, brancheDroite.toList());
-        }else if((brancheDroite == null) && (brancheGauche != null)){
-            return new ListeChaine<Code>(donne, brancheGauche.toList(), null);
+            return new ListeChaine<>(donne, null, brancheDroite.toList());
+        }else if(brancheDroite == null){
+            return new ListeChaine<>(donne, brancheGauche.toList(), null);
         } else {
-            return new ListeChaine<Code>(donne, brancheGauche.toList(), brancheDroite.toList());
+            return new ListeChaine<>(donne, brancheGauche.toList(), brancheDroite.toList());
         }
     }
 }

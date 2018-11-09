@@ -73,7 +73,7 @@ public class AllToFrController implements Initializable {
      */
     public void btTradAllToFrClick(){
         if(this.textboxAllToFr.getText() != null && !this.textboxAllToFr.getText().isEmpty()) {
-
+            richtextboxAllToFr.clear();
             try {
                 StringBuilder sb = new StringBuilder();
                 InputStream flux = new FileInputStream(this.textboxAllToFr.getText());

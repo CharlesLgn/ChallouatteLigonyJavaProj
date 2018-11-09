@@ -80,6 +80,7 @@ public class FrToMorseController implements Initializable {
      * Traduit le contenu du fichier et affiche le résultat dans la textarea
      */
     public void btTradFrToMorseClick(){
+        richTextboxFrToMorse.clear();
         if(this.texBoxCheminFrToMorse.getText() != null && !this.texBoxCheminFrToMorse.getText().isEmpty()) {
 
             try {
@@ -99,7 +100,6 @@ public class FrToMorseController implements Initializable {
                     this.richTextboxFrToMorse.appendText(resmorse.toString().trim());
                 }
                 buff.close();
-                this.btTradFrToMorse.setDisable(true);
             }catch(Exception ex){
                 System.out.println(ex);
             }
