@@ -14,8 +14,6 @@ import resource.lang.langage.EN;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URL;
 
 public class MainJavaFx extends Application {
 
@@ -36,6 +34,8 @@ public class MainJavaFx extends Application {
         traductor = new HashMap<>();
         langue = new EN();
 
+        com.sun.javafx.util.Logging.getJavaFXLogger().setLevel(sun.util.logging.PlatformLogger.Level.OFF);
+
         setPrimaryStage(primaryStage);
         prStage = primaryStage;
         Parent root = FXMLLoader.load(getClass().getResource("../gui/NewUI.fxml"));
@@ -43,27 +43,24 @@ public class MainJavaFx extends Application {
         prStage.initStyle(StageStyle.UNDECORATED);
         Scene scene = new Scene(root, 1280, 720);
         prStage.setScene(scene);
-        prStage.setResizable(false);
         prStage.getIcons().add(new Image("/resource/Images/icon.png"));
         scene.getStylesheets().add(getClass().getResource("..//gui/css/NewUICSS.css").toExternalForm());
         prStage.show();
-        //loadTrad();
     }
 
     public static void loadTrad(){
         MainJavaFx.getTraductor().put(" ", "morse", "   ");
         MainJavaFx.getTraductor().put(" ", "l33t", " ");
         try {
-            Thread.sleep(4000);
+            System.out.println(MainJavaFx.getTraductor().getClePrimaire("morse", "   "));
             BufferedReader br = new BufferedReader(new FileReader("./src/resource/dico.txt"));
             String line;
             while ((line = br.readLine()) != null) {
                 // process the line.
                 String[] str = line.split(" ");
                 MainJavaFx.getTraductor().put(str[0], str[1], str[2]);
-                System.out.println(line);
             }
-        } catch (IOException | InterruptedException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }

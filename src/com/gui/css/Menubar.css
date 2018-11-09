@@ -5,8 +5,8 @@
 
 
 .menu-bar, .menu{
-    -fx-background-color: rgb(13, 17, 20);
-    -fx-border-color:     rgb(13, 17, 20) ;
+    -fx-background-color:  rgb( 12, 12, 13);
+    -fx-border-color:      rgb( 12, 12, 13);
 }
 
 .menu-bar {
