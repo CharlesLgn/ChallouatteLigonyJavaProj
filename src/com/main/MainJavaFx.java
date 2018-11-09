@@ -1,13 +1,17 @@
 package com.main;
 
 import com.util.HashMap;
+import javafx.animation.FadeTransition;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
+import javafx.scene.layout.Pane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import javafx.util.Duration;
 import resource.lang.Lang;
 import resource.lang.langage.EN;
 
@@ -19,6 +23,7 @@ import java.net.URL;
 
 public class MainJavaFx extends Application {
 
+    private Pane splashLayout;
     private static HashMap<String,String,String> traductor;
 
     private static Lang langue;
@@ -47,6 +52,8 @@ public class MainJavaFx extends Application {
         prStage.show();
         loadTrad();
     }
+
+    
 
     public static void loadTrad(){
         MainJavaFx.getTraductor().put(" ", "morse", "   ");
