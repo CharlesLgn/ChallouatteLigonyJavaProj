@@ -1,4 +1,4 @@
-package com.method;
+package com.method.autre;
 
 import com.main.MainJavaFx;
 import javafx.scene.image.Image;

@@ -1,4 +1,4 @@
-package com.method;
+package com.method.autre;
 
 import javax.sound.sampled.AudioFormat;
 import javax.sound.sampled.AudioSystem;

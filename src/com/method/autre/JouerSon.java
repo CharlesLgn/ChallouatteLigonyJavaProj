@@ -1,4 +1,4 @@
-package com.method;
+package com.method.autre;
 
 public class JouerSon {
 

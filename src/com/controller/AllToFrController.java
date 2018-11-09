@@ -1,8 +1,8 @@
 package com.controller;
 
 import com.main.MainJavaFx;
-import com.method.TranslatorHash;
-import com.util.Utilitaires;
+import com.method.trad.TranslatorHash;
+import com.method.autre.Utilitaires;
 import javafx.animation.AnimationTimer;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -100,7 +100,7 @@ public class AllToFrController implements Initializable {
             }
         }
         else{
-            com.method.Alert.alertGenerique(Translate.haveIt(PopUpName.POP_UP_ERROR_DESC_TRAD, MainJavaFx.getLangue().popUp), MainJavaFx.getLangue());
+            com.method.autre.Alert.alertGenerique(Translate.haveIt(PopUpName.POP_UP_ERROR_DESC_TRAD, MainJavaFx.getLangue().popUp), MainJavaFx.getLangue());
         }
     }
 
@@ -139,10 +139,10 @@ public class AllToFrController implements Initializable {
                     alert.showAndWait();
                     //endregion
                 } else {
-                    com.method.Alert.alertGenerique(Translate.haveIt(PopUpName.POP_UP_ERROR_DESC_EXPORT, MainJavaFx.getLangue().popUp), MainJavaFx.getLangue());
+                    com.method.autre.Alert.alertGenerique(Translate.haveIt(PopUpName.POP_UP_ERROR_DESC_EXPORT, MainJavaFx.getLangue().popUp), MainJavaFx.getLangue());
                 }
             } else {
-                com.method.Alert.alertGenerique(Translate.haveIt(PopUpName.POP_UP_ERROR_DESC_EXPORT, MainJavaFx.getLangue().popUp), MainJavaFx.getLangue());
+                com.method.autre.Alert.alertGenerique(Translate.haveIt(PopUpName.POP_UP_ERROR_DESC_EXPORT, MainJavaFx.getLangue().popUp), MainJavaFx.getLangue());
             }
         }catch (Exception ex){
             System.out.println(ex);

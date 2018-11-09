@@ -1,4 +1,4 @@
-package com.method;
+package com.method.trad;
 
 public class TraductionLeet {
 
