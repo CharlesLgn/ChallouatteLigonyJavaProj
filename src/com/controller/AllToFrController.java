@@ -85,7 +85,9 @@ public class AllToFrController implements Initializable {
                     for (String item:listeMotsMorse) {
                         String[] lettres = item.split(" ");
                         for(String lettre : lettres){
-                            sb.append(TranslatorHash.morseToRomain(lettre));
+                            if(!lettre.equals("")){
+                                sb.append(TranslatorHash.morseToRomain(lettre));
+                            }
                         }
                         sb.append(" ");
                     }

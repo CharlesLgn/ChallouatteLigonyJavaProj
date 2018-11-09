@@ -5,14 +5,11 @@ import javafx.animation.AnimationTimer;
 import javafx.animation.FadeTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.effect.DropShadow;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
-import javafx.scene.paint.Color;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -52,17 +49,13 @@ public class NewUIController {
     private Button btTradDirecte;
 
     @FXML
-    Pane pnZoneTravail;
+    private Pane pnZoneTravail;
 
     @FXML
     private VBox pnPrincipal;
 
     @FXML
-    private GridPane pnPrincipal2;
-
-    @FXML
     private MenuBar mnuBar;
-
     @FXML
     private Menu mnuMenu;
     @FXML
@@ -82,9 +75,6 @@ public class NewUIController {
         if(!MainJavaFx.loadedSplash) {
             loadSplash();
         }
-
-
-
         String lan = System.getProperty("user.language");
         if(lan.equalsIgnoreCase("fr")){
             MainJavaFx.setLangue(new FR());
@@ -117,9 +107,11 @@ public class NewUIController {
 
     }
 
+    /**
+     * fonction permetant la creation d'un plash screen
+     */
     private void loadSplash(){
         try{
-
             MainJavaFx.loadedSplash = true;
             StackPane pane = FXMLLoader.load(getClass().getResource("../gui/SplashScreen.fxml"));
             pnPrincipal.getChildren().setAll(pane);
@@ -134,9 +126,7 @@ public class NewUIController {
             fadeOut.setToValue(0);
             fadeOut.setCycleCount(1);
             fadeIn.play();
-            fadeIn.setOnFinished((e) ->{
-                fadeOut.play();
-            });
+            fadeIn.setOnFinished((e) -> fadeOut.play());
             fadeOut.setOnFinished((e) ->{
                 try {
                     VBox parent = FXMLLoader.load(getClass().getResource("../gui/NewUI.fxml"));
@@ -156,15 +146,27 @@ public class NewUIController {
         }
     }
 
+    /**
+     * permet de déplacer le fenettre
+     * @param event le click de la souris
+     */
     private void mouseDrag(MouseEvent event){
         MainJavaFx.getPrimaryStage().setX(event.getScreenX() - xOffset);
         MainJavaFx.getPrimaryStage().setY(event.getScreenY() - yOffset);
     }
+
+    /**
+     * permet de déplacer le fenettre
+     * @param event le relachemleltn de la souris
+     */
     private void mousePressed(MouseEvent event){
         xOffset = event.getSceneX();
         yOffset = event.getSceneY();
     }
 
+    /**
+     * ferme l'application
+     */
     public void close(){
         ((Stage)pnPrincipal.getScene().getWindow()).close();
     }
@@ -261,28 +263,28 @@ public class NewUIController {
     }
 
     /**
-     * Affecte la langue
+     * Affecte la langue Française
      */
     public void toFr() {
         MainJavaFx.setLangue(new FR());
     }
 
     /**
-     * Affecte la langue
+     * Affecte la langue Allemande
      */
     public void toDe() {
         MainJavaFx.setLangue(new DE());
     }
 
     /**
-     * Affecte la langue
+     * Affecte la langue Russe
      */
     public void toRu() {
         MainJavaFx.setLangue(new RU());
     }
 
     /**
-     * Affecte la langue
+     * Affecte la langue Englaise
      */
     public void toEn() {
         MainJavaFx.setLangue(new EN());

@@ -12,8 +12,6 @@ import javafx.scene.layout.*;
 import resource.lang.Lang;
 import resource.lang.Translate;
 import resource.lang.typetrad.LabelName;
-import resource.lang.typetrad.MenuName;
-import resource.lang.typetrad.TitleName;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -28,9 +26,11 @@ public class splashscreenController implements Initializable {
 
     @FXML
     Label identifiant;
-    @FXML
-    Label panLoad;
 
+    /**
+     * Initialisation de la fenêtre, lance la traduction en fonction de la langue sélectionnée
+     */
+    @Override
     public void initialize(URL location, ResourceBundle resources) {
         new AnimationTimer() {
             @Override
@@ -52,6 +52,9 @@ public class splashscreenController implements Initializable {
         //((Stage)panLoad.getScene().getWindow()).close();
     }
 
+    /**
+     * Traduction des composants
+     */
     private void translate() {
         Lang lang = MainJavaFx.getLangue();
 
