@@ -96,6 +96,7 @@ public class splashscreenController2 implements Initializable {
                     stage.getIcons().add(new Image("/resource/Images/icon.png"));
                     scene.getStylesheets().add(getClass().getResource("..//gui/css/NewUICSS.css").toExternalForm());
                     stage.show();
+                    MainJavaFx.setPrimaryStage(stage);
                     ((Stage) panParent.getScene().getWindow()).close();
                 }
             });

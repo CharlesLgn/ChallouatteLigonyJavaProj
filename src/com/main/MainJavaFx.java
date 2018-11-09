@@ -73,7 +73,7 @@ public class MainJavaFx extends Application {
         return prStage;
     }
 
-    private void setPrimaryStage(Stage pStage) {
+    public static void setPrimaryStage(Stage prStage) {
         MainJavaFx.prStage = prStage;
     }
 
