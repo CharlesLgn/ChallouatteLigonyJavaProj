@@ -5,7 +5,6 @@ import com.method.JouerSon;
 import com.method.TranslatorHash;
 import com.util.Utilitaires;
 import javafx.animation.AnimationTimer;
-import javafx.concurrent.Service;
 import javafx.concurrent.Task;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -117,24 +116,24 @@ public class FrToMorseController implements Initializable {
         String str;
         str = this.richTextboxFrToMorse.getText();
         if (str != null && !str.isEmpty()){
-            final Service<Void> jouerSonService = new Service<Void>() {
+
+            Task<Void> task = new Task<Void>() {
+
+                // Implement required call() method
                 @Override
-                protected Task<Void> createTask() {
-                    return new Task<Void>() {
-                        @Override
-                        protected Void call() {
-                            try {
-                                JouerSon.jouerson(str);
-                            } catch (Exception e) {
-                                e.printStackTrace();
-                            }
-                            return null;
-                        }
-                    };
+                protected Void call() {
+                    // Add delay code from initial attempt
+                    try {
+                        JouerSon.jouerson(str);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    return null;
                 }
             };
-
-            jouerSonService.start();
+            Thread t = new Thread(task);
+            t.setDaemon(true);
+            t.start();
         }else{
             com.method.Alert.alertGenerique(Translate.haveIt(PopUpName.POP_UP_ERROR_PLAY_TRAD, MainJavaFx.getLangue().popUp), MainJavaFx.getLangue());
         }

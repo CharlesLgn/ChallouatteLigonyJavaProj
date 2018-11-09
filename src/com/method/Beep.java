@@ -9,7 +9,7 @@ public class Beep {
 
     private static float SAMPLE_RATE = 8000f;
 
-    private static int speed = 50;
+    private static int speed = 100;
 
     private static void tone(int hz, int msecs)
             throws LineUnavailableException
@@ -57,10 +57,10 @@ public class Beep {
     }
 
     public static  void pauseEntreLettre()throws Exception{
-        tone(0, speed*2);
+        tone(0, speed/2);
     }
 
     public static  void pauseEntreMot()throws Exception{
-        tone(0, speed*6);
+        tone(0, speed*3);
     }
 }
