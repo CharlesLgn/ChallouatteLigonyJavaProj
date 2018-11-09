@@ -5,11 +5,14 @@ import javafx.animation.AnimationTimer;
 import javafx.animation.FadeTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Insets;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
@@ -55,6 +58,9 @@ public class NewUIController {
     private VBox pnPrincipal;
 
     @FXML
+    private GridPane pnPrincipal2;
+
+    @FXML
     private MenuBar mnuBar;
 
     @FXML
@@ -76,6 +82,9 @@ public class NewUIController {
         if(!MainJavaFx.loadedSplash) {
             loadSplash();
         }
+
+
+
         String lan = System.getProperty("user.language");
         if(lan.equalsIgnoreCase("fr")){
             MainJavaFx.setLangue(new FR());
@@ -86,6 +95,7 @@ public class NewUIController {
         } else {
             MainJavaFx.setLangue(new EN());
         }
+
         new AnimationTimer() {
             @Override
             public void handle(long now) {
@@ -109,9 +119,11 @@ public class NewUIController {
 
     private void loadSplash(){
         try{
+
             MainJavaFx.loadedSplash = true;
             StackPane pane = FXMLLoader.load(getClass().getResource("../gui/SplashScreen.fxml"));
             pnPrincipal.getChildren().setAll(pane);
+
 
             FadeTransition fadeIn = new FadeTransition(Duration.seconds(2), pane);
             fadeIn.setFromValue(0);
