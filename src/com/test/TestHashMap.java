@@ -1,3 +1,4 @@
+/*
 package com.test;
 
 import com.method.TranslatorHash;
@@ -136,7 +137,8 @@ public class TestHashMap {
     }
 
 
-    /*public static void main(String[] args){
+    */
+/*public static void main(String[] args){
 
         System.out.println(TranslatorHash.romainToL33t("a"));
         System.out.println(TranslatorHash.romainToL33t("b"));
@@ -197,5 +199,7 @@ public class TestHashMap {
         System.out.println("\n");
 
         System.out.println(TranslatorHash.l33tToRomain("@"));
-    }*/
+    }*//*
+
 }
+*/
