@@ -30,6 +30,8 @@ public class MainJavaFx extends Application {
 
     private static Stage prStage;
 
+    public static Boolean loadedSplash = false;
+
     public static void main(String[] args) {
         launch(args);
     }
@@ -50,7 +52,7 @@ public class MainJavaFx extends Application {
         prStage.getIcons().add(new Image("/resource/Images/icon.png"));
         scene.getStylesheets().add(getClass().getResource("..//gui/css/NewUICSS.css").toExternalForm());
         prStage.show();
-        loadTrad();
+        //loadTrad();
     }
 
     

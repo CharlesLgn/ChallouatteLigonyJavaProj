@@ -73,6 +73,9 @@ public class NewUIController {
      * Initialisation de la fenêtre, lance la traduction en fonction de la langue sélectionnée
      */
     public void initialize() {
+        if(!MainJavaFx.loadedSplash) {
+            loadSplash();
+        }
         String lan = System.getProperty("user.language");
         if(lan.equalsIgnoreCase("fr")){
             MainJavaFx.setLangue(new FR());
@@ -104,8 +107,41 @@ public class NewUIController {
 
     }
 
-    private void splash(){
+    private void loadSplash(){
+        try{
+            MainJavaFx.loadedSplash = true;
+            StackPane pane = FXMLLoader.load(getClass().getResource("../gui/SplashScreen.fxml"));
+            pnPrincipal.getChildren().setAll(pane);
 
+            FadeTransition fadeIn = new FadeTransition(Duration.seconds(2), pane);
+            fadeIn.setFromValue(0);
+            fadeIn.setToValue(1);
+            fadeIn.setCycleCount(1);
+            FadeTransition fadeOut = new FadeTransition(Duration.seconds(3), pane);
+            fadeOut.setFromValue(1);
+            fadeOut.setToValue(0);
+            fadeOut.setCycleCount(1);
+            fadeIn.play();
+            fadeIn.setOnFinished((e) ->{
+                fadeOut.play();
+            });
+            fadeOut.setOnFinished((e) ->{
+                try {
+                    VBox parent = FXMLLoader.load(getClass().getResource("../gui/NewUI.fxml"));
+                    pnPrincipal.getChildren().setAll(parent);
+                    FadeTransition fadeInparent = new FadeTransition(Duration.seconds(1), parent);
+                    fadeInparent.setFromValue(0);
+                    fadeInparent.setToValue(1);
+                    fadeInparent.setCycleCount(1);
+                    fadeInparent.play();
+                }catch (Exception ex){
+                    System.out.println(ex);
+                }
+            });
+
+        }catch(Exception ex){
+            System.out.println(ex);
+        }
     }
 
     private void mouseDrag(MouseEvent event){
@@ -248,7 +284,7 @@ public class NewUIController {
             Stage st = new Stage();
             st.initModality(Modality.NONE);
             st.initOwner(pnPrincipal.getScene().getWindow());
-            st.initStyle(StageStyle.TRANSPARENT);
+            st.initStyle(StageStyle.UNDECORATED);
 
             Parent root = FXMLLoader.load(getClass().getResource("../gui/propos.fxml"));
             Scene scene = new Scene(root, 500, 300);
