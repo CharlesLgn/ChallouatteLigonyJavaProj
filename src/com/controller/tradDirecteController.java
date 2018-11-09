@@ -46,7 +46,9 @@ public class tradDirecteController implements Initializable {
             String carac = event.getText().toLowerCase();
             if (!carac.equals("")) {
                 carac = removeAccents(carac);
-                if (carac.matches("[A-z0-9 :;!?()&',.\'=+_\"$@]")) {
+                if (event.getCode().getName().equalsIgnoreCase("Enter")){
+                    this.richtextbox_direct_fr.appendText("\n");
+                } else if (carac.matches("[A-z0-9 :;!?()&',.\'=+_\"$@]")) {
                     richtextbox_direct_fr.appendText(carac);
                     richtextbox_direct_morse.setText("" + richtextbox_direct_morse.getText().substring(0, richtextbox_direct_morse.getText().length() - 1));
                     richtextbox_direct_morse.appendText(carac);
@@ -73,6 +75,8 @@ public class tradDirecteController implements Initializable {
                     this.richtextbox_direct_fr.clear();
                     this.richtextbox_direct_fr.appendText(sb.toString());
                 }
+
+
             }
         }catch(Exception ignored){}
     }
@@ -98,7 +102,9 @@ public class tradDirecteController implements Initializable {
             String carac = event.getText().toLowerCase();
                 if (!carac.equals("")) {
                     carac = removeAccents(carac);
-                    if (carac.matches("[A-z0-9 :;!?()&',.\'=+_\"$@]")) {
+                    if (event.getCode().getName().equalsIgnoreCase("Enter")) {
+                        this.richtextbox_direct_morse.appendText("\n");
+                    }else if (carac.matches("[A-z0-9 :;!?()&',.\'=+_\"$@]")) {
                         richtextbox_direct_fr.setText("" + richtextbox_direct_fr.getText().substring(0, richtextbox_direct_fr.getText().length() - 1));
                         richtextbox_direct_fr.appendText(carac);
                         char lastchar = richtextbox_direct_fr.getText().toCharArray()[richtextbox_direct_fr.getText().toCharArray().length - 1];

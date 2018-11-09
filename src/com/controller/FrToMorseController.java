@@ -90,6 +90,7 @@ public class FrToMorseController implements Initializable {
                 String ligne;
                 StringBuilder resmorse = new StringBuilder();
                 while ((ligne = buff.readLine())!=null){
+                    resmorse= new StringBuilder();
                     for (char lettre:ligne.toLowerCase().toCharArray()) {
                         if(!Objects.equals(romainToMorse(lettre), "  ")){
                             resmorse.append(romainToMorse(lettre)).append(" ");
@@ -98,6 +99,7 @@ public class FrToMorseController implements Initializable {
                         }
                     }
                     this.richTextboxFrToMorse.appendText(resmorse.toString().trim());
+                    this.richTextboxFrToMorse.appendText("\n");
                 }
                 buff.close();
             }catch(Exception ex){

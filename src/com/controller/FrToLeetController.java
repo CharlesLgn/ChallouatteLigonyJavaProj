@@ -94,12 +94,13 @@ public class FrToLeetController implements Initializable {
                 InputStreamReader lecture = new InputStreamReader(flux);
                 BufferedReader buff=new BufferedReader(lecture);
                 String ligne;
-                String resmorse = "";
                 while ((ligne=buff.readLine())!=null){
+                    String resmorse = "";
                     for (char lettre:ligne.toLowerCase().toCharArray()) {
                         resmorse = resmorse + TranslatorHash.romainToL33t(""+lettre);
                     }
                     this.richtextboxLeet.appendText(resmorse);
+                    this.richtextboxLeet.appendText("\n");
                 }
                 buff.close();
             }catch(Exception ex){

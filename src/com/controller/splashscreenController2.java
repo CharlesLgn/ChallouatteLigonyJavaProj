@@ -2,6 +2,7 @@ package com.controller;
 
 import com.main.MainJavaFx;
 import javafx.animation.AnimationTimer;
+import javafx.animation.FadeTransition;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,6 +16,7 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import javafx.util.Duration;
 import resource.lang.Lang;
 import resource.lang.Translate;
 import resource.lang.typetrad.LabelName;

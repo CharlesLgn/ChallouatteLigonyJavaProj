@@ -81,6 +81,7 @@ public class AllToFrController implements Initializable {
                 BufferedReader buff=new BufferedReader(lecture);
                 String ligne;
                 while ((ligne=buff.readLine())!=null){
+                    sb=new StringBuilder();
                     String[] listeMotsMorse = ligne.split(" {3}");
                     for (String item:listeMotsMorse) {
                         String[] lettres = item.split(" ");
@@ -93,6 +94,7 @@ public class AllToFrController implements Initializable {
                     }
 
                     this.richtextboxAllToFr.appendText(sb.toString().trim());
+                    this.richtextboxAllToFr.appendText("\n");
                 }
                 buff.close();
             }catch(Exception ex){
