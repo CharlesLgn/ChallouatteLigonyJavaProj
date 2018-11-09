@@ -114,7 +114,7 @@ public class NewUIController {
      * fonction permetant la creation d'un plash screen
      */
     private void loadSplash(){
-        try{
+       try{
             MainJavaFx.loadedSplash = true;
             StackPane pane = FXMLLoader.load(getClass().getResource("../gui/SplashScreen.fxml"));
             pnPrincipal.getChildren().setAll(pane);

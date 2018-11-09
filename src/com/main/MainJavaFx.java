@@ -40,10 +40,10 @@ public class MainJavaFx extends Application {
 
         setPrimaryStage(primaryStage);
         prStage = primaryStage;
-        Parent root = FXMLLoader.load(getClass().getResource("../gui/NewUI.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("../gui/SplashScreen2.fxml"));
         prStage.setTitle("Traducteur");
         prStage.initStyle(StageStyle.UNDECORATED);
-        Scene scene = new Scene(root, 1280, 720);
+        Scene scene = new Scene(root, 640, 360);
         prStage.setScene(scene);
         prStage.getIcons().add(new Image("/resource/Images/icon.png"));
         scene.getStylesheets().add(getClass().getResource("..//gui/css/NewUICSS.css").toExternalForm());

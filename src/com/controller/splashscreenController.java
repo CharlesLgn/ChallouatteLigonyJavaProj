@@ -48,7 +48,7 @@ public class splashscreenController implements Initializable {
         } catch (Exception e){
             System.err.println(e);
         }
-        MainJavaFx.loadTrad();
+        //MainJavaFx.loadTrad();
         //((Stage)panLoad.getScene().getWindow()).close();
     }
 
