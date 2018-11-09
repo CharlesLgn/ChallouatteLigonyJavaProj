@@ -1,6 +1,6 @@
 package com.test;
 
-import com.method.Beep;
+import com.method.autre.Beep;
 
 public class BeepTest {
 

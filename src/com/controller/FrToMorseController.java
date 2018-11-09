@@ -1,9 +1,9 @@
 package com.controller;
 
 import com.main.MainJavaFx;
-import com.method.JouerSon;
-import com.method.TranslatorHash;
-import com.util.Utilitaires;
+import com.method.autre.JouerSon;
+import com.method.trad.TranslatorHash;
+import com.method.autre.Utilitaires;
 import javafx.animation.AnimationTimer;
 import javafx.concurrent.Task;
 import javafx.fxml.FXML;
@@ -28,7 +28,7 @@ import java.net.URL;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
-import static com.method.TranslatorListe.romainToMorse;
+import static com.method.trad.TranslatorListe.romainToMorse;
 
 public class FrToMorseController implements Initializable {
 
@@ -105,7 +105,7 @@ public class FrToMorseController implements Initializable {
             }
         }
         else{
-            com.method.Alert.alertGenerique(Translate.haveIt(PopUpName.POP_UP_ERROR_NO_FILE_SELECTED, MainJavaFx.getLangue().popUp), MainJavaFx.getLangue());
+            com.method.autre.Alert.alertGenerique(Translate.haveIt(PopUpName.POP_UP_ERROR_NO_FILE_SELECTED, MainJavaFx.getLangue().popUp), MainJavaFx.getLangue());
         }
     }
 
@@ -135,7 +135,7 @@ public class FrToMorseController implements Initializable {
             t.setDaemon(true);
             t.start();
         }else{
-            com.method.Alert.alertGenerique(Translate.haveIt(PopUpName.POP_UP_ERROR_PLAY_TRAD, MainJavaFx.getLangue().popUp), MainJavaFx.getLangue());
+            com.method.autre.Alert.alertGenerique(Translate.haveIt(PopUpName.POP_UP_ERROR_PLAY_TRAD, MainJavaFx.getLangue().popUp), MainJavaFx.getLangue());
         }
     }
 
@@ -165,10 +165,10 @@ public class FrToMorseController implements Initializable {
                     alert.showAndWait();
                     //endregion
                 } else {
-                    com.method.Alert.alertGenerique(Translate.haveIt(PopUpName.POP_UP_ERROR_DESC_EXPORT, MainJavaFx.getLangue().popUp), MainJavaFx.getLangue());
+                    com.method.autre.Alert.alertGenerique(Translate.haveIt(PopUpName.POP_UP_ERROR_DESC_EXPORT, MainJavaFx.getLangue().popUp), MainJavaFx.getLangue());
                 }
             } else {
-                com.method.Alert.alertGenerique(Translate.haveIt(PopUpName.POP_UP_ERROR_DESC_EXPORT, MainJavaFx.getLangue().popUp), MainJavaFx.getLangue());
+                com.method.autre.Alert.alertGenerique(Translate.haveIt(PopUpName.POP_UP_ERROR_DESC_EXPORT, MainJavaFx.getLangue().popUp), MainJavaFx.getLangue());
             }
         }catch (Exception ex){
             System.out.println(ex);

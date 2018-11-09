@@ -1,4 +1,4 @@
-package com.method;
+package com.method.trad;
 
 import com.metier.Code;
 import com.util.ArbreBinaire;

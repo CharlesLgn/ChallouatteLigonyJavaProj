@@ -1,7 +1,7 @@
 /*
 package com.test;
 
-import com.method.TranslatorHash;
+import com.method.trad.TranslatorHash;
 import org.junit.Assert;
 import org.junit.Test;
 

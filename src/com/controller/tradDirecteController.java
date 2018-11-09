@@ -1,7 +1,7 @@
 package com.controller;
 
 import com.main.MainJavaFx;
-import com.method.TranslatorHash;
+import com.method.trad.TranslatorHash;
 import javafx.animation.AnimationTimer;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -15,11 +15,10 @@ import resource.lang.typetrad.ButonName;
 import resource.lang.typetrad.LabelName;
 
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-import static com.method.TranslatorListe.romainToMorse;
-import static com.util.Utilitaires.removeAccents;
+import static com.method.trad.TranslatorListe.romainToMorse;
+import static com.method.autre.Utilitaires.removeAccents;
 
 public class tradDirecteController implements Initializable {
 
