@@ -18,7 +18,6 @@ import java.io.IOException;
 
 public class MainJavaFx extends Application {
 
-    private Pane splashLayout;
     private static HashMap<String,String,String> traductor;
 
     private static Lang langue;
