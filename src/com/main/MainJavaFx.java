@@ -64,6 +64,7 @@ public class MainJavaFx extends Application {
                 String[] str = line.split(" ");
                 MainJavaFx.getTraductor().put(str[0], str[1], str[2]);
             }
+            System.err.println(MainJavaFx.getTraductor().getVal("a", "morse"));
         } catch (IOException e) {
             e.printStackTrace();
         }

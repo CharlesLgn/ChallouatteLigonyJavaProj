@@ -75,7 +75,7 @@ public class AllToFrController implements Initializable {
         if(this.textboxAllToFr.getText() != null && !this.textboxAllToFr.getText().isEmpty()) {
             richtextboxAllToFr.clear();
             try {
-                StringBuilder sb = new StringBuilder();
+                StringBuilder sb;
                 InputStream flux = new FileInputStream(this.textboxAllToFr.getText());
                 InputStreamReader lecture = new InputStreamReader(flux);
                 BufferedReader buff=new BufferedReader(lecture);

@@ -67,7 +67,9 @@ public class tradDirecteController implements Initializable {
                     String[] tabmorse = this.richtextbox_direct_morse.getText().split(" ");
                     StringBuilder sb = new StringBuilder();
                     for (String item : tabmorse) {
-                        if (TranslatorHash.morseToRomain(item) != null) {
+                        if (item == "\n"){
+                            sb.append('\n');
+                        }else if (TranslatorHash.morseToRomain(item) != null) {
                             sb.append(TranslatorHash.morseToRomain(item));
                         }
                     }
@@ -118,7 +120,9 @@ public class tradDirecteController implements Initializable {
                     if (code.equals("Backspace") || code.equals("Delete")) {
                         StringBuilder sb = new StringBuilder();
                         for (char item : this.richtextbox_direct_fr.getText().toCharArray()) {
-                            if (("" + item).matches("[A-z0-9 :;!?()&',.\'=+_\"$@]")) {
+                            if (item == '\n'){
+                                sb.append('\n');
+                            }else if (("" + item).matches("[A-z0-9 :;!?()&',.\'=+_\"$@]")) {
                                 sb.append(TranslatorHash.romainToMorse("" + item));
                             }
                         }

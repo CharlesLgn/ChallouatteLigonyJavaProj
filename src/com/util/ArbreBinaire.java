@@ -14,6 +14,7 @@ public class ArbreBinaire implements Arbre {
         brancheDroite=null;
         brancheGauche=null;
     }
+
     public ArbreBinaire(Code t, ArbreBinaire brancheGauche, ArbreBinaire brancheDroite){
         this.donne = t;
         this.brancheDroite = brancheDroite;

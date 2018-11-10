@@ -94,7 +94,7 @@ public class FrToMorseController implements Initializable {
                     for (char lettre:ligne.toLowerCase().toCharArray()) {
                         if(!Objects.equals(romainToMorse(lettre), "  ")){
                             resmorse.append(romainToMorse(lettre)).append(" ");
-                        }else{
+                        } else{
                             resmorse.append(TranslatorHash.romainToMorse("" + lettre));
                         }
                     }
