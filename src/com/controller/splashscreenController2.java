@@ -2,8 +2,10 @@ package com.controller;
 
 import com.main.MainJavaFx;
 import javafx.animation.AnimationTimer;
-import javafx.animation.FadeTransition;
 import javafx.application.Platform;
+import javafx.concurrent.Task;
+import javafx.concurrent.WorkerStateEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -16,7 +18,6 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import javafx.util.Duration;
 import resource.lang.Lang;
 import resource.lang.Translate;
 import resource.lang.typetrad.LabelName;
@@ -29,7 +30,6 @@ public class splashscreenController2 implements Initializable {
 
     @FXML
     ProgressBar progressbar;
-
     @FXML
     GridPane panPropos;
 
@@ -60,6 +60,8 @@ public class splashscreenController2 implements Initializable {
         } catch (Exception e){
             System.err.println(e);
         }
+
+        //progressbar.setOpacity(0.75);
         new SplashScreen().run();
     }
 
@@ -73,19 +75,19 @@ public class splashscreenController2 implements Initializable {
         identifiant.setText(Translate.haveIt(LabelName.WELCOME, lang.label) + " " + System.getProperty("user.name"));
     }
 
-    class SplashScreen extends Thread{
+    class SplashScreen extends Task {
 
         @Override
-        public void run() {
+        public Object call() {
+
             Platform.runLater(new Runnable() {
                 @Override
                 public void run() {
-
                     MainJavaFx.loadTrad();
 
                     Parent root = null;
                     try {
-                        Thread.sleep(4000);
+                        Thread.sleep(3000);
                         root = FXMLLoader.load(getClass().getResource("../gui/NewUI.fxml"));
                     } catch (InterruptedException | IOException e) {
                         e.printStackTrace();
@@ -93,6 +95,8 @@ public class splashscreenController2 implements Initializable {
                     Stage stage = new Stage();
                     stage.setTitle("Traducteur");
                     stage.initStyle(StageStyle.UNDECORATED);
+
+                    assert root != null;
                     Scene scene = new Scene(root, 1280, 720);
                     stage.setScene(scene);
                     stage.getIcons().add(new Image("/resource/Images/icon.png"));
@@ -102,6 +106,7 @@ public class splashscreenController2 implements Initializable {
                     ((Stage) panParent.getScene().getWindow()).close();
                 }
             });
+            return null;
         }
     }
 

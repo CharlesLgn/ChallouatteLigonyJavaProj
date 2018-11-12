@@ -1,13 +1,18 @@
 package com.main;
 
+import com.sun.javafx.tk.Toolkit;
 import com.util.HashMap;
 import javafx.application.Application;
+import javafx.application.Platform;
+import javafx.concurrent.Task;
+import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import javafx.stage.WindowEvent;
 import resource.lang.Lang;
 import resource.lang.langage.EN;
 
@@ -36,11 +41,14 @@ public class MainJavaFx extends Application {
 
         com.sun.javafx.util.Logging.getJavaFXLogger().setLevel(sun.util.logging.PlatformLogger.Level.OFF);
 
+
         setPrimaryStage(primaryStage);
         prStage = primaryStage;
         Parent root = FXMLLoader.load(getClass().getResource("../gui/SplashScreen2.fxml"));
         prStage.setTitle("Traducteur");
         prStage.initStyle(StageStyle.UNDECORATED);
+
+        //prStage.setOpacity(0.75);
         Scene scene = new Scene(root, 640, 360);
         prStage.setScene(scene);
         prStage.getIcons().add(new Image("/resource/Images/icon.png"));
@@ -54,7 +62,6 @@ public class MainJavaFx extends Application {
         MainJavaFx.getTraductor().put(" ", "morse", "   ");
         MainJavaFx.getTraductor().put(" ", "l33t", " ");
         try {
-            System.out.println(MainJavaFx.getTraductor().getClePrimaire("morse", "   "));
             BufferedReader br = new BufferedReader(new FileReader("./src/resource/dico.txt"));
             String line;
             while ((line = br.readLine()) != null) {
@@ -62,7 +69,6 @@ public class MainJavaFx extends Application {
                 String[] str = line.split(" ");
                 MainJavaFx.getTraductor().put(str[0], str[1], str[2]);
             }
-            System.err.println(MainJavaFx.getTraductor().getVal("a", "morse"));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -87,4 +93,5 @@ public class MainJavaFx extends Application {
     public static HashMap<String, String, String> getTraductor() {
         return traductor;
     }
+
 }

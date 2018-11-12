@@ -96,18 +96,13 @@ public class NewUIController {
             }
         }.start();
 
-        //grab your root here
         moveBar.setOnMousePressed(this::mousePressed);
-
-        //move around here
         moveBar.setOnMouseDragged(this::mouseDrag);
+        moveBar.setOnMouseReleased(this::mouseRealease);
 
-        //grab your root here
         mnuBar.setOnMousePressed(this::mousePressed);
-
-        //move around here
         mnuBar.setOnMouseDragged(this::mouseDrag);
-
+        mnuBar.setOnMouseReleased(this::mouseRealease);
     }
 
     /**
@@ -156,6 +151,18 @@ public class NewUIController {
     private void mouseDrag(MouseEvent event){
         MainJavaFx.getPrimaryStage().setX(event.getScreenX() - xOffset);
         MainJavaFx.getPrimaryStage().setY(event.getScreenY() - yOffset);
+    }
+
+    /**
+     * permet de replacer la fenettre si elle est mise en haut
+     * @param event le click de la souris
+     */
+    private void mouseRealease(MouseEvent event){
+        if(event.getSceneY() == 0){
+            MainJavaFx.getPrimaryStage().setY(0);
+        }else if(MainJavaFx.getPrimaryStage().getY() < 0){
+            MainJavaFx.getPrimaryStage().setY(0);
+        }
     }
 
     /**
