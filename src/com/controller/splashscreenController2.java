@@ -62,7 +62,7 @@ public class splashscreenController2 implements Initializable {
         }
 
         //progressbar.setOpacity(0.75);
-        new SplashScreen().run();
+        new Thread(new SplashScreen()).start();
     }
 
     /**
@@ -78,20 +78,15 @@ public class splashscreenController2 implements Initializable {
     class SplashScreen extends Task {
 
         @Override
-        public Object call() {
+        public Object call() throws IOException, InterruptedException{
+            Thread.sleep(3000);
+            Parent root = FXMLLoader.load(getClass().getResource("../gui/NewUI.fxml"));
 
             Platform.runLater(new Runnable() {
                 @Override
                 public void run() {
                     MainJavaFx.loadTrad();
 
-                    Parent root = null;
-                    try {
-                        Thread.sleep(3000);
-                        root = FXMLLoader.load(getClass().getResource("../gui/NewUI.fxml"));
-                    } catch (InterruptedException | IOException e) {
-                        e.printStackTrace();
-                    }
                     Stage stage = new Stage();
                     stage.setTitle("Traducteur");
                     stage.initStyle(StageStyle.UNDECORATED);
