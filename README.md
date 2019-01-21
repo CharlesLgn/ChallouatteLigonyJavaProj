@@ -5,9 +5,9 @@
 projet fait pour une Licence Pro GL   
 Il est fait grâce au Framework Front JavaFX
 
-Le but est de faire un traducteur de morse en utilisant que des librairy maison (notre propre HashMap / List / etc)
+Le but est de faire un traducteur de morse sans utiliser les librairies de Java (créer propre HashMap / List / etc)
 
-Nous nous sommes amusé à rajouté plein de fonctionnalité fun comme :
+Nous nous sommes amusés à rajouter plein de fonctionnalités fun comme :
 
  - splash screen
  - application multilingue
