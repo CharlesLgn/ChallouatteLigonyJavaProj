@@ -13,4 +13,4 @@ Nous nous sommes amusés à rajouter plein de fonctionnalités fun comme :
  - application multilingue
  - live translation
   
-note obtenu avec  :   ![Challouatte Cyril](https://img.shields.io/badge/17-20-00BB00.svg)
+note obtenu  :   ![Challouatte Cyril](https://img.shields.io/badge/17-20-00BB00.svg)
