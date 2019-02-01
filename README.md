@@ -1,6 +1,7 @@
 # Traducteur de Morse 
 [![Ligony Charles](https://img.shields.io/badge/Charles-LinkedIn-1E90E7.svg)](https://www.linkedin.com/in/charles-ligony-893177134/)
-[![Challouatte Cyril](https://img.shields.io/badge/Cyril-LinkedIn-1E90E7.svg)](https://www.linkedin.com/in/cyril-challouatte-824021160/)
+[![Challouatte Cyril](https://img.shields.io/badge/Cyril-LinkedIn-1E90E7.svg)](https://www.linkedin.com/in/cyril-challouatte-824021160/)  
+[![Okya project](https://img.shields.io/badge/%C3%98kya-Official-0c2461.svg)]()
 
 projet fait pour une Licence Pro GL   
 Il est fait grâce au Framework Front JavaFX
