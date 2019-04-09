@@ -1,35 +1,35 @@
-# Traducteur de Morse 
+# Morse Translator
 [![Ligony Charles](https://img.shields.io/badge/Charles-LinkedIn-1E90E7.svg)](https://www.linkedin.com/in/charles-ligony-893177134/)
 [![Challouatte Cyril](https://img.shields.io/badge/Cyril-LinkedIn-1E90E7.svg)](https://www.linkedin.com/in/cyril-challouatte-824021160/)  
 [![Okya project](https://img.shields.io/badge/%C3%98kya-Official-0c2461.svg)]()
 
-projet fait pour une Licence Pro GL   
-Il est fait grâce au Framework Front JavaFX
+Project For 3rd year University   
+Made using JavaFX Front Framework
 
 ***
 
-___Le but est de déveloper une application permetant :___
+___The goal was to made an than which can :___
 
- -  traductuire du morse vers le romain
- -  traductuire du romain vers le morse
+ -  translate du morse to roman
+ -  translate du roman to morse
  
 ***
 
-___Les règle du projet :___
+___Rules of the project :___
 
- - langage autorisé : `java`
- - Famework front   : `javaFX` - toute librairie autorisé 
- - contrainte       : ne pas utiliser les librairies de `java.util` (créer propre HashMap / List / etc)
+ - langage          : `java`
+ - Famework front   : `javaFX` + librairies 
+ - contraist        : do not use `java.util` library (create our own HashMap / List / etc)
 
 ***
 
-___Nous nous sommes amusés à rajouter plein de fonctionnalités fun comme :___
+___We and some funzy function as traing like :___
 
  - Splash screen
- - Application multilingue
+ - Internationalisation
  - Live translation
  - Application Flat and Borderless
  
 ***
   
-note obtenu  :   ![Challouatte Cyril](https://img.shields.io/badge/17-20-00BB00.svg)
+Grades  :   ![Challouatte Cyril](https://img.shields.io/badge/17-20-00BB00.svg)
